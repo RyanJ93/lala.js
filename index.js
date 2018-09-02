@@ -42,6 +42,7 @@ async function fallFromTheSky(options){
     }
     await module.exports.Config.loadFromFile(options.config);
     await module.exports.Database.initFromConfig();
+    await module.exports.Server.initFromConfig();
 }
 
 module.exports = requireDir('lib', true);

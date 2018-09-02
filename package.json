@@ -1,35 +1,36 @@
 {
-  "name": "@lala.js/core",
-  "version": "0.0.1",
-  "description": "A simple, scalable and funny framework for Node.js.",
-  "main": "index.js",
-  "scripts": {
-    "test": "./node_modules/mocha/bin/mocha"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@gitlab.com/RyanJ93/lala.js.git"
-  },
-  "author": "info@enricosola.com",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://gitlab.com/RyanJ93/lala.js/issues"
-  },
-  "homepage": "https://gitlab.com/RyanJ93/lala.js#readme",
-  "dependencies": {
-    "ejs": "^2.6.1",
-    "raven": "^2.6.3",
-    "redis": "^2.8.0",
-    "websocket": "^1.0.26"
-  },
-  "optionalDependencies": {
-    "cassandra": "^0.1.0",
-    "mongodb": "^3.1.4",
-    "mysql": "^2.16.0",
-    "sqlite3": "^4.0.2"
-  },
-  "devDependencies": {
-    "assert": "^1.4.1",
-    "mocha": "^5.2.0"
-  }
+    "name": "@lala.js/core",
+    "version": "0.0.1",
+    "description": "A simple, scalable and funny framework for Node.js.",
+    "main": "index.js",
+    "scripts": {
+        "test": "./node_modules/mocha/bin/mocha",
+        "lala": "./bin/lala"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@gitlab.com/RyanJ93/lala.js.git"
+    },
+    "author": "info@enricosola.com",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://gitlab.com/RyanJ93/lala.js/issues"
+    },
+    "homepage": "https://gitlab.com/RyanJ93/lala.js#readme",
+    "dependencies": {
+        "ejs": "^2.6.1",
+        "raven": "^2.6.3",
+        "redis": "^2.8.0",
+        "websocket": "^1.0.26"
+    },
+    "optionalDependencies": {
+        "cassandra": "^0.1.0",
+        "mongodb": "^3.1.4",
+        "mysql": "^2.16.0",
+        "sqlite3": "^4.0.2"
+    },
+    "devDependencies": {
+        "assert": "^1.4.1",
+        "mocha": "^5.2.0"
+    }
 }
