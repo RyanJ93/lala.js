@@ -5,11 +5,15 @@ const lala = require('../index');
 
 describe('Routing features.', () => {
     describe('Basic routing features.', () => {
+        // Testing routes with the "web" router.
         let router = lala.Router.getDefaultRouter();
         it('Route creation.', () => {
+            // Add a route using the "GET" HTTP method.
             router.get('/test', () => {
-                console.log('Route triggered successfully.');
-                assert.ok('Route triggered successfully.');
+                it('Route trigger.', () => {
+                    console.log('Route triggered successfully.');
+                    assert.ok('Route triggered successfully.');
+                });
             });
             assert.ok('Route created.');
         });
@@ -19,13 +23,31 @@ describe('Routing features.', () => {
             });
         });
         it('Trigger the created route.', () => {
-            function test(){
-
-            }global.test = test;
+            // Simulating an HTTP request.
             lala.Router.handle({
-                path: '/test',
+                url: '/test',
                 method: 'GET'
-            }, {});
+            }, {}).then((() => {
+                assert.ok('Route triggered.');
+            })).catch((ex) => {
+                console.log(ex);
+                assert.fail('An error occurred while triggering the route.');
+            });
+        });
+        it('Defining a resource route.', () => {
+            router.resource('/assets', '/public/assets');
+        });
+        it('Trigger the created resource route.', () => {
+            // Simulating an HTTP request.
+            lala.Router.handle({
+                url: '/assets/icon.png',
+                method: 'GET'
+            }, {}).then((() => {
+                assert.ok('Route triggered.');
+            })).catch((ex) => {
+                console.log(ex);
+                assert.fail('An error occurred while triggering the route.');
+            });
         });
     });
 });

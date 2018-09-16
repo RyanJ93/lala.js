@@ -1,0 +1,9 @@
+{
+    "nodes": [
+        {
+            "name": "main",
+            "role": "default",
+            "location": "Italy"
+        }
+    ]
+}

@@ -1,11 +1,12 @@
 {
     "name": "@lala.js/core",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "A simple, scalable and funny framework for Node.js.",
     "main": "index.js",
     "scripts": {
         "test": "./node_modules/mocha/bin/mocha",
-        "lala": "./bin/lala"
+        "lala": "./bin/lala",
+        "lala-craft": "./bin/craft"
     },
     "repository": {
         "type": "git",

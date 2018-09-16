@@ -1,0 +1,22 @@
+{
+    "app": {
+        "name": "Test"
+    },
+    "servers": [
+        {
+            "name": "main",
+            "port": 12345,
+            "bind": "127.0.0.1",
+            "type": "http",
+            "routers": ["web", "api"]
+        }
+    ],
+    "database": [
+        {
+            "driver": "mongodb",
+            "host": "127.0.0.1",
+            "database": "lala"
+        }
+    ],
+    "verbose": true
+}

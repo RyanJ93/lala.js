@@ -2,6 +2,31 @@
 
 const filesystem = require('fs');
 
+// Including exceptions.
+let exceptions = require('./lib/Exceptions');
+module.exports.Exception = exceptions.Exception;
+module.exports.InvalidArgumentException = exceptions.InvalidArgumentException;
+module.exports.NotFoundHttpException = exceptions.NotFoundHttpException;
+
+// Including built-in modules.
+module.exports.Command = require('./lib/Command').Command;
+module.exports.Config = require('./lib/Config').Config;
+module.exports.Database = require('./lib/Database').Database;
+module.exports.Logger = require('./lib/Logger').Logger;
+let model = require('./lib/Model');
+module.exports.Model = model.Model;
+module.exports.User = model.User;
+module.exports.Peke = require('./lib/ORM').Peke;
+module.exports.Router = require('./lib/Routing').Router;
+let server = require('./lib/Server');
+module.exports.Server = server.Server;
+module.exports.Request = server.Request;
+module.exports.View = require('./lib/View').View;
+
+// Exporting build-in helpers.
+module.exports.requireDir = requireDir;
+module.exports.fallFromTheSky = fallFromTheSky;
+
 /**
  * Loads all the modules found within a given directory.
  *
@@ -43,8 +68,12 @@ async function fallFromTheSky(options){
     await module.exports.Config.loadFromFile(options.config);
     await module.exports.Database.initFromConfig();
     await module.exports.Server.initFromConfig();
+    await module.exports.Logger.initFromConfig();
 }
 
-module.exports = requireDir('lib', true);
-module.exports.requireDir = requireDir;
-module.exports.fallFromTheSky = fallFromTheSky;
+process.on('uncaughtException', (error) => {
+    module.exports.Logger.reportError(error);
+});
+process.on('unhandledRejection', (error) => {
+    module.exports.Logger.reportError(error);
+});
