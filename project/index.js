@@ -15,6 +15,15 @@ router.get('/', (request, handler) => {
 // Defining the route for static assets.
 router.resource('/assets', './public');
 
+let server = new Lala.Server('test');
+server.setType('ws').setPort(12233).setMessageHandler((message, clientID) => {
+    server.sendMessage(clientID, message);
+});
+server.on('disconnect', (connection) => {
+    console.log('Disconnected: ' + connection.clientID);
+});
+server.start();
+
 // Initializing Lala starting the servers defined in configuration file.
 Lala.fallFromTheSky({
     config: './config/config.json'

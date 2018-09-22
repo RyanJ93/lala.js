@@ -11,12 +11,12 @@
             "routers": ["web", "api"]
         }
     ],
-    "database": [
-        {
-            "driver": "mongodb",
-            "host": "127.0.0.1",
-            "database": "lala"
+    "database": [],
+    "logger": {
+        "verbose": true,
+        "sentry": {
+            "enable": true,
+            "dns": ""
         }
-    ],
-    "verbose": true
+    }
 }

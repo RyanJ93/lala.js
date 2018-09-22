@@ -2,14 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0be7b2c-92eb-4f38-946e-cd4bdd6ddcdc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/lib/Command/Command.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Command/Command.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Config/Config.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Config/Config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Cluster/Cluster.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Cluster/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Database/drivers/Driver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Database/drivers/MongoDriver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Database/drivers/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/helpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/enrico.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/enrico.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Database/Database.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Database/Database.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Database/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Database/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Exceptions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Exceptions/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Logger/Logger.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Logger/Logger.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Routing/Router.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Routing/Router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Server/Request.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Server/Request.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Server/Server.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Server/Server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/View/View.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/View/View.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/project/config/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/project/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/helpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/server.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,11 +39,14 @@
     <session id="-1248219194">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.148" value="1" />
           <entry key="project.open.time.157" value="1" />
+          <entry key="project.open.time.42" value="1" />
           <entry key="project.open.time.575" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.934" value="1" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -38,9 +56,10 @@
           <entry key="eslintrc" value="9" />
           <entry key="gitignore" value="2" />
           <entry key="html" value="2" />
-          <entry key="js" value="118" />
-          <entry key="json" value="21" />
+          <entry key="js" value="157" />
+          <entry key="json" value="22" />
           <entry key="md" value="1" />
+          <entry key="pem" value="1" />
           <entry key="ts" value="3" />
         </counts>
       </usages-collector>
@@ -49,10 +68,10 @@
           <entry key="CSS" value="1" />
           <entry key="EJS" value="2" />
           <entry key="HTML" value="2" />
-          <entry key="JSON" value="30" />
-          <entry key="JavaScript" value="118" />
+          <entry key="JSON" value="31" />
+          <entry key="JavaScript" value="157" />
           <entry key="Markdown" value="1" />
-          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="PLAIN_TEXT" value="3" />
           <entry key="TypeScript" value="3" />
         </counts>
       </usages-collector>
@@ -64,8 +83,8 @@
           <entry key="eslintrc" value="24" />
           <entry key="gitignore" value="14" />
           <entry key="html" value="63" />
-          <entry key="js" value="28990" />
-          <entry key="json" value="539" />
+          <entry key="js" value="46598" />
+          <entry key="json" value="610" />
           <entry key="lala" value="682" />
           <entry key="md" value="11" />
         </counts>
@@ -75,8 +94,8 @@
           <entry key="CSS" value="28" />
           <entry key="EJS" value="281" />
           <entry key="HTML" value="63" />
-          <entry key="JSON" value="563" />
-          <entry key="JavaScript" value="30399" />
+          <entry key="JSON" value="634" />
+          <entry key="JavaScript" value="48007" />
           <entry key="Markdown" value="11" />
           <entry key="PLAIN_TEXT" value="14" />
         </counts>
@@ -96,8 +115,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/Routing/Router.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="33" lean-forward="true" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+            <state relative-caret-position="180">
+              <caret line="514" column="26" lean-forward="true" selection-start-line="514" selection-start-column="26" selection-end-line="514" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -105,8 +124,53 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/Server/Server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="392" column="19" lean-forward="true" selection-start-line="392" selection-start-column="19" selection-end-line="392" selection-end-column="19" />
+            <state relative-caret-position="349">
+              <caret line="956" column="59" lean-forward="true" selection-start-line="956" selection-start-column="59" selection-end-line="956" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/project/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/Server/Request.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="556">
+              <caret line="86" selection-start-line="86" selection-end-line="86" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/Database/drivers/Driver.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/Cluster/Cluster.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -114,44 +178,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="77" column="30" lean-forward="true" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/View/View.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/Logger/Logger.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/config/config.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="150">
+              <caret line="10" column="64" lean-forward="true" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -177,6 +205,9 @@
       <find>handle</find>
       <find>typeof(</find>
       <find>console.log</find>
+      <find>content-tle</find>
+      <find>request.url</find>
+      <find>addMiddle</find>
     </findStrings>
     <replaceStrings>
       <replace>65535</replace>
@@ -188,15 +219,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.eslintrc.js" />
-        <option value="$PROJECT_DIR$/.eslintrc" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/test/main.js" />
-        <option value="$PROJECT_DIR$/test/config.json" />
-        <option value="$PROJECT_DIR$/test/orm.js" />
-        <option value="$PROJECT_DIR$/lala.js" />
-        <option value="$PROJECT_DIR$/bin/lala.js" />
-        <option value="$PROJECT_DIR$/lib/Command.js" />
         <option value="$PROJECT_DIR$/commands/index.js" />
         <option value="$PROJECT_DIR$/commands/com.lala.routing.js" />
         <option value="$PROJECT_DIR$/bin/lala" />
@@ -207,16 +229,12 @@
         <option value="$PROJECT_DIR$/bin/craft" />
         <option value="$PROJECT_DIR$/resources/app-templates/base/config/cluster.json" />
         <option value="$PROJECT_DIR$/resources/app-templates/base/config/config.json" />
-        <option value="$PROJECT_DIR$/lib/Server/Request.js" />
         <option value="$PROJECT_DIR$/resources/views/error.404.html" />
         <option value="$PROJECT_DIR$/test/routing.js" />
         <option value="$PROJECT_DIR$/resources/app-templates/base/public/library.css" />
         <option value="$PROJECT_DIR$/resources/app-templates/base/views/index.ejs" />
-        <option value="$PROJECT_DIR$/test/server.js" />
         <option value="$PROJECT_DIR$/lib/Routing/index.js" />
         <option value="$PROJECT_DIR$/lib/Config/index.js" />
-        <option value="$PROJECT_DIR$/lib/Database/index.js" />
-        <option value="$PROJECT_DIR$/lib/Exceptions/index.js" />
         <option value="$PROJECT_DIR$/lib/Model/index.js" />
         <option value="$PROJECT_DIR$/lib/ORM/index.js" />
         <option value="$PROJECT_DIR$/lib/Server/index.js" />
@@ -227,18 +245,31 @@
         <option value="$PROJECT_DIR$/lib/Model/User.js" />
         <option value="$PROJECT_DIR$/lib/ORM/Peke.js" />
         <option value="$PROJECT_DIR$/resources/app-templates/base/index.js" />
-        <option value="$PROJECT_DIR$/project/index.js" />
         <option value="$PROJECT_DIR$/lib/Exceptions/Exception.js" />
         <option value="$PROJECT_DIR$/lib/Logger/index.js" />
-        <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/lib/Command/Command.js" />
         <option value="$PROJECT_DIR$/lib/Config/Config.js" />
-        <option value="$PROJECT_DIR$/lib/Database/Database.js" />
-        <option value="$PROJECT_DIR$/lib/Routing/Router.js" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/lib/Logger/Logger.js" />
-        <option value="$PROJECT_DIR$/lib/Server/Server.js" />
         <option value="$PROJECT_DIR$/lib/View/View.js" />
+        <option value="$PROJECT_DIR$/lib/Logger/Logger.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/lib/Cluster/index.js" />
+        <option value="$PROJECT_DIR$/lib/Cluster/Cluster.js" />
+        <option value="$PROJECT_DIR$/lib/Database/index.js" />
+        <option value="$PROJECT_DIR$/lib/Database/drivers/Driver.js" />
+        <option value="$PROJECT_DIR$/lib/Database/drivers/MongoDriver.js" />
+        <option value="$PROJECT_DIR$/lib/Database/Database.js" />
+        <option value="$PROJECT_DIR$/lib/Database/drivers/index.js" />
+        <option value="$PROJECT_DIR$/lib/Server/Request.js" />
+        <option value="$PROJECT_DIR$/lib/Exceptions/MisconfigurationException.js" />
+        <option value="$PROJECT_DIR$/lib/Exceptions/index.js" />
+        <option value="$PROJECT_DIR$/test/server.js" />
+        <option value="$PROJECT_DIR$/test/helpers.js" />
+        <option value="$PROJECT_DIR$/lib/helpers.js" />
+        <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/lib/Routing/Router.js" />
+        <option value="$PROJECT_DIR$/project/config/config.json" />
+        <option value="$PROJECT_DIR$/lib/Server/Server.js" />
+        <option value="$PROJECT_DIR$/project/index.js" />
       </list>
     </option>
   </component>
@@ -266,8 +297,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="1921" />
-    <option name="height" value="982" />
+    <option name="width" value="1920" />
+    <option name="height" value="979" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -307,7 +338,13 @@
               <item name="lala.js" type="b2602c69:ProjectViewProjectNode" />
               <item name="lala.js" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
+              <item name="Routing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lala.js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lala.js" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="Server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lala.js" type="b2602c69:ProjectViewProjectNode" />
@@ -319,6 +356,11 @@
               <item name="lala.js" type="462c0819:PsiDirectoryNode" />
               <item name="project" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lala.js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lala.js" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -343,7 +385,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="settings.phonegap" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -365,6 +407,21 @@
   </component>
   <component name="RunManager" selected="Mocha.Main - Test">
     <configuration name="Main" type="NodeJSConfigurationType" factoryName="Node.js" path-to-js-file="index.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="Basic helpers.Generate UUIDs." type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/test/helpers.js</test-file>
+      <test-names>
+        <name value="Basic helpers" />
+        <name value="Generate UUIDs." />
+      </test-names>
       <method v="2" />
     </configuration>
     <configuration name="Main - Test" type="mocha-javascript-test-runner" factoryName="Mocha">
@@ -394,13 +451,32 @@
       </test-names>
       <method v="2" />
     </configuration>
+    <configuration name="Server.Creating an HTTP server listening on a UNIX sock." type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/test/server.js</test-file>
+      <test-names>
+        <name value="Server" />
+        <name value="Creating an HTTP server listening on a UNIX sock." />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Mocha.Main - Test" />
       <item itemvalue="Node.js.Main" />
       <item itemvalue="Mocha.Routing features..Basic routing features." />
+      <item itemvalue="Mocha.Server.Creating an HTTP server listening on a UNIX sock." />
+      <item itemvalue="Mocha.Basic helpers.Generate UUIDs." />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Mocha.Basic helpers.Generate UUIDs." />
+        <item itemvalue="Mocha.Server.Creating an HTTP server listening on a UNIX sock." />
         <item itemvalue="Mocha.Routing features..Basic routing features." />
       </list>
     </recent_temporary>
@@ -417,64 +493,73 @@
       <updated>1535824645153</updated>
       <workItem from="1535824648755" duration="32643000" />
       <workItem from="1536262316333" duration="127000" />
-      <workItem from="1536262863162" duration="34011000" />
+      <workItem from="1536262863162" duration="39980000" />
+      <workItem from="1537114844086" duration="16403000" />
+      <workItem from="1537471740881" duration="5747000" />
+      <workItem from="1537623122451" duration="15371000" />
     </task>
-    <servers />
+    <servers>
+      <YouTrack url="http://youtrack.enricosola.com:8080">
+        <password>df9bdf9bdf98df99df9fdf92df9bdf99df98df9bdfc9dfc3dfcbdfc5</password>
+        <username>root</username>
+      </YouTrack>
+    </servers>
   </component>
   <component name="TestHistory">
-    <history-entry file="Main_-_Test - 2018.09.16 at 04h 21m 38s.xml">
+    <history-entry file="Main_-_Test - 2018.09.22 at 19h 15m 21s.xml">
       <configuration name="Main - Test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Main_-_Test - 2018.09.16 at 04h 22m 30s.xml">
+    <history-entry file="Main_-_Test - 2018.09.22 at 19h 15m 25s.xml">
       <configuration name="Main - Test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Main_-_Test - 2018.09.16 at 04h 26m 44s.xml">
+    <history-entry file="Main_-_Test - 2018.09.22 at 19h 15m 28s.xml">
       <configuration name="Main - Test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Main_-_Test - 2018.09.16 at 04h 27m 01s.xml">
+    <history-entry file="Main_-_Test - 2018.09.22 at 19h 15m 32s.xml">
       <configuration name="Main - Test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Main_-_Test - 2018.09.16 at 04h 27m 12s.xml">
+    <history-entry file="Main_-_Test - 2018.09.22 at 19h 15m 35s.xml">
       <configuration name="Main - Test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Main_-_Test - 2018.09.16 at 04h 38m 47s.xml">
+    <history-entry file="Main_-_Test - 2018.09.22 at 19h 15m 38s.xml">
       <configuration name="Main - Test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Main_-_Test - 2018.09.16 at 04h 39m 14s.xml">
+    <history-entry file="Main_-_Test - 2018.09.22 at 19h 15m 46s.xml">
       <configuration name="Main - Test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Main_-_Test - 2018.09.16 at 04h 39m 44s.xml">
+    <history-entry file="Main_-_Test - 2018.09.22 at 19h 16m 27s.xml">
       <configuration name="Main - Test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Main_-_Test - 2018.09.16 at 04h 40m 40s.xml">
+    <history-entry file="Main_-_Test - 2018.09.22 at 19h 21m 00s.xml">
       <configuration name="Main - Test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Main_-_Test - 2018.09.16 at 04h 40m 57s.xml">
+    <history-entry file="Main_-_Test - 2018.09.22 at 19h 21m 26s.xml">
       <configuration name="Main - Test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66781000" />
+    <option name="totallyTimeSpent" value="110271000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1921" height="982" extended-state="0" />
+    <frame x="0" y="22" width="1920" height="979" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.5005637" side_tool="true" weight="0.17482886" />
       <window_info id="npm" order="1" sideWeight="0.5005637" side_tool="true" weight="0.17482886" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.4994363" visible="true" weight="0.17473684" />
-      <window_info id="Structure" order="3" sideWeight="0.5005637" side_tool="true" weight="0.17482886" />
-      <window_info anchor="bottom" id="Terminal" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" weight="0.32919955" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.497479" visible="true" weight="0.17430227" />
+      <window_info id="Structure" order="3" sideWeight="0.50252104" side_tool="true" weight="0.17430227" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.32919955" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5002633" side_tool="true" weight="0.32919955" />
       <window_info anchor="bottom" id="Version Control" order="2" weight="0.32919955" />
       <window_info anchor="bottom" id="Docker" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.32919955" />
-      <window_info anchor="bottom" id="Run" order="6" visible="true" weight="0.3280899" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.4997367" visible="true" weight="0.32919955" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.3990981" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info anchor="bottom" id="YouTrack" order="11" weight="0.32919955" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -497,112 +582,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lala.js" />
-    <entry file="file://$PROJECT_DIR$/lib/Command.js" />
-    <entry file="file://$PROJECT_DIR$/commands/com.lala.routing.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/lala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../sample/index.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commands/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commands/scritps/craft.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="25" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/app-templates/base/config/cluster.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="31" lean-forward="true" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/error.404.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-          <folding>
-            <element signature="n#style#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/craft">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/10.9.0/core-modules/fs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="790" column="9" selection-start-line="790" selection-start-column="9" selection-end-line="790" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/helpers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="106" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/routing.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" selection-start-line="22" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../sample/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="632" column="4" selection-start-line="632" selection-start-column="4" selection-end-line="632" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/10.9.0/core-modules/http.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="60" column="2" selection-start-line="60" selection-start-column="2" selection-end-line="60" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/app-templates/base/public/library.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -617,31 +596,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/orm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="36" lean-forward="true" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/Config/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Database/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -652,16 +610,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/View/idex.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Command/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/View/idex.js" />
     <entry file="file://$PROJECT_DIR$/lib/View/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -704,13 +653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/app-templates/base/config/config.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -718,52 +660,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/config/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/Command/Command.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Config/Config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Database/Database.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="28" lean-forward="true" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Exceptions/Exception.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Exceptions/InvalidArgumentException.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Exceptions/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="79" lean-forward="true" selection-start-line="3" selection-start-column="79" selection-end-line="3" selection-end-column="79" />
         </state>
       </provider>
     </entry>
@@ -781,59 +681,243 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/ORM/Peke.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="31" lean-forward="true" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Server/Request.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="47" lean-forward="true" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="77" column="30" lean-forward="true" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Server/Server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="392" column="19" lean-forward="true" selection-start-line="392" selection-start-column="19" selection-end-line="392" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Routing/Router.js">
+    <entry file="file://$PROJECT_DIR$/lib/View/View.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" column="33" lean-forward="true" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+          <caret line="3" column="19" lean-forward="true" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/raven/lib/client.js" />
+    <entry file="file://$PROJECT_DIR$/lib/Command/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Cluster/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Exceptions/Exception.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Exceptions/InvalidArgumentException.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Config/Config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="79" selection-start-line="13" selection-start-column="79" selection-end-line="13" selection-end-column="79" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/Logger/Logger.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="135">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/View/View.js">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        <state relative-caret-position="450">
+          <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Database/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="48" lean-forward="true" selection-start-line="3" selection-start-column="48" selection-end-line="3" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongodb/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/db.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1246" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/mongo_client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Database/drivers/MongoDriver.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="95" selection-start-line="95" selection-end-line="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Database/drivers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/javascript/nodejs/library/node-buffer-stub.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="152" selection-start-line="152" selection-end-line="152" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/10.9.0/core-modules/querystring.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2175">
+          <caret line="260" column="9" selection-start-line="260" selection-start-column="9" selection-end-line="260" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/10.9.0/core-modules/events.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="139" selection-start-line="139" selection-end-line="139" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/ORM/Peke.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Database/Database.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/resources/cert.pem">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/orm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Exceptions/MisconfigurationException.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Exceptions/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/assert/assert.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="382" selection-start-line="382" selection-end-line="382" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/helpers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="33" lean-forward="true" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/helpers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Routing/Router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="514" column="26" lean-forward="true" selection-start-line="514" selection-start-column="26" selection-end-line="514" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/config/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="64" lean-forward="true" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Database/drivers/Driver.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Cluster/Cluster.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Server/Request.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="86" selection-start-line="86" selection-end-line="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Server/Server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="956" column="59" lean-forward="true" selection-start-line="956" selection-start-column="59" selection-end-line="956" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
         </state>
       </provider>
     </entry>
