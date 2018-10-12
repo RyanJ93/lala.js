@@ -2,7 +2,7 @@
 
 const assert = require('assert');
 const lala = require('../index');
-
+/*
 describe('ORM', async () => {
     let element = null;
     it('Create object from entity.', () => {
@@ -22,3 +22,4 @@ describe('ORM', async () => {
         //let user = new lala.User.find();
     });
 });
+*/

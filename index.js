@@ -7,10 +7,13 @@ module.exports = require('./lib/helpers');
 let exceptions = require('./lib/Exceptions');
 module.exports.Exception = exceptions.Exception;
 module.exports.InvalidArgumentException = exceptions.InvalidArgumentException;
+module.exports.ForbiddenHttpException = exceptions.ForbiddenHttpException;
 module.exports.NotFoundHttpException = exceptions.NotFoundHttpException;
 module.exports.MisconfigurationException = exceptions.MisconfigurationException;
+module.exports.RequestRejectedException = exceptions.RequestRejectedException;
 
 // Including built-in modules.
+module.exports.Authenticator = require('./lib/Authenticator').Authenticator;
 module.exports.Cluster = require('./lib/Cluster').Cluster;
 module.exports.Command = require('./lib/Command').Command;
 module.exports.Config = require('./lib/Config').Config;
@@ -22,7 +25,10 @@ let model = require('./lib/Model');
 module.exports.Model = model.Model;
 module.exports.User = model.User;
 module.exports.Peke = require('./lib/ORM').Peke;
-module.exports.Router = require('./lib/Routing').Router;
+let router = require('./lib/Routing');
+module.exports.Route = router.Route;
+module.exports.ResourceRoute = router.ResourceRoute;
+module.exports.Router = router.Router;
 let server = require('./lib/Server');
 module.exports.Server = server.Server;
 module.exports.Request = server.Request;

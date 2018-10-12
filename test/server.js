@@ -26,7 +26,7 @@ describe('Server', () => {
         let server = new lala.Server('com.lala.test.server.https');
         let port = server.useRandomPort();
         server.setType('https').setCertificateFileSync('./test/resources/cert.pem');
-        server.setPrivateKeyFileSync('./test/resources/key.pem').setPassPhrase('passPhrase').start();
+        server.setPrivateKeyFileSync('./test/resources/key.pem').setPassPhrase('passphrase').start();
         console.log('Server started on port ' + port);
         server.stop();
     });
@@ -41,7 +41,7 @@ describe('Server', () => {
         let server = new lala.Server('com.lala.test.server.wss');
         let port = server.useRandomPort();
         server.setType('wss').setCertificateFileSync('./test/resources/cert.pem');
-        server.setPrivateKeyFileSync('./test/resources/key.pem').setPassPhrase('passPhrase').start();
+        server.setPrivateKeyFileSync('./test/resources/key.pem').setPassPhrase('passphrase').start();
         console.log('Server started on port ' + port);
         server.stop();
     });
