@@ -38,7 +38,7 @@ describe('Routing features.', () => {
             } );
         });
         it('Defining a resource route.', () => {
-            router.resource('/assets', '/public/assets');
+            router.resource('/assets', './test/public/assets');
         });
     });
     describe('Middleware operations.', () => {
@@ -59,9 +59,9 @@ describe('Routing features.', () => {
             } );
         });
         it( 'Defining a middleware function to process a route parameter.', () => {
-            let fn = async( parameters, request, handler, next ) => {
+            let fn = async(parameters, request, handler, next) => {
                 //console.log('Middleware ("com.test.userIDHandler") triggered successfully.');
-                parameters.userID = parseInt( parameters.userID );
+                parameters.userID = parseInt(parameters.userID);
                 await next();
             };
             router.addParamMiddleware( 'com.lala.test.userIDHandler', fn, [ 'id', 'userID', '', false ] );
@@ -79,14 +79,14 @@ describe('Routing features.', () => {
             }, 'Middleware appears to have been created wrongly.' );
         } );
         it( 'Mutate a parameter using the defined middleware.', ( done ) => {
-            router.get( '/blog/:userID/post/:postID', ( request, handler ) => {
-                done();
+            router.get( '/blog/:userID/post/:postID', (request, handler) => {
+                done(assert.deepEqual(request.query.userID, 89, 'Parameter value appears to has not been mutated by the middleware.'));
             }, {
                 filter: {
                     userID: '[0-9]+'
                 }
             } );
-            lala.Router.handle( {
+            lala.Router.handle({
                 url: '/blog/89/post/66?page=2',
                 method: 'GET'
             }, response, {});
@@ -98,18 +98,29 @@ describe('Routing features.', () => {
                 params: {}
             }, 'Middleware appears to have been created wrongly.' );
         } );
-        it('Rejecting a request using a middleware.', () => {
+        it('Rejecting a request using a middleware.', (done) => {
+            let called = false;
             router.addMiddleware('com.lala.test.denyRequest', async (request, handler, next) => {
                 // Don't invoke "next" function in order to prevent request processing.
-                //await next();
+                if ( request.url !== '/reject' ){
+                    await next();
+                }
+            });
+            router.addMiddleware('com.lala.test.useless', async (request, handler, next) => {
+                // An useless middleware that won't be invoked.
+                await next();
             });
             router.get('/reject', (request, handler) => {
-                console.log('NO');
+                called = true;
             });
-            lala.Router.handle( {
+            lala.Router.handle({
                 url: '/reject',
                 method: 'GET'
-            }, response, {});
+            }, response, {}).then(() => {
+                done(called === true ? new Error('Route has been invoked despite middleware.') : null);
+            }).catch((ex) => {
+                done();
+            });
         });
     });
     describe('Middleware operations.', () => {
@@ -137,7 +148,6 @@ describe('Routing features.', () => {
                 assert.fail('An error occurred while triggering the async route.');
             });
         });
-
         it('Trigger the created resource route.', () => {
             // Simulating an HTTP request.
             lala.Router.handle({
@@ -205,8 +215,15 @@ describe('Routing features.', () => {
                 url: '/_user/sigTest/article/345',
                 method: 'GET'
             }, response);
-            console.log(route);
+            // console.log(route);
         });
-
+        it('Simulating 404 by using the raw method.', () => {
+            router.get('/', () => {});
+            let route = lala.Router.route({
+                url: '/not-found',
+                method: 'GET'
+            }, response);
+            assert.deepEqual(route, null, 'A route appears to has been found while no such route has been defined.');
+        });
     });
 });

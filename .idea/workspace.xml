@@ -2,21 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0be7b2c-92eb-4f38-946e-cd4bdd6ddcdc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/Authenticator/Authenticator.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/Authenticator/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/Routing/ResourceRoute.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/Routing/Route.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/public/assets/icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Logger/Logger.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Logger/Logger.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Routing/Router.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Routing/Router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Routing/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Routing/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Server/Request.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Server/Request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/orm.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/orm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Server/Server.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Server/Server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/routing.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/routing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/server.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -48,8 +39,8 @@
           <entry key="eslintrc" value="9" />
           <entry key="gitignore" value="2" />
           <entry key="html" value="2" />
-          <entry key="js" value="186" />
-          <entry key="json" value="22" />
+          <entry key="js" value="189" />
+          <entry key="json" value="25" />
           <entry key="md" value="1" />
           <entry key="pem" value="3" />
           <entry key="ts" value="8" />
@@ -60,8 +51,8 @@
           <entry key="CSS" value="1" />
           <entry key="EJS" value="2" />
           <entry key="HTML" value="2" />
-          <entry key="JSON" value="31" />
-          <entry key="JavaScript" value="185" />
+          <entry key="JSON" value="34" />
+          <entry key="JavaScript" value="188" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="Scratch" value="1" />
@@ -76,7 +67,7 @@
           <entry key="eslintrc" value="24" />
           <entry key="gitignore" value="14" />
           <entry key="html" value="63" />
-          <entry key="js" value="69888" />
+          <entry key="js" value="71415" />
           <entry key="json" value="610" />
           <entry key="lala" value="682" />
           <entry key="md" value="11" />
@@ -89,7 +80,7 @@
           <entry key="EJS" value="281" />
           <entry key="HTML" value="63" />
           <entry key="JSON" value="634" />
-          <entry key="JavaScript" value="71297" />
+          <entry key="JavaScript" value="72824" />
           <entry key="Markdown" value="11" />
           <entry key="PLAIN_TEXT" value="14" />
           <entry key="YouTrack" value="8" />
@@ -111,8 +102,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/Routing/Router.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="302" column="81" lean-forward="true" selection-start-line="302" selection-start-column="81" selection-end-line="302" selection-end-column="81" />
+            <state relative-caret-position="245">
+              <caret line="528" column="31" selection-start-line="528" selection-start-column="24" selection-end-line="528" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -120,8 +111,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/routing.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="100" column="11" selection-start-line="100" selection-start-column="11" selection-end-line="100" selection-end-column="11" />
+            <state relative-caret-position="219">
+              <caret line="71" column="50" lean-forward="true" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -130,7 +121,7 @@
         <entry file="file://$PROJECT_DIR$/project/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="510">
-              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
             </state>
           </provider>
         </entry>
@@ -139,7 +130,7 @@
         <entry file="file://$PROJECT_DIR$/lib/Authenticator/Authenticator.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -148,7 +139,7 @@
         <entry file="file://$PROJECT_DIR$/lib/helpers.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="17" column="51" lean-forward="true" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
+              <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -156,8 +147,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/Server/Request.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="38" column="41" lean-forward="true" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
+            <state relative-caret-position="321">
+              <caret line="22" column="13" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -186,14 +177,18 @@
       <find>request.url</find>
       <find>addMiddle</find>
       <find>@param {string} route A string containing the route pattern.</find>
-      <find>console.log</find>
       <find>return null</find>
       <find>Buffer</find>
       <find>[</find>
       <find>console.l</find>
-      <find>console.lo</find>
       <find>write</find>
       <find>Router.route</find>
+      <find>.route(</find>
+      <find>new Reg</find>
+      <find>console.lo</find>
+      <find>exe</find>
+      <find>console.log</find>
+      <find>pick</find>
     </findStrings>
     <replaceStrings>
       <replace>65535</replace>
@@ -243,10 +238,8 @@
         <option value="$PROJECT_DIR$/lib/helpers.js" />
         <option value="$PROJECT_DIR$/test/orm.js" />
         <option value="$PROJECT_DIR$/test/server.js" />
-        <option value="$PROJECT_DIR$/lib/Server/Server.js" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.js" />
         <option value="$PROJECT_DIR$/lib/Exceptions/ForbiddenHttpException.js" />
-        <option value="$PROJECT_DIR$/lib/Logger/Logger.js" />
         <option value="$PROJECT_DIR$/lib/Exceptions/RequestDeniedException.js" />
         <option value="$PROJECT_DIR$/lib/Authenticator/index.js" />
         <option value="$PROJECT_DIR$/lib/Authenticator/Authenticator.js" />
@@ -255,8 +248,10 @@
         <option value="$PROJECT_DIR$/lib/Routing/index.js" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/lib/Server/Request.js" />
-        <option value="$PROJECT_DIR$/test/routing.js" />
+        <option value="$PROJECT_DIR$/lib/Server/Server.js" />
+        <option value="$PROJECT_DIR$/lib/Logger/Logger.js" />
         <option value="$PROJECT_DIR$/lib/Routing/Router.js" />
+        <option value="$PROJECT_DIR$/test/routing.js" />
       </list>
     </option>
   </component>
@@ -331,6 +326,19 @@
               <item name="lala.js" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="lala.js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lala.js" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lala.js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lala.js" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -359,6 +367,9 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test/public/assets" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/commands" />
       <recent name="$PROJECT_DIR$/commands/internal" />
@@ -421,19 +432,18 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Routing features..Basic routing features..Triggering a route by using the raw method." type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+    <configuration name="Routing features..Middleware operations." type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <working-directory>$PROJECT_DIR$</working-directory>
       <pass-parent-env>true</pass-parent-env>
       <ui>bdd</ui>
       <extra-mocha-options />
-      <test-kind>TEST</test-kind>
+      <test-kind>SUITE</test-kind>
       <test-file>$PROJECT_DIR$/test/routing.js</test-file>
       <test-names>
         <name value="Routing features." />
-        <name value="Basic routing features." />
-        <name value="Triggering a route by using the raw method." />
+        <name value="Middleware operations." />
       </test-names>
       <method v="2" />
     </configuration>
@@ -473,18 +483,18 @@
       <item itemvalue="Mocha.Main - Test" />
       <item itemvalue="Node.js.Main" />
       <item itemvalue="Mocha.Routing features..Basic routing features." />
-      <item itemvalue="Mocha.Routing features..Basic routing features..Triggering a route by using the raw method." />
       <item itemvalue="Mocha.Routing features." />
       <item itemvalue="Mocha.Routing features..Middleware operations..Mutate a parameter using the defined middleware." />
       <item itemvalue="Mocha.Routing features..Middleware operations..Rejecting a request using a middleware." />
+      <item itemvalue="Mocha.Routing features..Middleware operations." />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Mocha.Routing features." />
+        <item itemvalue="Mocha.Routing features..Middleware operations." />
         <item itemvalue="Mocha.Routing features..Middleware operations..Rejecting a request using a middleware." />
         <item itemvalue="Mocha.Routing features..Middleware operations..Mutate a parameter using the defined middleware." />
         <item itemvalue="Mocha.Routing features..Basic routing features." />
-        <item itemvalue="Mocha.Routing features..Basic routing features..Triggering a route by using the raw method." />
       </list>
     </recent_temporary>
   </component>
@@ -503,7 +513,7 @@
       <workItem from="1536262863162" duration="39980000" />
       <workItem from="1537114844086" duration="16403000" />
       <workItem from="1537471740881" duration="5747000" />
-      <workItem from="1537623122451" duration="107513000" />
+      <workItem from="1537623122451" duration="117359000" />
     </task>
     <servers>
       <YouTrack url="http://youtrack.enricosola.com:8080">
@@ -514,39 +524,39 @@
     </servers>
   </component>
   <component name="TestHistory">
-    <history-entry file="Routing_features__Middleware_operations__Rejecting_a_request_using_a_middleware_ - 2018.10.07 at 17h 04m 55s.xml">
-      <configuration name="Routing features..Middleware operations..Rejecting a request using a middleware." configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="Routing_features__Middleware_operations__Rejecting_a_request_using_a_middleware_ - 2018.10.07 at 17h 06m 12s.xml">
-      <configuration name="Routing features..Middleware operations..Rejecting a request using a middleware." configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="Routing_features__Middleware_operations__Rejecting_a_request_using_a_middleware_ - 2018.10.07 at 17h 06m 42s.xml">
-      <configuration name="Routing features..Middleware operations..Rejecting a request using a middleware." configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="Routing_features__Middleware_operations__Rejecting_a_request_using_a_middleware_ - 2018.10.07 at 17h 06m 55s.xml">
-      <configuration name="Routing features..Middleware operations..Rejecting a request using a middleware." configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="Routing_features_ - 2018.10.07 at 17h 07m 02s.xml">
+    <history-entry file="Routing_features_ - 2018.10.14 at 21h 53m 35s.xml">
       <configuration name="Routing features." configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Routing_features_ - 2018.10.07 at 17h 08m 00s.xml">
+    <history-entry file="Routing_features_ - 2018.10.14 at 21h 57m 53s.xml">
       <configuration name="Routing features." configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Routing_features_ - 2018.10.07 at 17h 08m 23s.xml">
+    <history-entry file="Routing_features_ - 2018.10.14 at 21h 58m 19s.xml">
       <configuration name="Routing features." configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Routing_features_ - 2018.10.07 at 17h 09m 01s.xml">
+    <history-entry file="Routing_features_ - 2018.10.14 at 21h 58m 34s.xml">
       <configuration name="Routing features." configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Routing_features_ - 2018.10.07 at 17h 10m 11s.xml">
+    <history-entry file="Routing_features_ - 2018.10.14 at 21h 59m 26s.xml">
       <configuration name="Routing features." configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Routing_features_ - 2018.10.07 at 17h 11m 50s.xml">
+    <history-entry file="Routing_features_ - 2018.10.14 at 22h 00m 39s.xml">
+      <configuration name="Routing features." configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="Routing_features_ - 2018.10.14 at 22h 01m 59s.xml">
+      <configuration name="Routing features." configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="Routing_features_ - 2018.10.14 at 22h 03m 34s.xml">
+      <configuration name="Routing features." configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="Routing_features_ - 2018.10.14 at 22h 04m 07s.xml">
+      <configuration name="Routing features." configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="Routing_features_ - 2018.10.14 at 22h 04m 16s.xml">
       <configuration name="Routing features." configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="202413000" />
+    <option name="totallyTimeSpent" value="212259000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -572,7 +582,7 @@
       <window_info anchor="bottom" id="Docker" order="4" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32919955" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" sideWeight="0.4997367" visible="true" weight="0.32807216" />
+      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.4997367" weight="0.32807216" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.39798206" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
@@ -622,20 +632,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/Command/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Cluster/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/Exceptions/Exception.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -647,13 +643,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Config/Config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="79" selection-start-line="13" selection-start-column="79" selection-end-line="13" selection-end-column="79" />
         </state>
       </provider>
     </entry>
@@ -739,13 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/config/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/Database/drivers/Driver.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -819,13 +801,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="1690" column="9" selection-start-line="1690" selection-start-column="9" selection-end-line="1690" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Server/Server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -919,49 +894,76 @@
     <entry file="file://$PROJECT_DIR$/lib/Authenticator/Authenticator.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Logger/Logger.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/helpers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="17" column="51" lean-forward="true" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
+          <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/app-templates/base/config/config.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/config.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/config/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/Server/Request.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="38" column="41" lean-forward="true" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
+        <state relative-caret-position="321">
+          <caret line="22" column="13" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Config/Config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-123">
+          <caret line="13" column="79" selection-start-line="13" selection-start-column="79" selection-end-line="13" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Logger/Logger.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Server/Server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="44" lean-forward="true" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/routing.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="100" column="11" selection-start-line="100" selection-start-column="11" selection-end-line="100" selection-end-column="11" />
+        <state relative-caret-position="219">
+          <caret line="71" column="50" lean-forward="true" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/Routing/Router.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="302" column="81" lean-forward="true" selection-start-line="302" selection-start-column="81" selection-end-line="302" selection-end-column="81" />
+        <state relative-caret-position="245">
+          <caret line="528" column="31" selection-start-line="528" selection-start-column="24" selection-end-line="528" selection-end-column="31" />
         </state>
       </provider>
     </entry>
