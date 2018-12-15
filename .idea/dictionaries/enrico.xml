@@ -2,7 +2,9 @@
   <dictionary name="enrico">
     <words>
       <w>chainable</w>
+      <w>keepalive</w>
       <w>lala</w>
+      <w>memcached</w>
       <w>middlewares</w>
     </words>
   </dictionary>

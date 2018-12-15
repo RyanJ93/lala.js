@@ -2,12 +2,61 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0be7b2c-92eb-4f38-946e-cd4bdd6ddcdc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test/public/assets/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CONTRIBUTING.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Cache/Cache.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Cache/CacheDriver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Cache/Commands/CacheClear.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Cache/drivers/DatabaseCacheDriver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Cache/drivers/FileCacheDriver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Cache/drivers/LocalCacheDriver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Cache/drivers/MemcachedCacheDriver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Cache/drivers/RedisCacheDriver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Cache/drivers/SQLite3CacheDriver.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Cache/drivers/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Cache/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Database/connections/ClusteredConnection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Database/connections/Connection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Database/connections/MemcachedClusteredConnection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Database/connections/MemcachedConnection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Database/connections/RedisClusteredConnection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Database/connections/RedisConnection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Database/connections/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Exceptions/AuthenticationException.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Exceptions/BadMethodCallException.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Exceptions/DriverNotConnectedException.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Exceptions/DriverNotDefinedException.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Exceptions/DuplicateEntryException.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Exceptions/NotCallableException.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Exceptions/RuntimeException.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Exceptions/UnresolvedDependencyException.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Exceptions/UnsupportedMethodException.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/cache/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/cache/local.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/cache/memcached.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/cache/redis.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/common.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/resources/config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/routing/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/server/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/enrico.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/enrico.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Database/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Database/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Exceptions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Exceptions/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Logger/Logger.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Logger/Logger.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Routing/Router.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Routing/Router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Server/Server.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Server/Server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/routing.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/routing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/helpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/project/config/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/app-templates/base/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/app-templates/base/config/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/test/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/routing.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/routing/routing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/server/server.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,137 +67,16 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-1248219194">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="4" />
-          <entry key="project.open.time.148" value="1" />
-          <entry key="project.open.time.157" value="1" />
-          <entry key="project.open.time.42" value="1" />
-          <entry key="project.open.time.575" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.open.time.934" value="1" />
-          <entry key="project.opened" value="6" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="css" value="1" />
-          <entry key="ejs" value="2" />
-          <entry key="eslintrc" value="9" />
-          <entry key="gitignore" value="2" />
-          <entry key="html" value="2" />
-          <entry key="js" value="189" />
-          <entry key="json" value="25" />
-          <entry key="md" value="1" />
-          <entry key="pem" value="3" />
-          <entry key="ts" value="8" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="CSS" value="1" />
-          <entry key="EJS" value="2" />
-          <entry key="HTML" value="2" />
-          <entry key="JSON" value="34" />
-          <entry key="JavaScript" value="188" />
-          <entry key="Markdown" value="1" />
-          <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Scratch" value="1" />
-          <entry key="TypeScript" value="8" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="craft" value="727" />
-          <entry key="css" value="28" />
-          <entry key="ejs" value="281" />
-          <entry key="eslintrc" value="24" />
-          <entry key="gitignore" value="14" />
-          <entry key="html" value="63" />
-          <entry key="js" value="71415" />
-          <entry key="json" value="610" />
-          <entry key="lala" value="682" />
-          <entry key="md" value="11" />
-          <entry key="youtrack" value="8" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="CSS" value="28" />
-          <entry key="EJS" value="281" />
-          <entry key="HTML" value="63" />
-          <entry key="JSON" value="634" />
-          <entry key="JavaScript" value="72824" />
-          <entry key="Markdown" value="11" />
-          <entry key="PLAIN_TEXT" value="14" />
-          <entry key="YouTrack" value="8" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.js.language.service.starts">
-        <counts>
-          <entry key="ESLintLanguageService" value="1" />
-          <entry key="TypeScriptServerServiceImpl" value="1" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FavoritesManager">
     <favorites_list name="lala.js" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/Routing/Router.js">
+        <entry file="file://$PROJECT_DIR$/lib/Cache/CacheDriver.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="528" column="31" selection-start-line="528" selection-start-column="24" selection-end-line="528" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/routing.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="71" column="50" lean-forward="true" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/Authenticator/Authenticator.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/helpers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/Server/Request.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="22" column="13" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+            <state relative-caret-position="3975">
+              <caret line="265" selection-start-line="265" selection-end-line="266" />
             </state>
           </provider>
         </entry>
@@ -165,99 +93,144 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>space</find>
-      <find>parserOptions</find>
-      <find>dou</find>
-      <find>25565</find>
-      <find>request.path</find>
-      <find>getRouter</find>
-      <find>handle</find>
-      <find>typeof(</find>
-      <find>content-tle</find>
-      <find>request.url</find>
-      <find>addMiddle</find>
-      <find>@param {string} route A string containing the route pattern.</find>
-      <find>return null</find>
-      <find>Buffer</find>
-      <find>[</find>
-      <find>console.l</find>
-      <find>write</find>
-      <find>Router.route</find>
-      <find>.route(</find>
-      <find>new Reg</find>
+      <find>test-ttl</find>
+      <find>setMult</find>
+      <find>setMulti</find>
+      <find>this.prepareTransaction(key)</find>
+      <find>If no eligible</find>
+      <find>new Date</find>
+      <find>new Date() ).getDate()</find>
+      <find>this.prepareMultipleKeys(keys)</find>
+      <find>Date.now()</find>
+      <find>20</find>
+      <find>setT</find>
+      <find>setTimeout</find>
+      <find>if ( error ){</find>
+      <find>console</find>
+      <find>connected to the Redis server.</find>
+      <find>reject(InvalidArgumentException</find>
+      <find>notStore</find>
       <find>console.lo</find>
-      <find>exe</find>
+      <find>connect()</find>
+      <find>this.connection</find>
+      <find>memcached</find>
+      <find>ensure</find>
+      <find>Red</find>
+      <find>Redis</find>
+      <find>isConnected</find>
+      <find>console.</find>
+      <find>setConnection</find>
+      <find>_connection</find>
+      <find>_driverInstance</find>
       <find>console.log</find>
-      <find>pick</find>
     </findStrings>
     <replaceStrings>
       <replace>65535</replace>
       <replace>@param {string|array|RegExp} route A string containing the route pattern, alternatively, a regex is accepted as well as an array containing multiple paths for this route (as strings or regex).</replace>
+      <replace>@returns {Promise&lt;void&gt;}</replace>
+      <replace>this.prepareKey(key, true);</replace>
+      <replace>CacheDriver</replace>
+      <replace>registerDriver</replace>
+      <replace>ensureConnection</replace>
+      <replace>prepareTransaction</replace>
+      <replace>by a given delta</replace>
+      <replace>@param {object&lt;string, any&gt;?} options An object representing the additional options to consider.</replace>
+      <replace>cache</replace>
+      <replace>common.</replace>
+      <replace>Cache</replace>
+      <replace>common.cacheItems</replace>
+      <replace>common.bigCacheItem</replace>
+      <replace>this.prepareTransaction(key, true)</replace>
+      <replace>If not eligible</replace>
+      <replace>new Date() ).getTime()</replace>
+      <replace>this.prepareMultipleKeys(keys, false)</replace>
+      <replace>Date.now();</replace>
+      <replace>if ( typeof error !== 'undefined' ){</replace>
+      <replace>connected to the Memcached server.</replace>
+      <replace>reject(new InvalidArgumentException</replace>
+      <replace>this._connection</replace>
     </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/lib/Cache</dir>
+      <dir>$PROJECT_DIR$/lib/Database/connections</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Enrico Sola &lt;info@enricosola.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev" />
+      </map>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/lib/Cache/drivers/MemcachedCacheDriver.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/test/cache/local.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/Cache/drivers/RedisCacheDriver.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/Cache/CacheDriver.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/Routing/Router.js" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/app-templates/base/config/cluster.json" />
-        <option value="$PROJECT_DIR$/resources/app-templates/base/config/config.json" />
-        <option value="$PROJECT_DIR$/resources/views/error.404.html" />
-        <option value="$PROJECT_DIR$/resources/app-templates/base/public/library.css" />
-        <option value="$PROJECT_DIR$/resources/app-templates/base/views/index.ejs" />
-        <option value="$PROJECT_DIR$/lib/Config/index.js" />
-        <option value="$PROJECT_DIR$/lib/Model/index.js" />
-        <option value="$PROJECT_DIR$/lib/ORM/index.js" />
-        <option value="$PROJECT_DIR$/lib/Server/index.js" />
-        <option value="$PROJECT_DIR$/lib/View/idex.js" />
-        <option value="$PROJECT_DIR$/lib/Command/index.js" />
-        <option value="$PROJECT_DIR$/lib/View/index.js" />
-        <option value="$PROJECT_DIR$/lib/Model/Model.js" />
-        <option value="$PROJECT_DIR$/lib/Model/User.js" />
-        <option value="$PROJECT_DIR$/lib/ORM/Peke.js" />
-        <option value="$PROJECT_DIR$/resources/app-templates/base/index.js" />
-        <option value="$PROJECT_DIR$/lib/Exceptions/Exception.js" />
-        <option value="$PROJECT_DIR$/lib/Logger/index.js" />
-        <option value="$PROJECT_DIR$/lib/Command/Command.js" />
-        <option value="$PROJECT_DIR$/lib/Config/Config.js" />
-        <option value="$PROJECT_DIR$/lib/View/View.js" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/lib/Cluster/index.js" />
-        <option value="$PROJECT_DIR$/lib/Cluster/Cluster.js" />
+        <option value="$PROJECT_DIR$/lib/Support/index.js" />
+        <option value="$PROJECT_DIR$/lib/Support/RedisConenction.js" />
         <option value="$PROJECT_DIR$/lib/Database/index.js" />
-        <option value="$PROJECT_DIR$/lib/Database/drivers/Driver.js" />
-        <option value="$PROJECT_DIR$/lib/Database/drivers/MongoDriver.js" />
-        <option value="$PROJECT_DIR$/lib/Database/Database.js" />
-        <option value="$PROJECT_DIR$/lib/Database/drivers/index.js" />
-        <option value="$PROJECT_DIR$/lib/Exceptions/MisconfigurationException.js" />
-        <option value="$PROJECT_DIR$/lib/Exceptions/index.js" />
-        <option value="$PROJECT_DIR$/project/config/config.json" />
-        <option value="$PROJECT_DIR$/project/index.js" />
-        <option value="$PROJECT_DIR$/test/helpers.js" />
-        <option value="$PROJECT_DIR$/lib/helpers.js" />
-        <option value="$PROJECT_DIR$/test/orm.js" />
-        <option value="$PROJECT_DIR$/test/server.js" />
-        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.js" />
-        <option value="$PROJECT_DIR$/lib/Exceptions/ForbiddenHttpException.js" />
-        <option value="$PROJECT_DIR$/lib/Exceptions/RequestDeniedException.js" />
-        <option value="$PROJECT_DIR$/lib/Authenticator/index.js" />
-        <option value="$PROJECT_DIR$/lib/Authenticator/Authenticator.js" />
-        <option value="$PROJECT_DIR$/lib/Routing/Route.js" />
-        <option value="$PROJECT_DIR$/lib/Routing/ResourceRoute.js" />
-        <option value="$PROJECT_DIR$/lib/Routing/index.js" />
-        <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/lib/Server/Request.js" />
-        <option value="$PROJECT_DIR$/lib/Server/Server.js" />
+        <option value="$PROJECT_DIR$/lib/Cache/RedisCacheDriver.js" />
+        <option value="$PROJECT_DIR$/lib/Cache/LocalCacheDriver.js" />
+        <option value="$PROJECT_DIR$/lib/Cache/drivers/index.js" />
+        <option value="$PROJECT_DIR$/lib/Cache/index.js" />
+        <option value="$PROJECT_DIR$/lib/Exceptions/DriverNotConnectedException.js" />
+        <option value="$PROJECT_DIR$/lib/Exceptions/DriverNotDefinedException.js" />
+        <option value="$PROJECT_DIR$/lib/decorators.js" />
+        <option value="$PROJECT_DIR$/lib/Exceptions/RuntimeException.js" />
+        <option value="$PROJECT_DIR$/lib/Exceptions/UnresolvedDependencyException.js" />
+        <option value="$PROJECT_DIR$/lib/Cache/CacheFactory.js" />
+        <option value="$PROJECT_DIR$/lib/Logger/Log.js" />
         <option value="$PROJECT_DIR$/lib/Logger/Logger.js" />
+        <option value="$PROJECT_DIR$/lib/Cache/ExternalCacheDriver.js" />
         <option value="$PROJECT_DIR$/lib/Routing/Router.js" />
-        <option value="$PROJECT_DIR$/test/routing.js" />
+        <option value="$PROJECT_DIR$/lib/Exceptions/UnsupportedMethodException.js" />
+        <option value="$PROJECT_DIR$/project/config/config.json" />
+        <option value="$PROJECT_DIR$/lib/Cache/Commands/CacheClear.js" />
+        <option value="$PROJECT_DIR$/lib/helpers.js" />
+        <option value="$PROJECT_DIR$/test/cache.js" />
+        <option value="$PROJECT_DIR$/test/cache/cache.js" />
+        <option value="$PROJECT_DIR$/test/resources/config.json" />
+        <option value="$PROJECT_DIR$/lib/Exceptions/DuplicateEntryException.js" />
+        <option value="$PROJECT_DIR$/lib/Exceptions/index.js" />
+        <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/lib/Database/connections/index.js" />
+        <option value="$PROJECT_DIR$/test/routing/index.js" />
+        <option value="$PROJECT_DIR$/test/routing/routing.js" />
+        <option value="$PROJECT_DIR$/test/server/index.js" />
+        <option value="$PROJECT_DIR$/test/index.js" />
+        <option value="$PROJECT_DIR$/lib/Exceptions/AuthenticationException.js" />
+        <option value="$PROJECT_DIR$/test/cache/index.js" />
+        <option value="$PROJECT_DIR$/test/common.js" />
+        <option value="$PROJECT_DIR$/lib/Database/connections/Connection.js" />
+        <option value="$PROJECT_DIR$/lib/Cache/drivers/RedisCacheDriver.js" />
+        <option value="$PROJECT_DIR$/lib/Cache/drivers/MemcachedCacheDriver.js" />
+        <option value="$PROJECT_DIR$/lib/Database/connections/ClusteredConnection.js" />
+        <option value="$PROJECT_DIR$/lib/Database/connections/MemcachedConnection.js" />
+        <option value="$PROJECT_DIR$/lib/Database/connections/MemcachedClusteredConnection.js" />
+        <option value="$PROJECT_DIR$/lib/Database/connections/RedisConnection.js" />
+        <option value="$PROJECT_DIR$/lib/Database/connections/RedisClusteredConnection.js" />
+        <option value="$PROJECT_DIR$/lib/Cache/drivers/DatabaseCacheDriver.js" />
+        <option value="$PROJECT_DIR$/test/cache/memcached.js" />
+        <option value="$PROJECT_DIR$/test/cache/redis.js" />
+        <option value="$PROJECT_DIR$/lib/Cache/CacheDriver.js" />
+        <option value="$PROJECT_DIR$/test/cache/local.js" />
+        <option value="$PROJECT_DIR$/lib/Cache/Cache.js" />
+        <option value="$PROJECT_DIR$/lib/Cache/drivers/LocalCacheDriver.js" />
       </list>
     </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
-    <package-json value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -265,36 +238,10 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/node_modules" />
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths>
-      <path value="$PROJECT_DIR$/package.json" />
-    </packageJsonPaths>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="y" value="22" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="1920" />
-    <option name="height" value="979" />
-  </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State />
-        </expanded-state>
-        <selected-state>
-          <State>
-            <id>Angular</id>
-          </State>
-        </selected-state>
-      </profile-state>
-    </entry>
+    <option name="height" value="1002" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -319,7 +266,21 @@
             <path>
               <item name="lala.js" type="b2602c69:ProjectViewProjectNode" />
               <item name="lala.js" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="Cache" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lala.js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lala.js" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="Cache" type="462c0819:PsiDirectoryNode" />
+              <item name="drivers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lala.js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lala.js" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="Database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lala.js" type="b2602c69:ProjectViewProjectNode" />
@@ -330,14 +291,7 @@
               <item name="lala.js" type="b2602c69:ProjectViewProjectNode" />
               <item name="lala.js" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lala.js" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lala.js" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="cache" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -350,7 +304,8 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JavaScript" />
-    <property name="javascript.nodejs.core.library.configured.version" value="10.9.0" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="11.3.0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -363,16 +318,20 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/test/public/assets" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/commands" />
-      <recent name="$PROJECT_DIR$/commands/internal" />
+      <recent name="$PROJECT_DIR$/test/server" />
+      <recent name="$PROJECT_DIR$/test/routing" />
+      <recent name="$PROJECT_DIR$/test/cache" />
+      <recent name="$PROJECT_DIR$/lib/Cache/drivers" />
+      <recent name="$PROJECT_DIR$/lib/Database/connections" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test/resources" />
+      <recent name="$PROJECT_DIR$/test/public/assets" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -387,13 +346,17 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Mocha.Routing features.">
-    <configuration name="Main" type="NodeJSConfigurationType" factoryName="Node.js" path-to-js-file="index.js" working-dir="$PROJECT_DIR$">
+  <component name="RunManager" selected="Node.js.MemcachedCacheDriver.js">
+    <configuration name="Main" type="NodeJSConfigurationType" path-to-js-file="index.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
-    <configuration name="Main - Test" type="mocha-javascript-test-runner" factoryName="Mocha">
+    <configuration name="MemcachedCacheDriver.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/lib/Cache/drivers/MemcachedCacheDriver.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="Main - Test" type="mocha-javascript-test-runner">
       <node-interpreter>project</node-interpreter>
       <node-options />
+      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
       <working-directory>$PROJECT_DIR$</working-directory>
       <pass-parent-env>true</pass-parent-env>
       <ui>bdd</ui>
@@ -403,38 +366,10 @@
       <recursive>true</recursive>
       <method v="2" />
     </configuration>
-    <configuration name="Routing features." type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+    <configuration name="Routing features..Middleware operations." type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>SUITE</test-kind>
-      <test-file>$PROJECT_DIR$/test/routing.js</test-file>
-      <test-names>
-        <name value="Routing features." />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="Routing features..Basic routing features." type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>SUITE</test-kind>
-      <test-file>$PROJECT_DIR$/test/routing.js</test-file>
-      <test-names>
-        <name value="Routing features." />
-        <name value="Basic routing features." />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="Routing features..Middleware operations." type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
+      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
       <working-directory>$PROJECT_DIR$</working-directory>
       <pass-parent-env>true</pass-parent-env>
       <ui>bdd</ui>
@@ -447,25 +382,10 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Routing features..Middleware operations..Mutate a parameter using the defined middleware." type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+    <configuration name="Routing features..Middleware operations..Rejecting a request using a middleware." type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/test/routing.js</test-file>
-      <test-names>
-        <name value="Routing features." />
-        <name value="Middleware operations." />
-        <name value="Mutate a parameter using the defined middleware." />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="Routing features..Middleware operations..Rejecting a request using a middleware." type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
+      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
       <working-directory>$PROJECT_DIR$</working-directory>
       <pass-parent-env>true</pass-parent-env>
       <ui>bdd</ui>
@@ -479,22 +399,52 @@
       </test-names>
       <method v="2" />
     </configuration>
+    <configuration name="Testing cache behaviour" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>SUITE</test-kind>
+      <test-file>$PROJECT_DIR$/test/cache.js</test-file>
+      <test-names>
+        <name value="Testing cache behaviour" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Testing framework capabilities using Memcached as cache driver." type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>SUITE</test-kind>
+      <test-file>$PROJECT_DIR$/test/cache/memcached.js</test-file>
+      <test-names>
+        <name value="Testing framework capabilities using Memcached as cache driver." />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Mocha.Main - Test" />
-      <item itemvalue="Node.js.Main" />
-      <item itemvalue="Mocha.Routing features..Basic routing features." />
-      <item itemvalue="Mocha.Routing features." />
-      <item itemvalue="Mocha.Routing features..Middleware operations..Mutate a parameter using the defined middleware." />
       <item itemvalue="Mocha.Routing features..Middleware operations..Rejecting a request using a middleware." />
       <item itemvalue="Mocha.Routing features..Middleware operations." />
+      <item itemvalue="Mocha.Testing cache behaviour" />
+      <item itemvalue="Mocha.Testing framework capabilities using Memcached as cache driver." />
+      <item itemvalue="Node.js.Main" />
+      <item itemvalue="Node.js.MemcachedCacheDriver.js" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Mocha.Routing features." />
+        <item itemvalue="Node.js.MemcachedCacheDriver.js" />
+        <item itemvalue="Mocha.Testing framework capabilities using Memcached as cache driver." />
+        <item itemvalue="Mocha.Testing cache behaviour" />
         <item itemvalue="Mocha.Routing features..Middleware operations." />
         <item itemvalue="Mocha.Routing features..Middleware operations..Rejecting a request using a middleware." />
-        <item itemvalue="Mocha.Routing features..Middleware operations..Mutate a parameter using the defined middleware." />
-        <item itemvalue="Mocha.Routing features..Basic routing features." />
       </list>
     </recent_temporary>
   </component>
@@ -514,6 +464,64 @@
       <workItem from="1537114844086" duration="16403000" />
       <workItem from="1537471740881" duration="5747000" />
       <workItem from="1537623122451" duration="117359000" />
+      <workItem from="1539559591202" duration="491000" />
+      <workItem from="1539768050643" duration="909000" />
+      <workItem from="1540197709292" duration="51000" />
+      <workItem from="1540197801814" duration="86000" />
+      <workItem from="1540277585376" duration="1028000" />
+      <workItem from="1540362149965" duration="31552000" />
+      <workItem from="1540642329350" duration="606000" />
+      <workItem from="1540651464502" duration="29435000" />
+      <workItem from="1541084094077" duration="1227000" />
+      <workItem from="1541095720514" duration="526000" />
+      <workItem from="1541102500138" duration="2294000" />
+      <workItem from="1541181401666" duration="9113000" />
+      <workItem from="1541423491714" duration="1038000" />
+      <workItem from="1541440719503" duration="2448000" />
+      <workItem from="1541547441912" duration="9305000" />
+      <workItem from="1541664065178" duration="12147000" />
+      <workItem from="1541804081433" duration="3332000" />
+      <workItem from="1541907795493" duration="12120000" />
+      <workItem from="1542134497589" duration="8000" />
+      <workItem from="1542134557607" duration="6654000" />
+      <workItem from="1542477543785" duration="427000" />
+      <workItem from="1542478589490" duration="3886000" />
+      <workItem from="1542614456783" duration="8953000" />
+      <workItem from="1542701066656" duration="263000" />
+      <workItem from="1542701418091" duration="2097000" />
+      <workItem from="1542706732350" duration="4147000" />
+      <workItem from="1542874350740" duration="600000" />
+      <workItem from="1542882402068" duration="596000" />
+      <workItem from="1542899575995" duration="1164000" />
+      <workItem from="1543105438068" duration="196000" />
+      <workItem from="1543233625808" duration="598000" />
+      <workItem from="1543250447974" duration="6250000" />
+      <workItem from="1543404026185" duration="1221000" />
+      <workItem from="1543486897576" duration="598000" />
+      <workItem from="1543590055120" duration="558000" />
+      <workItem from="1543667193974" duration="7312000" />
+      <workItem from="1543826354064" duration="3814000" />
+      <workItem from="1543876233800" duration="3157000" />
+      <workItem from="1543929002758" duration="1269000" />
+      <workItem from="1543965547960" duration="2914000" />
+      <workItem from="1543995238381" duration="9365000" />
+      <workItem from="1544083399492" duration="3108000" />
+      <workItem from="1544163388339" duration="165000" />
+      <workItem from="1544163588533" duration="67000" />
+      <workItem from="1544163702708" duration="598000" />
+      <workItem from="1544166389608" duration="6420000" />
+      <workItem from="1544260221177" duration="15077000" />
+      <workItem from="1544426446051" duration="5383000" />
+      <workItem from="1544521161135" duration="1920000" />
+      <workItem from="1544524104535" duration="11560000" />
+      <workItem from="1544622075912" duration="11717000" />
+      <workItem from="1544694821309" duration="570000" />
+      <workItem from="1544706552283" duration="578000" />
+      <workItem from="1544709796904" duration="520000" />
+      <workItem from="1544717274975" duration="1028000" />
+      <workItem from="1544874817803" duration="3862000" />
+      <workItem from="1544884119395" duration="2478000" />
+      <workItem from="1544897621325" duration="3750000" />
     </task>
     <servers>
       <YouTrack url="http://youtrack.enricosola.com:8080">
@@ -524,39 +532,39 @@
     </servers>
   </component>
   <component name="TestHistory">
-    <history-entry file="Routing_features_ - 2018.10.14 at 21h 53m 35s.xml">
-      <configuration name="Routing features." configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Testing_cache_behaviour - 2018.11.10 at 21h 18m 24s.xml">
+      <configuration name="Testing cache behaviour" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Routing_features_ - 2018.10.14 at 21h 57m 53s.xml">
-      <configuration name="Routing features." configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Testing_cache_behaviour - 2018.11.11 at 17h 58m 02s.xml">
+      <configuration name="Testing cache behaviour" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Routing_features_ - 2018.10.14 at 21h 58m 19s.xml">
-      <configuration name="Routing features." configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Testing_cache_behaviour - 2018.11.11 at 18h 14m 12s.xml">
+      <configuration name="Testing cache behaviour" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Routing_features_ - 2018.10.14 at 21h 58m 34s.xml">
-      <configuration name="Routing features." configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Testing_cache_behaviour - 2018.11.11 at 18h 14m 29s.xml">
+      <configuration name="Testing cache behaviour" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Routing_features_ - 2018.10.14 at 21h 59m 26s.xml">
-      <configuration name="Routing features." configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Testing_cache_behaviour - 2018.11.11 at 18h 14m 39s.xml">
+      <configuration name="Testing cache behaviour" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Routing_features_ - 2018.10.14 at 22h 00m 39s.xml">
-      <configuration name="Routing features." configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Testing_cache_behaviour - 2018.11.11 at 18h 15m 07s.xml">
+      <configuration name="Testing cache behaviour" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Routing_features_ - 2018.10.14 at 22h 01m 59s.xml">
-      <configuration name="Routing features." configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Testing_cache_behaviour - 2018.11.11 at 18h 15m 56s.xml">
+      <configuration name="Testing cache behaviour" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Routing_features_ - 2018.10.14 at 22h 03m 34s.xml">
-      <configuration name="Routing features." configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Testing_framework_capabilities_using_Memcached_as_cache_driver_ - 2018.11.14 at 22h 11m 15s.xml">
+      <configuration name="Testing framework capabilities using Memcached as cache driver." configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Routing_features_ - 2018.10.14 at 22h 04m 07s.xml">
-      <configuration name="Routing features." configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Testing_framework_capabilities_using_Memcached_as_cache_driver_ - 2018.11.14 at 22h 15m 03s.xml">
+      <configuration name="Testing framework capabilities using Memcached as cache driver." configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Routing_features_ - 2018.10.14 at 22h 04m 16s.xml">
-      <configuration name="Routing features." configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Testing_framework_capabilities_using_Memcached_as_cache_driver_ - 2018.11.14 at 22h 16m 05s.xml">
+      <configuration name="Testing framework capabilities using Memcached as cache driver." configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="212259000" />
+    <option name="totallyTimeSpent" value="464815000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -568,26 +576,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1920" height="979" extended-state="1" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1920" height="1002" extended-state="0" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.5005637" side_tool="true" weight="0.17482886" />
       <window_info id="npm" order="1" sideWeight="0.5005637" side_tool="true" weight="0.17482886" />
-      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.497479" weight="0.17430227" />
-      <window_info id="Structure" order="3" sideWeight="0.50252104" side_tool="true" weight="0.17430227" />
+      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.49284577" weight="0.26276988" />
+      <window_info id="Structure" order="3" sideWeight="0.5071542" side_tool="true" weight="0.2319301" />
       <window_info anchor="bottom" id="TypeScript" order="0" weight="0.32919955" />
-      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32847533" />
-      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5002633" side_tool="true" weight="0.32919955" />
-      <window_info anchor="bottom" id="Version Control" order="3" weight="0.32919955" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.3278328" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5002633" side_tool="true" weight="0.32893288" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.3290938" />
       <window_info anchor="bottom" id="Docker" order="4" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="5" />
-      <window_info anchor="bottom" id="Find" order="6" weight="0.32919955" />
-      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.4997367" weight="0.32807216" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.39798206" />
+      <window_info anchor="bottom" id="Find" order="6" weight="0.32857144" />
+      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.4997367" weight="0.64603174" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.3968254" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="11" weight="0.32919955" />
       <window_info anchor="bottom" id="YouTrack" order="12" weight="0.32919955" />
+      <window_info anchor="bottom" id="Messages" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -595,21 +603,22 @@
     <layout-to-restore>
       <window_info id="Favorites" order="0" sideWeight="0.5005637" side_tool="true" weight="0.17482886" />
       <window_info id="npm" order="1" sideWeight="0.5005637" side_tool="true" weight="0.17482886" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.497479" visible="true" weight="0.17430227" />
-      <window_info id="Structure" order="3" sideWeight="0.50252104" side_tool="true" weight="0.17430227" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.49284577" visible="true" weight="0.26276988" />
+      <window_info id="Structure" order="3" sideWeight="0.5071542" side_tool="true" weight="0.2319301" />
       <window_info anchor="bottom" id="TypeScript" order="0" weight="0.32919955" />
-      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32847533" />
-      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5002633" side_tool="true" weight="0.32919955" />
-      <window_info anchor="bottom" id="Version Control" order="3" weight="0.32919955" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.3278328" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5002633" side_tool="true" weight="0.32893288" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.3290938" />
       <window_info anchor="bottom" id="Docker" order="4" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="5" />
-      <window_info anchor="bottom" id="Find" order="6" weight="0.32919955" />
-      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.4997367" weight="0.32807216" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.39798206" />
+      <window_info anchor="bottom" id="Find" order="6" weight="0.32857144" />
+      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.4997367" weight="0.64603174" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.3968254" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="11" weight="0.32919955" />
       <window_info anchor="bottom" id="YouTrack" order="12" weight="0.32919955" />
+      <window_info anchor="bottom" id="Messages" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -628,342 +637,327 @@
       </list>
     </option>
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Created the main class for cache management, cache driver development and cache storage engine connection (even supporting multiple nodes).&#10;Added support for local cache storage and external storage using Redis and Memcached as storage engines.&#10;Added tests for the created cache drivers, local, Redis and Memcached." />
+    <option name="LAST_COMMIT_MESSAGE" value="Created the main class for cache management, cache driver development and cache storage engine connection (even supporting multiple nodes).&#10;Added support for local cache storage and external storage using Redis and Memcached as storage engines.&#10;Added tests for the created cache drivers, local, Redis and Memcached." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/Exceptions/Exception.js">
+    <entry file="file://$PROJECT_DIR$/lib/Routing/Router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="531" column="26" selection-start-line="531" selection-start-column="26" selection-end-line="531" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Server/Server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13545">
+          <caret line="903" column="69" selection-start-line="903" selection-start-column="69" selection-end-line="903" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Cache/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Exceptions/InvalidArgumentException.js">
+    <entry file="file://$PROJECT_DIR$/test/cache/cache.js" />
+    <entry file="file://$PROJECT_DIR$/project/config/config.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
+        <state relative-caret-position="165">
+          <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/Database/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="48" lean-forward="true" selection-start-line="3" selection-start-column="48" selection-end-line="3" selection-end-column="48" />
+        <state relative-caret-position="60">
+          <caret line="4" column="54" selection-start-line="4" selection-start-column="54" selection-end-line="4" selection-end-column="54" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mongodb/index.js">
+    <entry file="file://$PROJECT_DIR$/lib/Exceptions/DuplicateEntryException.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/db.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1246" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/mongo_client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Database/drivers/MongoDriver.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="95" selection-start-line="95" selection-end-line="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Database/drivers/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/10.9.0/core-modules/querystring.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2175">
-          <caret line="260" column="9" selection-start-line="260" selection-start-column="9" selection-end-line="260" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/10.9.0/core-modules/events.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="139" selection-start-line="139" selection-end-line="139" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Database/Database.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Exceptions/MisconfigurationException.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/Exceptions/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+        <state relative-caret-position="210">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Database/drivers/Driver.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Cluster/Cluster.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/helpers.js">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="9" column="51" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
+          <caret line="9" column="83" selection-start-line="9" selection-start-column="83" selection-end-line="9" selection-end-column="83" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/orm.js">
+    <entry file="file://$PROJECT_DIR$/test/resources/config.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="2" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
+        <state relative-caret-position="135">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/ORM/Peke.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/assert/assert.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="14" lean-forward="true" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+        <state relative-caret-position="-106">
+          <caret line="431" column="9" selection-start-line="431" selection-start-column="9" selection-end-line="431" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/resources/cert.pem">
+    <entry file="file://$PROJECT_DIR$/LICENSE.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@sentry/core/dist/api.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/resources/key.pem">
+    <entry file="file://$PROJECT_DIR$/node_modules/ansi-regex/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="881" column="4" selection-start-line="881" selection-start-column="4" selection-end-line="881" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="668" column="12" selection-start-line="668" selection-start-column="12" selection-end-line="668" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Exceptions/ForbiddenHttpException.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/10.9.0/core-modules/fs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="1690" column="9" selection-start-line="1690" selection-start-column="9" selection-end-line="1690" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/javascript/nodejs/library/node-buffer-stub.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="152" selection-start-line="152" selection-end-line="152" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@sentry/node/dist/backend.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@sentry/node/dist/sdk.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="47" column="46" lean-forward="true" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@sentry/minimal/dist/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@sentry/node/dist/index.d.ts">
+    <entry file="file://$PROJECT_DIR$/node_modules/are-we-there-yet/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/View/View.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/are-we-there-yet/tracker.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/are-we-there-yet/tracker-base.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/cassandra/lib/cassandra.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="31" column="21" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+        <state relative-caret-position="-1611" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/routing/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="25" lean-forward="true" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Exceptions/RequestRejectedException.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Authenticator/index.js">
+    <entry file="file://$PROJECT_DIR$/test/routing/routing.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Routing/Route.js">
+    <entry file="file://$PROJECT_DIR$/test/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+        <state relative-caret-position="180">
+          <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Routing/ResourceRoute.js">
+    <entry file="file://$PROJECT_DIR$/test/server/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="30">
+          <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Routing/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="58" lean-forward="true" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/test/server/server.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="29" column="52" lean-forward="true" selection-start-line="29" selection-start-column="52" selection-end-line="29" selection-end-column="52" />
+        <state relative-caret-position="238">
+          <caret line="66" column="37" selection-start-line="66" selection-start-column="37" selection-end-line="66" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/assert/assert.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="216" selection-start-line="216" selection-end-line="216" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Authenticator/Authenticator.js">
+    <entry file="file://$PROJECT_DIR$/lib/Exceptions/AuthenticationException.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/helpers.js">
+    <entry file="file://$PROJECT_DIR$/test/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="18" lean-forward="true" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Cache/Commands/CacheClear.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Cache/drivers/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
+          <caret line="6" column="48" lean-forward="true" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/app-templates/base/config/config.json">
+    <entry file="file://$PROJECT_DIR$/test/cache/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="4" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Database/connections/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Database/connections/MemcachedClusteredConnection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Database/connections/Connection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Database/connections/RedisConnection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Database/connections/RedisClusteredConnection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="46" lean-forward="true" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/cache/redis.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/cache/memcached.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/cache/local.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="44" lean-forward="true" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CONTRIBUTING.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Database/connections/MemcachedConnection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1575">
+          <caret line="105" column="111" selection-start-line="105" selection-start-column="111" selection-end-line="105" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Database/connections/ClusteredConnection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Cache/drivers/FileCacheDriver.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/config.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/config/config.json">
+    <entry file="file://$PROJECT_DIR$/lib/Cache/drivers/DatabaseCacheDriver.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="90">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Server/Request.js">
+    <entry file="file://$PROJECT_DIR$/lib/Cache/drivers/LocalCacheDriver.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="22" column="13" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        <state relative-caret-position="600">
+          <caret line="40" column="34" lean-forward="true" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Config/Config.js">
+    <entry file="file://$PROJECT_DIR$/lib/Cache/drivers/MemcachedCacheDriver.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-123">
-          <caret line="13" column="79" selection-start-line="13" selection-start-column="79" selection-end-line="13" selection-end-column="79" />
+        <state relative-caret-position="3360">
+          <caret line="224" column="53" selection-start-line="224" selection-start-column="53" selection-end-line="224" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Cache/drivers/RedisCacheDriver.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9435">
+          <caret line="629" column="30" selection-start-line="629" selection-start-column="30" selection-end-line="629" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/Logger/Logger.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+        <state relative-caret-position="98">
+          <caret line="38" column="7" lean-forward="true" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Server/Server.js">
+    <entry file="file://$PROJECT_DIR$/test/config.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="44" lean-forward="true" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/index.js">
+    <entry file="file://$PROJECT_DIR$/lib/helpers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="555">
+          <caret line="37" column="3" lean-forward="true" selection-start-line="37" selection-start-column="3" selection-end-line="37" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/routing.js">
+    <entry file="file://$PROJECT_DIR$/lib/Cache/Cache.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="71" column="50" lean-forward="true" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
+        <state relative-caret-position="840">
+          <caret line="56" column="3" lean-forward="true" selection-start-line="56" selection-start-column="3" selection-end-line="56" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Routing/Router.js">
+    <entry file="file://$PROJECT_DIR$/lib/Cache/CacheDriver.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="528" column="31" selection-start-line="528" selection-start-column="24" selection-end-line="528" selection-end-column="31" />
+        <state relative-caret-position="3975">
+          <caret line="265" selection-start-line="265" selection-end-line="266" />
         </state>
       </provider>
     </entry>
@@ -973,6 +967,17 @@
       <state key="Copyright.UI">
         <settings>
           <last-edited>Enrico Sola</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>

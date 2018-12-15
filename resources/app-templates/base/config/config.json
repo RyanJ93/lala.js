@@ -5,17 +5,17 @@
     "servers": [
         {
             "name": "main",
-            "port": 12345,
+            "_port": 12345,
             "bind": "127.0.0.1",
             "type": "http",
             "routers": ["web", "api"]
         }
     ],
-    "database": [
+    "_database": [
         {
-            "driver": "mongodb",
-            "host": "127.0.0.1",
-            "database": "lala"
+            "_driver": "mongodb",
+            "_host": "127.0.0.1",
+            "_database": "lala"
         }
     ],
     "verbose": true

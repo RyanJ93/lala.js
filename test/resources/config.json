@@ -1,0 +1,43 @@
+{
+    "app": {
+        "name": "Test"
+    },
+    "servers": [
+        {
+            "name": "main",
+            "_port": 12345,
+            "bind": "127.0.0.1",
+            "type": "http",
+            "routers": ["web", "api"]
+        }
+    ],
+    "_database": [],
+    "logger": {
+        "verbose": true,
+        "sentry": {
+            "enable": true,
+            "dns": ""
+        }
+    },
+    "cache": {
+        "_connections": [{
+            "type": "redis",
+            "name": "test",
+            "_host": "127.0.0.1",
+            "_port": 6379,
+            "_path": null,
+            "_database": 0,
+            "_password": null
+        }, {
+            "type": "redis",
+            "name": "test_cluster",
+            "cluster": [{
+                "_host": "127.0.0.1",
+                "_port": 6379,
+                "_path": null,
+                "_database": 0,
+                "_password": null
+            }]
+        }]
+    }
+}

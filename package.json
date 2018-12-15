@@ -7,7 +7,7 @@
         "node": ">=8"
     },
     "scripts": {
-        "test": "./node_modules/mocha/bin/mocha",
+        "test": "./node_modules/mocha/bin/mocha --timeout 10000 --use_strict --exit test/index.js",
         "lala": "./bin/lala",
         "lala-craft": "./bin/craft"
     },
@@ -23,14 +23,15 @@
     "homepage": "https://gitlab.com/RyanJ93/lala.js#readme",
     "dependencies": {
         "ejs": "^2.6.1",
-        "redis": "^2.8.0",
         "websocket": "^1.0.26"
     },
     "optionalDependencies": {
         "@sentry/node": "^4.0.0-rc.2",
         "cassandra": "^0.1.0",
+        "memcached": "^2.2.2",
         "mongodb": "^3.1.4",
         "mysql": "^2.16.0",
+        "redis": "^2.8.0",
         "sqlite3": "^4.0.2"
     },
     "devDependencies": {
