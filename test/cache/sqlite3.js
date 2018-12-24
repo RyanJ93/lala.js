@@ -1,25 +1,41 @@
 'use strict';
 
+const filesystem = require('fs');
 const assert = require('assert');
 const lala = require('../../index');
+const { SQLite3Connection } = lala.DatabaseConnections;
+const { SQLite3CacheDriver } = lala.CacheDrivers;
 const { Cache, InvalidArgumentException } = lala;
 const common = require('../common');
 
-describe('Testing framework capabilities using local cache driver.', () => {
-    let cache = null, item = 'Some value 😂!', silent = {
+describe('Testing framework capabilities using SQLite3 as cache driver.', () => {
+    let cache = null, connection = null, item = 'Some value 😂!', silent = {
         silent: true
     };
 
-    it('Creating the class instance.', async () => {
+    it('Manually adding the SQLite3 driver.', async () => {
+        await Cache.registerDriver('sqlite3', SQLite3CacheDriver);
+        assert.deepEqual(Cache.isSupportedDriver('sqlite3'), true, 'SQLite3 driver was not add.');
+    });
+
+    it('Establish a connection to the SQLite database.', async () => {
+        connection = new SQLite3Connection();
+        connection.setPath('test/resources/cache.db');
+        await connection.connect();
+        SQLite3CacheDriver.addConnection('default', connection);
+    });
+
+    it('Generating the cache object.', async () => {
         cache = new Cache();
-        await cache.setDriver('local');
-        cache.setNamespace('com.lala');
+        await cache.setDriver('sqlite3');
+        cache.setConnection(connection).setNamespace('com.lala.test.sqlite3');
     });
 
     it('Storing and retrieving an item.', async () => {
-        let item = 'Some value 😂!';
-        await cache.set('test', item);
-        assert.deepEqual(await cache.get('test'), item, 'Failed to store the item.');
+        await cache.set('test', item, {
+            overwrite : true
+        });
+        assert.deepEqual(await cache.get('test', silent), item, 'Failed to store the item.');
     });
 
     it('Storing an item that will expire in a second.', () => {
@@ -35,24 +51,6 @@ describe('Testing framework capabilities using local cache driver.', () => {
                         reject(ex);
                     });
                 }, 1200);
-            }).catch((ex) => {
-                reject(ex);
-            });
-        });
-    });
-
-    it('Checking if an expired entry is removed by GC after it has expired.', () => {
-        return new Promise((resolve, reject) => {
-            cache.set('test-gc', item, {
-                ttl: 1
-            }).then(() => {
-                setTimeout(() => {
-                    let key = cache._driverInstance.prepareKey('test-gc');
-                    if ( cache._driverInstance._storage.hasOwnProperty(key) ){
-                        return reject(new Error('The item is still present in cache _storage.'));
-                    }
-                    resolve();
-                }, 2000);
             }).catch((ex) => {
                 reject(ex);
             });
@@ -163,30 +161,27 @@ describe('Testing framework capabilities using local cache driver.', () => {
     });
 
     it('Checking if multiple elements exist.', async () => {
-        assert.deepEqual(await cache.hasMulti(['1', '2', '-1']), {'1': true, '2': true, '-1': false}, '');
+        assert.deepEqual(await cache.existsMulti(['1', '2', '-1']), {'1': true, '2': true, '-1': false}, '');
     });
 
     it('Removing multiple elements.', async () => {
         let items = {'1': false, '2': false, '-1': false};
         await cache.removeMulti(Object.keys(items));
-        assert.deepEqual(await cache.existsMulti(Object.keys(items)), items, 'Unable to remove multiple elements.');
+        assert.deepEqual(await cache.hasMulti(Object.keys(items)), items, '');
     });
 
     it('Incrementing multiple elements.', async () => {
         let items = {'a': 1, 'b': 3.4, 'c': 8};
         await cache.setMulti(items);
-        await cache.incrementMulti(['a', 'b', 'c', 'd'], 1.2);
-        items = await cache.getMulti(['a', 'b', 'c', 'd']);
-        assert.deepEqual(items, {'a': 2.2, 'b': 4.6, 'c': 9.2, 'd': null}, 'Increment failed.');
+        await cache.incrementMulti(['a', 'b', 'c'], 1.2);
+        items = await cache.getMulti(['a', 'b', 'c']);
+        assert.deepEqual(items, {'a': '2.2', 'b': '4.6', 'c': '9.2'}, 'Increment failed.');
     });
 
     it('Decrementing multiple elements.', async () => {
-        await cache.decrementMulti(['a', 'b', 'c', 'd'], 1.2);
-        let items = await cache.getMulti(['a', 'b', 'c', 'd']);
-        items.a = Math.round(items.a);
-        items.b = Math.round(items.b * 10) / 10;
-        items.c = Math.round(items.c);
-        assert.deepEqual(items, {'a': 1, 'b': 3.4, 'c': 8, 'd': null}, 'Decrement failed.');
+        await cache.decrementMulti(['a', 'b', 'c'], 1.2);
+        let items = await cache.getMulti(['a', 'b', 'c']);
+        assert.deepEqual(items, {'a': '1', 'b': '3.4', 'c': '8'}, 'Decrement failed.');
     });
 
     it('Alter the TTL value for a multiple stored items.', () => {
@@ -243,12 +238,54 @@ describe('Testing framework capabilities using local cache driver.', () => {
         });
     });
 
+    it('Running the garbage collector.', () => {
+        return new Promise((resolve, reject) => {
+            cache.set('test-gc', item, {
+                ttl: 1
+            }).then(() => {
+                setTimeout(() => {
+                    cache.exists('test-gc').then((exists) => {
+                        if ( exists ){
+                            return reject(new Error('The items are still existing despite the TTL should have expired.'));
+                        }
+                        cache._driverInstance.runGarbageCollector().then(() => {
+                            let key = cache._driverInstance.prepareKeyComponents('test-gc');
+                            let query = 'SELECT key FROM cache_storage WHERE namespace = ? AND key = ?;';
+                            cache._driverInstance._connection.getConnection().run(query, [key.namespace, key.key], (error, item) => {
+                                if ( error !== null ){
+                                    return reject(error);
+                                }
+                                if ( item !== null && typeof item === 'object' ){
+                                    return reject(new Error('The item was not removed by garbage collector.'));
+                                }
+                                resolve();
+                            });
+                        }).catch((ex) => {
+                            reject(ex);
+                        });
+                    }).catch((ex) => {
+                        reject(ex);
+                    });
+                }, 1200);
+            }).catch((ex) => {
+                reject(ex);
+            });
+        });
+    });
+
     it('Drop all the stored items.', async () => {
-        await cache.set('test', 'Some value 😂!');
+        await cache.set('test', item);
         await cache.invalidate();
         let value = await cache.get('test', {
             silent: true
         });
         assert.deepEqual(value, null, 'Was not possible to drop all cached entries.');
+    });
+
+    it('Drop all the stored items and remove the database file.', async () => {
+        await cache.invalidate({
+            dropFile: true
+        });
+        assert.deepEqual(filesystem.existsSync('test/resources/cache.db'), false, 'The database file is still existing.');
     });
 });

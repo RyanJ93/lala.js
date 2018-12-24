@@ -19,6 +19,9 @@ module.exports.UnresolvedDependencyException = exceptions.UnresolvedDependencyEx
 module.exports.BadMethodCallException = exceptions.BadMethodCallException;
 module.exports.UnsupportedMethodException = exceptions.UnsupportedMethodException;
 module.exports.DuplicateEntryException = exceptions.DuplicateEntryException;
+module.exports.SerializationException = exceptions.SerializationException;
+module.exports.ParseException = exceptions.ParseException;
+module.exports.AuthenticationException = exceptions.AuthenticationException;
 
 // Including built-in modules.
 module.exports.Authenticator = require('./lib/Authenticator').Authenticator;

@@ -6,6 +6,9 @@
       <w>lala</w>
       <w>memcached</w>
       <w>middlewares</w>
+      <w>sqlite</w>
+      <w>unserialization</w>
+      <w>unserialize</w>
     </words>
   </dictionary>
 </component>
