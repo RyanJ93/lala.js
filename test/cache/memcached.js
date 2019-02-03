@@ -4,7 +4,10 @@ const assert = require('assert');
 const lala = require('../../index');
 const { MemcachedConnection, MemcachedClusteredConnection } = lala.DatabaseConnections;
 const { MemcachedCacheDriver } = lala.CacheDrivers;
-const { Cache, InvalidArgumentException } = lala;
+const {
+    Cache,
+    InvalidArgumentException
+} = lala;
 const common = require('../common');
 
 describe('Testing framework capabilities using Memcached as cache driver.', () => {
@@ -12,15 +15,11 @@ describe('Testing framework capabilities using Memcached as cache driver.', () =
         silent: true
     };
 
-    it('Manually adding the Memcached driver.', async () => {
-        await Cache.registerDriver('memcached', MemcachedCacheDriver);
-        assert.deepEqual(Cache.isSupportedDriver('memcached'), true, 'Memcached driver was not add.');
-    });
-
     it('Establish a connection to Memcached.', async () => {
         connection = new MemcachedConnection();
         await connection.connect();
         MemcachedCacheDriver.addConnection('default', connection);
+        Cache.setDefaultDriverConnection('memcached', 'default');
     });
 
     it('Generating the cache object.', async () => {
@@ -169,15 +168,19 @@ describe('Testing framework capabilities using Memcached as cache driver.', () =
     it('Incrementing multiple elements.', async () => {
         let items = {'a': 1, 'b': 3, 'c': 8};
         await cache.setMulti(items);
-        await cache.incrementMulti(['a', 'b', 'c'], 1);
-        items = await cache.getMulti(['a', 'b', 'c']);
-        assert.deepEqual(items, {'a': 2, 'b': 4, 'c': 9}, 'Increment failed.');
+        await cache.incrementMulti(['a', 'b', 'c', 'd'], 1);
+        items = await cache.getMulti(['a', 'b', 'c', 'd'], {
+            silent: true
+        });
+        assert.deepEqual(items, {'a': 2, 'b': 4, 'c': 9, 'd': null}, 'Increment failed.');
     });
 
     it('Decrementing multiple elements.', async () => {
-        await cache.decrementMulti(['a', 'b', 'c'], 1);
-        let items = await cache.getMulti(['a', 'b', 'c']);
-        assert.deepEqual(items, {'a': 1, 'b': 3, 'c': 8}, 'Decrement failed.');
+        await cache.decrementMulti(['a', 'b', 'c', 'd'], 1);
+        let items = await cache.getMulti(['a', 'b', 'c', 'd'], {
+            silent: true
+        });
+        assert.deepEqual(items, {'a': 1, 'b': 3, 'c': 8, 'd': null}, 'Decrement failed.');
     });
 
     it('Alter the TTL value for a multiple stored items.', () => {

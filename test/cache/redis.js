@@ -4,7 +4,10 @@ const assert = require('assert');
 const lala = require('../../index');
 const { RedisConnection } = lala.DatabaseConnections;
 const { RedisCacheDriver } = lala.CacheDrivers;
-const { Cache, InvalidArgumentException } = lala;
+const {
+    Cache,
+    InvalidArgumentException
+} = lala;
 const common = require('../common');
 
 describe('Testing framework capabilities using Redis as cache driver.', () => {
@@ -12,16 +15,11 @@ describe('Testing framework capabilities using Redis as cache driver.', () => {
         silent: true
     };
 
-    // Preparing connection and registering the driver.
-    it('Manually adding the Redis driver.', async () => {
-        await Cache.registerDriver('redis', RedisCacheDriver);
-        assert.deepEqual(Cache.isSupportedDriver('redis'), true, 'Redis driver was not add.');
-    });
-
     it('Set up a default Redis connection.', async () => {
         connection = new RedisConnection();
         await connection.setPassword('test').connect();
         RedisCacheDriver.addConnection('default', connection);
+        Cache.setDefaultDriverConnection('redis', 'default');
     });
 
     // Starting tests.
@@ -171,9 +169,9 @@ describe('Testing framework capabilities using Redis as cache driver.', () => {
     it('Incrementing multiple elements.', async () => {
         let items = {'a': 1, 'b': 3.4, 'c': 8};
         await cache.setMulti(items);
-        await cache.incrementMulti(['a', 'b', 'c'], 1.2);
-        items = await cache.getMulti(['a', 'b', 'c']);
-        assert.deepEqual(items, {'a': '2.2', 'b': '4.6', 'c': '9.2'}, 'Increment failed.');
+        await cache.incrementMulti(['a', 'b', 'c', 'd'], 1.2);
+        items = await cache.getMulti(['a', 'b', 'c', 'd']);
+        assert.deepEqual(items, {'a': '2.2', 'b': '4.6', 'c': '9.2', 'd': 1.2}, 'Increment failed.');
     });
 
     it('Decrementing multiple elements.', async () => {
@@ -203,8 +201,8 @@ describe('Testing framework capabilities using Redis as cache driver.', () => {
                                 f: 5,
                                 g: 6
                             }, {
-                                ttl: 1,
-                                overwrite: true
+                               ttl: 1000,
+                               overwrite: true
                             }).then(() => {
                                 cache.expireMulti(['e', 'f', 'g', 'h'], null).then(() => {
                                     setTimeout(() => {

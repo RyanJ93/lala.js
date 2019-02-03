@@ -143,6 +143,29 @@ describe('Testing framework capabilities using local cache driver.', () => {
         assert.deepEqual(await cache.get('test-inc'), 3, 'The item was not incremented correctly.');
     });
 
+    it('Increment a non-existing element.', async () => {
+        await cache.increment('test-inc-2', 2, {
+            create: true
+        });
+        assert.deepEqual(await cache.get('test-inc-2'), 2, 'Increment failed.');
+    });
+
+    it('Increment an ineligible element.', async () => {
+        await cache.set('test-inc-3', 'abc');
+        await cache.increment('test-inc-3', 2, {
+            silent: true
+        });
+        const value = await cache.get('test-inc-3');
+        assert.deepEqual(value, 'abc', 'Increment failed.');
+    });
+
+    it('Increment an value in arbitrary precision.', async () => {
+        await cache.set('test-inc-4', common.bigPrimeNumber);
+        await cache.increment('test-inc-4', 56666);
+        const result = common.bigPrimeNumber + BigInt(56666);
+        assert.deepEqual(await cache.get('test-inc-4'), result, 'Increment failed.');
+    });
+
     it('Decrement a numeric item.', async () => {
         await cache.set('test-dec', 5);
         await cache.decrement('test-dec', 3);
@@ -175,14 +198,41 @@ describe('Testing framework capabilities using local cache driver.', () => {
     it('Incrementing multiple elements.', async () => {
         let items = {'a': 1, 'b': 3.4, 'c': 8};
         await cache.setMulti(items);
-        await cache.incrementMulti(['a', 'b', 'c', 'd'], 1.2);
-        items = await cache.getMulti(['a', 'b', 'c', 'd']);
+        await cache.incrementMulti(['a', 'b', 'c'], 1.2);
+        items = await cache.getMulti(['a', 'b', 'c', 'd'], {
+            silent: true
+        });
         assert.deepEqual(items, {'a': 2.2, 'b': 4.6, 'c': 9.2, 'd': null}, 'Increment failed.');
     });
 
+    it('Increment some elements with a non existing entry.', async () => {
+        let items = {'a1': 2, 'b2': 6, 'h2': common.bigPrimeNumber};
+        await cache.setMulti(items);
+        await cache.incrementMulti(['a1', 'b2', 'c3'], 1.8, {
+            create: true
+        });
+        items = await cache.getMulti(['a1', 'b2', 'c3']);
+        assert.deepEqual(items, {'a1': 3.8, 'b2': 7.8, 'c3': 1.8}, 'Increment failed.');
+    });
+
+    it('Increment some elements ignoring ineligible values.', async () => {
+        await cache.removeMulti(['a1', 'b2', 'c3']);
+        let items = {'a1': 2.4, 'b2': 6.6, 'd3': 'abc'};
+        await cache.setMulti(items);
+        await cache.incrementMulti(['a1', 'b2', 'c3', 'd3'], 1.8, {
+            silent: true
+        });
+        items = await cache.getMulti(['a1', 'b2', 'c3', 'd3'], {
+            silent: true
+        });
+        assert.deepEqual(items, {'a1': 4.2, 'b2': 8.4, 'c3': null, 'd3': 'abc'}, 'Increment failed.');
+    });
+
     it('Decrementing multiple elements.', async () => {
-        await cache.decrementMulti(['a', 'b', 'c', 'd'], 1.2);
-        let items = await cache.getMulti(['a', 'b', 'c', 'd']);
+        await cache.decrementMulti(['a', 'b', 'c'], 1.2);
+        let items = await cache.getMulti(['a', 'b', 'c', 'd'], {
+            silent: true
+        });
         items.a = Math.round(items.a);
         items.b = Math.round(items.b * 10) / 10;
         items.c = Math.round(items.c);

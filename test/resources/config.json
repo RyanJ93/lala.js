@@ -5,13 +5,13 @@
     "servers": [
         {
             "name": "main",
-            "_port": 12345,
+            "port": 12345,
             "bind": "127.0.0.1",
             "type": "http",
             "routers": ["web", "api"]
         }
     ],
-    "_database": [],
+    "database": [],
     "logger": {
         "verbose": true,
         "sentry": {
@@ -20,24 +20,148 @@
         }
     },
     "cache": {
-        "_connections": [{
-            "type": "redis",
-            "name": "test",
-            "_host": "127.0.0.1",
-            "_port": 6379,
-            "_path": null,
-            "_database": 0,
-            "_password": null
+        "templates": {
+            "local_driver": {
+                "driver": "local",
+                "ttl": null,
+                "namespace": "test",
+                "overwrite": false,
+                "options": {}
+            },
+            "redis_driver": {
+                "driver": "redis",
+                "connection": "redis_test_cluster",
+                "hashingAlgorithm": "md5",
+                "ttl": null,
+                "namespace": "test",
+                "overwrite": false,
+                "options": {}
+            },
+            "redis_driver_2": {
+                "driver": "redis",
+                "connection": {
+                    "host": "127.0.0.1",
+                    "port": 6379,
+                    "path": null,
+                    "database": 0,
+                    "password": null,
+                    "options": {}
+                },
+                "hashingAlgorithm": "md5",
+                "ttl": null,
+                "namespace": "test",
+                "overwrite": false,
+                "options": {}
+            },
+            "memcached_driver": {
+                "driver": "memcached",
+                "connection": "memcached_test_cluster",
+                "hashingAlgorithm": "md5",
+                "ttl": null,
+                "namespace": "test",
+                "overwrite": false,
+                "options": {}
+            },
+            "memcached_driver_2": {
+                "driver": "memcached",
+                "connection": {
+                    "host": "127.0.0.1",
+                    "port": 11211,
+                    "options": {}
+                },
+                "hashingAlgorithm": "md5",
+                "ttl": null,
+                "namespace": "test",
+                "overwrite": false,
+                "options": {}
+            },
+            "sqlite3_driver": {
+                "driver": "sqlite3",
+                "connection": "sqlite3_test",
+                "hashingAlgorithm": "md5",
+                "ttl": null,
+                "namespace": "test",
+                "overwrite": false,
+                "options": {}
+            },
+            "sqlite3_driver_2": {
+                "driver": "sqlite3",
+                "connection": {
+                    "path": "test/resources/cache.db",
+                    "passphrase": null,
+                    "modes": ["readwrite", "create"]
+                },
+                "hashingAlgorithm": "md5",
+                "ttl": null,
+                "namespace": "test",
+                "overwrite": false,
+                "options": {}
+            },
+            "file_driver": {
+                "driver": "file",
+                "path": "test/resources/cache/",
+                "hashingAlgorithm": "md5",
+                "ttl": null,
+                "namespace": "test",
+                "overwrite": false,
+                "options": {}
+            }
+        },
+        "template": "local_driver",
+        "driver": "local",
+        "connection": "",
+        "path": "",
+        "hashingAlgorithm": "md5",
+        "ttl": null,
+        "namespace": "test",
+        "overwrite": false,
+        "options": {},
+        "defaultConnections": {
+            "redis": "redis_test",
+            "memcached": "memcached_test",
+            "sqlite3": "sqlite3_test"
+        },
+        "defaultPath": "test/resources/cache/"
+    },
+    "connections": [
+        {
+            "driver": "redis",
+            "name": "redis_test",
+            "host": "127.0.0.1",
+            "port": 6379,
+            "path": null,
+            "database": 0,
+            "password": null
         }, {
-            "type": "redis",
-            "name": "test_cluster",
+            "driver": "redis",
+            "name": "redis_test_cluster",
             "cluster": [{
-                "_host": "127.0.0.1",
-                "_port": 6379,
-                "_path": null,
-                "_database": 0,
-                "_password": null
+                "weight": 1,
+                "host": "127.0.0.1",
+                "port": 6379,
+                "path": null,
+                "database": 0,
+                "password": null
             }]
-        }]
-    }
+        }, {
+            "driver": "memcached",
+            "name": "memcached_test",
+            "host": "127.0.0.1",
+            "port": 11211
+        }, {
+            "driver": "memcached",
+            "name": "memcached_test_cluster",
+            "cluster": [{
+                "weight": 1,
+                "host": "127.0.0.1",
+                "port": 11211
+            }]
+        }, {
+            "driver": "sqlite3",
+            "name": "sqlite3_test",
+            "path": "test/resources/cache.db",
+            "passphrase": null,
+            "modes": ["readwrite", "create"]
+        }
+    ]
 }
