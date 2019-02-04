@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const lala = require('../index');
+const lala = require('../..');
 
 describe('Server', () => {
     let server = null;

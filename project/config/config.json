@@ -5,13 +5,13 @@
     "servers": [
         {
             "name": "main",
-            "port": 12345,
+            "_port": 12345,
             "bind": "127.0.0.1",
             "type": "http",
             "routers": ["web", "api"]
         }
     ],
-    "database": [],
+    "_database": [],
     "logger": {
         "verbose": true,
         "sentry": {

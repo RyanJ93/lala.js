@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const lala = require('../index');
+const lala = require('../..');
 
 describe('Routing features.', () => {
     // Testing routes with the "web" router.
@@ -23,7 +23,7 @@ describe('Routing features.', () => {
             // TODO: Add local middleware and param middleware tests for this route.
         } );
         it('Creating 25000 routes containing a parameter.', () => {
-            for (let i = 0; i < 25000; i++) {
+            for (let i = 0; i < 50000; i++) {
                 router.get( '/test-' + i.toString() + '/:id/', () => {
                 } );
             }

@@ -1,14 +1,14 @@
 {
-    "database": {
+    "_database": {
         "main": {
-            "driver": "mongodb",
+            "_driver": "mongodb",
             "hostname": "127.0.0.1",
-            "database": "lala"
+            "_database": "lala"
         }
     },
     "servers": {
         "main": {
-            "port": 12222,
+            "_port": 12222,
             "type": "http",
             "bind": "127.0.0.1"
         }
