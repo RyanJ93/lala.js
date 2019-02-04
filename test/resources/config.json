@@ -131,7 +131,8 @@
             "port": 6379,
             "path": null,
             "database": 0,
-            "password": null
+            "password": null,
+            "default": true
         }, {
             "driver": "redis",
             "name": "redis_test_cluster",
@@ -147,7 +148,8 @@
             "driver": "memcached",
             "name": "memcached_test",
             "host": "127.0.0.1",
-            "port": 11211
+            "port": 11211,
+            "default": true
         }, {
             "driver": "memcached",
             "name": "memcached_test_cluster",
@@ -161,7 +163,8 @@
             "name": "sqlite3_test",
             "path": "test/resources/cache.db",
             "passphrase": null,
-            "modes": ["readwrite", "create"]
+            "modes": ["readwrite", "create"],
+            "default": true
         }
     ]
 }
