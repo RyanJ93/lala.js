@@ -3,3 +3,6 @@
 node_modules/
 test/resources/cache.db
 test/resources/cache/
+profiling/
+live-test/
+profiling-test/

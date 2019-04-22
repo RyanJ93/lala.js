@@ -23,6 +23,7 @@
     "homepage": "https://gitlab.com/RyanJ93/lala.js#readme",
     "dependencies": {
         "ejs": "^2.6.1",
+        "weak": "^1.0.1",
         "websocket": "^1.0.26"
     },
     "optionalDependencies": {
@@ -36,6 +37,7 @@
     },
     "devDependencies": {
         "assert": "^1.4.1",
-        "mocha": "^5.2.0"
+        "mocha": "^5.2.0",
+        "request": "latest"
     }
 }
