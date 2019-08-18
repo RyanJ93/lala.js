@@ -1,22 +1,5 @@
 const lala = require('..');
 
-
-const index = new lala.WeakIndex();
-const _index = new WeakMap();
-let test = {t:8};
-index.set('test', test);
-_index.set(test, 'test');
-/*
-console.log('wi', index.get('test'));
-console.log('wm', _index.get(test));
-
-setTimeout(() => {
-    console.log(test);
-    console.log('wi', index.get('test'));
-    console.log('wm', _index.get(test));
-}, 3000);
-*/
-
 lala.fallFromTheSky().then(async () => {
     lala.Logger.setSentryDNS('https://e99f8780d7604ba0b3b9bfea8295d14a@sentry.io/1417171');
     const router = lala.RouterRepository.get('web');
@@ -24,6 +7,10 @@ lala.fallFromTheSky().then(async () => {
 
 
     console.time('test');
+    router.post('/', (request, handler) => {
+        return 'OK';
+    });
+
     router.get('/perf', (request, handler) => {
         return 'OK';
     });
@@ -47,6 +34,7 @@ lala.fallFromTheSky().then(async () => {
             return data;
         });
     }
+
     router.resource('/assets/', './live-test/local-assets');
     console.timeEnd('test');
     router.addParamMiddleware('name', async (param, request, response, next) => {
@@ -58,14 +46,13 @@ lala.fallFromTheSky().then(async () => {
     router.addParamMiddleware('page', async (param, request, response, next) => {
         await next();
     }, 'page');
-    lala.Router.addGlobalParamMiddleware('userID', async (param, request, response, next) => {
-        //console.log('name', 4);
-        await next();
-    }, 'userID');
     router.get('/test/:userID/:name/:surname/profile/:section/show/', (request, handler) => {
         return 'OK';
     });
-    router.view('/', './live-test/local-assets/test.ejs');
+    router.view('/', __dirname + '/local-assets/test.ejs');
+    router.get('/perf', (request, response) => {
+        return 'OK';
+    });
     // http://localhost:2345/test/56/test/rt/profile/comments/show/
     // http://enrico:test@localhost:2345/test/56/test/rt/profile/comments/show/
 /*
@@ -87,14 +74,27 @@ lala.fallFromTheSky().then(async () => {
         }
     }).setCredentialsFile('./live-test/credentials.json');
     authenticator.getCredentialsProvider().setCredentialsPreloading(true);
-    router.setAuthenticator(authenticator).setAuth(true);
+   // router.setAuthenticator(authenticator).setAuth(true);
     const server = new lala.HTTPServer();
-    server.setPort(2345).setRoutersByName(['web', 'api']).setRoutingCache(false);
+    server.setPort(2345).setRoutersByName(['web', 'api']);
+    /*
     server.addExceptionHandler(lala.InvalidArgumentException, (ex, request, handler) => {
         console.log(ex);
     });
+    */
+
+    router.get('/test-cookie', (request, response) => {
+        response.setCookie('test', '2');
+        return Array.from(request.cookies.entries());
+    });
+
+    const IPFilterRule = new lala.firewallRules.IPFilterRule();
+    IPFilterRule.setAllowedIPs(['::1', '127.0.0.1', '192.168.1.*', '::ffff:127.0.0.1']).setAllowedOnly(true);
+    const RequestCountRule = new lala.firewallRules.RequestCountRule(20000000);
+    RequestCountRule.setRetryAfter(3600);
+    server.getFirewall().addRule(RequestCountRule).addRule(IPFilterRule);
+
     await server.start();
-    test = null;
 }).catch((ex) => {
     console.log(ex);
 });

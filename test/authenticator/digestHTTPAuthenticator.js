@@ -41,7 +41,7 @@ describe('Testing authenticator behaviour (Digest HTTP auth mechanism).', () => 
                 pass: 'some_wrong_password_as_object',
                 sendImmediately: false
             }
-        });//console.log(response);
+        });
         assert.deepEqual(response.statusCode, 401);
     });
 

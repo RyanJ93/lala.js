@@ -3,6 +3,10 @@
 // Exporting helpers.
 module.exports = require('./lib/helpers');
 
+// Exporting constants.
+const constants = require('./lib/contants');
+module.exports.VERSION = constants.VERSION;
+
 // Including exceptions.
 const exceptions = require('./lib/Exceptions');
 module.exports.Exception = exceptions.Exception;
@@ -34,6 +38,11 @@ module.exports.InvalidCredentialsHTTPException = exceptions.InvalidCredentialsHT
 module.exports.TokenExpiredException = exceptions.TokenExpiredException;
 module.exports.UserNotFoundException = exceptions.UserNotFoundException;
 module.exports.MalformedAuthenticationAttemptHTTPException = exceptions.MalformedAuthenticationAttemptHTTPException;
+module.exports.TooManyRequestsHTTPException = exceptions.TooManyRequestsHTTPException;
+module.exports.RequestEntityTooLargeHTTPException = exceptions.RequestEntityTooLargeHTTPException;
+module.exports.BadRequestHTTPException = exceptions.BadRequestHTTPException;
+module.exports.URITooLongHTTPException = exceptions.URITooLongHTTPException;
+module.exports.NotImplementedYetException = exceptions.NotImplementedYetException;
 
 // Including built-in modules.
 const authenticator = require('./lib/Authenticator');
@@ -41,6 +50,10 @@ module.exports.Authenticator = authenticator.Authenticator;
 module.exports.HTTPAuthenticator = authenticator.HTTPAuthenticator;
 module.exports.BasicHTTPAuthenticator = authenticator.BasicHTTPAuthenticator;
 module.exports.DigestHTTPAuthentication = authenticator.DigestHTTPAuthentication;
+module.exports.CredentialsProviders = authenticator.CredentialsProviders;
+module.exports.AuthenticatedUser = authenticator.AuthenticatedUser;
+module.exports.AuthenticationResult = authenticator.AuthenticationResult;
+module.exports.UserSession = authenticator.UserSession;
 const cache = require('./lib/Cache');
 module.exports.Cache = cache.Cache;
 module.exports.CacheDriver = cache.CacheDriver;
@@ -73,13 +86,18 @@ module.exports.ProviderHelper = provider.ProviderHelper;
 const repository = require('./lib/Repository');
 module.exports.Repository = repository.Repository;
 const router = require('./lib/Routing');
+module.exports.BaseRoute = router.BaseRoute;
 module.exports.Route = router.Route;
 module.exports.ResourceRoute = router.ResourceRoute;
 module.exports.Router = router.Router;
-module.exports.BaseRoute = router.BaseRoute;
 module.exports.RouterRepository = router.RouterRepository;
-module.exports.RouteResolver = router.RouteResolver;
+module.exports.RouteRepository = router.RouteRepository;
 module.exports.ViewRoute = router.ViewRoute;
+module.exports.Middlewares = router.Middlewares;
+module.exports.ParameterizedRoute = router.ParameterizedRoute;
+module.exports.ParamMiddlewares = router.ParamMiddlewares;
+module.exports.RedirectRoute = router.RedirectRoute;
+module.exports.ResolvedRoute = router.ResolvedRoute;
 const server = require('./lib/Server');
 module.exports.Server = server.Server;
 module.exports.RoutedServer = server.RoutedServer;
@@ -88,19 +106,30 @@ module.exports.HTTPSServer = server.HTTPSServer;
 module.exports.WSServer = server.WSServer;
 module.exports.WSSServer = server.WSSServer;
 module.exports.UNIXSocketServer = server.UNIXSocketServer;
-module.exports.Request = server.Request;
 module.exports.ServerRepository = server.ServerRepository;
 module.exports.ServerProviderRepository = server.ServerProviderRepository;
 module.exports.ServerConfigurator = server.ServerConfigurator;
+module.exports.Firewall = server.Firewall;
+module.exports.firewallRules = server.firewallRules;
+module.exports.responses = server.responses;
+module.exports.processors = server.processors;
 const types = require('./lib/Types');
 module.exports.AuthToken = types.AuthToken;
 module.exports.Credentials = types.Credentials;
+module.exports.UploadedFile = types.UploadedFile;
+module.exports.Cookie = types.Cookie;
+module.exports.Context = types.Context;
+const utils = require('./lib/Utils');
+module.exports.BufferUtils = utils.BufferUtils;
 const view = require('./lib/View');
 module.exports.View = view.View;
 const support = require('./lib/Support');
 module.exports.WeakIndex = support.WeakIndex;
 module.exports.Keywords = support.Keywords;
 module.exports.Mimetype = support.Mimetype;
+module.exports.Factory = support.Factory;
+module.exports.Mixin = support.Mixin;
+module.exports.mixins = support.mixins;
 
 /**
  * Where the magic begins 🍭.
@@ -141,7 +170,8 @@ module.exports.fallFromTheSky = async function(options){
     }
     // Load configuration for internal sub-modules.
     await module.exports.Database.initFromConfig();
-    await module.exports.Server.initFromConfig();
+    //TODO: Disabled until factory classes will be supported.
+    //await module.exports.Server.initFromConfig();
     await module.exports.Logger.initFromConfig();
     await module.exports.Cache.initFromConfig();
     // Set handlers for uncaught exceptions.
@@ -152,10 +182,3 @@ module.exports.fallFromTheSky = async function(options){
         module.exports.Logger.reportError(error);
     });
 };
-
-Object.defineProperty(module.exports, 'VERSION', {
-    value: '0.0.5',
-    writable: false,
-    enumerable: true,
-    configurable: true
-});

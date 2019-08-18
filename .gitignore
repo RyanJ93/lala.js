@@ -6,3 +6,5 @@ test/resources/cache/
 profiling/
 live-test/
 profiling-test/
+drive/tmp/uploads/
+package-lock.json
