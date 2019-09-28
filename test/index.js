@@ -7,5 +7,5 @@ require('./cache');
 require('./routing');
 require('./server');
 require('./authenticator');
-//require('./database');
+require('./database');
 require('./helpers');

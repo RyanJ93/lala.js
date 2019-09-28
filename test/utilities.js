@@ -72,10 +72,66 @@ function fileDigest(path, algorithm = 'md5'){
     });
 }
 
+function generatePolicies(){
+    class A extends lala.Policy {
+        constructor(index){
+            super();
+            this.index = index;
+        }
+
+        async authorize(){
+            return true;
+        }
+    }
+    class B extends A {
+        async authorize(){
+            return true;
+        }
+    }
+    class C extends A {
+        async authorize(){
+            return true;
+        }
+    }
+    class D extends A {
+        async authorize(){
+            return true;
+        }
+    }
+    class E extends A {
+        async authorize(){
+            return true;
+        }
+    }
+    class F extends A {
+        async authorize(){
+            return true;
+        }
+    }
+    return {
+        A: A,
+        B: B,
+        C: C,
+        D: D,
+        E: E,
+        F: F
+    }
+}
+
+function getPolicyIndexes(policies){
+    const indexes = [];
+    for ( const policy of policies ){
+        indexes.push(policy.index);
+    }
+    return indexes;
+}
+
 module.exports = {
     ping: ping,
     fetchHTTPResponse: fetchHTTPResponse,
     fetchHTTPResponsePOST: fetchHTTPResponsePOST,
     attachBasicRoutes: attachBasicRoutes,
-    fileDigest: fileDigest
+    fileDigest: fileDigest,
+    generatePolicies: generatePolicies,
+    getPolicyIndexes: getPolicyIndexes
 };

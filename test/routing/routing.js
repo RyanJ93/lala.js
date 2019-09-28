@@ -3,6 +3,10 @@
 const filesystem = require('fs');
 const assert = require('assert');
 const lala = require('../..');
+const {
+    generatePolicies,
+    getPolicyIndexes
+} = require('../utilities');
 
 describe('Testing the routing engine.', () => {
     let router = null;
@@ -23,6 +27,29 @@ describe('Testing the routing engine.', () => {
             method: 'GET'
         }, {});
         const result = resolvedRoute instanceof lala.ResolvedRoute && resolvedRoute.getRoute().getPath() === '/test';
+        assert.deepEqual(result, true);
+    });
+
+    it('Changing a route property causing the route to be reindexed.', async () => {
+        const route = router.get('/index-test', (request, response) => {}, {
+            language: 'it',
+            name: 'index-test'
+        });
+        const successfullyResolvedRoute = await factory.craft().process({
+            url: '/index-test',
+            method: 'GET',
+            languages: new Map([['it', 1]])
+        }, {});
+        route.setLanguage('en');
+        let unresolvedRoute = null;
+        try{
+            unresolvedRoute = await factory.craft().process({
+                url: '/index-test',
+                method: 'GET',
+                languages: new Map([['it', 1]])
+            }, {});
+        }catch{}
+        const result = successfullyResolvedRoute instanceof lala.ResolvedRoute && successfullyResolvedRoute.getRoute().getName() === 'index-test' && unresolvedRoute === null;
         assert.deepEqual(result, true);
     });
 
@@ -96,24 +123,103 @@ describe('Testing the routing engine.', () => {
         assert.deepEqual(result, true);
     });
 
-    it('Creating ' + routes + ' routes containing a parameter.', () => {
+    it('Creating ' + routes + ' routes containing a parameter and trigger last one.', async () => {
         for ( let i = 0 ; i < routes ; i++ ) {
-            router.get( '/test-' + i.toString() + '/:id/', (request, response) => {});
+             router.get('/test-' + i.toString() + '/:id/', (request, response) => { return 'OK' });
         }
+        const resolvedRoute = await factory.craft().process({
+            url: '/test-' + ( routes - 1 ).toString() + '/7777/',
+            method: 'GET'
+        }, {});
+        let result = resolvedRoute instanceof lala.ResolvedRoute;
+        if ( result ){
+            result = await resolvedRoute.getRoute().execute({}, {}) === 'OK';
+        }
+        assert.deepEqual(result, true);
     });
 
     it('Trigger a route containing a parameter.', async () => {
-        const path = '/test-' + ( routes - 10 ).toString();
+        router.get('/some/route/containing/a/:parameter/plus/?:option', (request, response) => {});
         const resolvedRoute = await factory.craft().process({
-            url: path + '/6766/',
+            url: '/some/route/containing/a/cat/plus/a-dog',
             method: 'GET'
         }, {});
-        const result = resolvedRoute instanceof lala.ResolvedRoute && resolvedRoute.getRoute().getPath() === ( path + '/:id/' );
+        let result = resolvedRoute instanceof lala.ResolvedRoute;
+        if ( result ){
+            result = resolvedRoute.getRoute().getPath() === '/some/route/containing/a/:parameter/plus/?:option';
+            if ( result ){
+                const parameters = resolvedRoute.getParameters();
+                result = parameters.hasOwnProperty('parameter') && parameters.hasOwnProperty('option') && parameters.parameter === 'cat' && parameters.option === 'a-dog';
+            }
+        }
+        assert.deepEqual(result, true);
+    });
+
+    it('Create and trigger a route containing both a parameter and an optional parameter.', async () => {
+        router.get('/test/:param/section/?:id', (request, response) => {}, {
+            name: 'test-optional-parameter'
+        });
+        const resolvedRoute = await factory.craft().process({
+            url: '/test/123/section/456',
+            method: 'GET'
+        }, {});
+        let result = resolvedRoute instanceof lala.ResolvedRoute && resolvedRoute.getRoute().getName() === 'test-optional-parameter';
+        if ( result ){
+            const parameters = Object.values(resolvedRoute.getParameters());
+            result = parameters.indexOf('123') >= 0 && parameters.indexOf('456') >= 0;
+        }
+        assert.deepEqual(result, true);
+    });
+
+    it('Create and trigger a route containing a parameter and a filter on it.', async () => {
+        router.get('/test/user/:id', (request, response) => {}, {
+            filters: {
+                id: '@number'
+            },
+            name: 'test-filtered-parameter'
+        });
+        let notFound = false;
+        const resolvedRoute = await factory.craft().process({
+            url: '/test/user/456',
+            method: 'GET'
+        }, {});
+        try{
+            await factory.craft().process({
+                url: '/test/user/abc',
+                method: 'GET'
+            }, {});
+        }catch(ex){
+            if ( ex instanceof lala.NotFoundHTTPException ){
+                notFound = true;
+            }else{
+                throw ex;
+            }
+        }
+        const result = resolvedRoute instanceof lala.ResolvedRoute && resolvedRoute.getRoute().getName() === 'test-filtered-parameter' && notFound;
+        assert.deepEqual(result, true);
+    });
+
+    it('Resolving a route using the linear algorithm.', async () => {
+        router.get('/linear/algo/test/:id', (request, response) => {}, {
+            name: 'linear-algo-test'
+        });
+        const processor = factory.setRouteResolverAlgorithm('linear').craft();
+        const resolvedRoute = await processor.process({
+            url: '/linear/algo/test/123',
+            method: 'GET'
+        }, {});
+        factory.setRouteResolverAlgorithm('subset');
+        const result = resolvedRoute instanceof lala.ResolvedRoute && resolvedRoute.getRoute().getName() === 'linear-algo-test';
         assert.deepEqual(result, true);
     });
 
     it('Defining a resource route.', () => {
         router.resource('/assets', './test/public/assets');
+    });
+
+    it('Creating a route and check the generated tag.', () => {
+        const route = new lala.Route('GET', '/tags/:tagID/test/', (request, response) => {});
+        assert.deepEqual(route.getTag(), 'tags-test');
     });
 
     it('Add a middleware to a route.', () => {
@@ -241,5 +347,35 @@ describe('Testing the routing engine.', () => {
             sec: 'comments'
         });
         assert.deepEqual(url, '/profile/9/section/comments');
+    });
+
+    it('Defining some policies for some permissions.', () => {
+        const policies = generatePolicies();
+        lala.PermissionPolicyRegistry.associate('test.a', '1', new policies.A(1));
+        lala.PermissionPolicyRegistry.associate('test.a.b', '2', new policies.B(2));
+        lala.PermissionPolicyRegistry.associate('test.a.c', '3', new policies.C(3));
+        lala.PermissionPolicyRegistry.associate('test.a.c.d', '4', new policies.A(4));
+        lala.PermissionPolicyRegistry.associate('test.a.*', '5', new policies.D(5));
+        lala.PermissionPolicyRegistry.associate('test.b', '6', new policies.A(6));
+        lala.PermissionPolicyRegistry.associate('test.b.d', '7', new policies.A(7));
+        lala.PermissionPolicyRegistry.associate('test.b.*', '8', new policies.B(8));
+        lala.PermissionPolicyRegistry.associate('test.*', '9', new policies.C(9));
+        lala.PermissionPolicyRegistry.associate('test.a', '10', new policies.A(10));
+        lala.PermissionPolicyRegistry.associate('test.c', '11', new policies.E(11));
+        lala.PermissionPolicyRegistry.associate('test.c.d', '12', new policies.F(12));
+        lala.PermissionPolicyRegistry.associate('test.d.e', '13', new policies.D(13));
+        lala.PermissionPolicyRegistry.associate('test.f.z', '14', new policies.B(14));
+        const strictMatches = lala.PermissionPolicyRegistry.get('test.a.c'); // It should match number 3, 5, and 9.
+        const strictMatchesWithWildcards = lala.PermissionPolicyRegistry.get('test.a'); // It should match number 1, 10 and 9.
+        const wildcardMatches = lala.PermissionPolicyRegistry.get('test.a.*'); // It should match number 2, 3, 4, 5 and 9.
+        const noMatches = lala.PermissionPolicyRegistry.get('not-test.a'); // It shouldn't match any number.
+        const wildcardNoMatches = lala.PermissionPolicyRegistry.get('not-test.*');  // It shouldn't match any number.
+        const indexes = [];
+        indexes[0] = getPolicyIndexes(strictMatches);
+        indexes[1] = getPolicyIndexes(strictMatchesWithWildcards);
+        indexes[2] = getPolicyIndexes(wildcardMatches);
+        indexes[3] = getPolicyIndexes(noMatches);
+        indexes[4] = getPolicyIndexes(wildcardNoMatches);
+        assert.deepEqual(indexes, [[ 3, 9, 5], [1, 10, 9], [2, 3, 4, 5, 9], [], []]);
     });
 });

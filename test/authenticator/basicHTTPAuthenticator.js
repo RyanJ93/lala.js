@@ -1,5 +1,6 @@
 'use strict';
 
+const crypto = require('crypto');
 const assert = require('assert');
 const lala = require('../../index');
 const { fetchHTTPResponse } = require('../utilities');
@@ -107,6 +108,22 @@ describe('Testing authenticator behaviour (Basic HTTP auth mechanism).', () => {
                 password: 'some_password'
             }
         });
+        assert.deepEqual(response.statusCode, 200);
+    });
+
+    it('Using a custom callback function as password comparator.', async () => {
+        authenticator.setPasswordCompareFunction((userPassword, originalPassword) => {
+            userPassword = Buffer.from('salt:' + userPassword + ':pepper', 'utf-8');
+            originalPassword = Buffer.from('salt:' + originalPassword + ':pepper', 'utf-8');
+            return crypto.timingSafeEqual(userPassword, originalPassword);
+        });
+        const response = await fetchHTTPResponse(url, {
+            auth: {
+                username: 'sigtest',
+                password: 'some_password'
+            }
+        });
+        authenticator.setPasswordCompareFunction(null);
         assert.deepEqual(response.statusCode, 200);
     });
 

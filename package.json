@@ -4,7 +4,7 @@
     "description": "A simple, scalable and funny framework for Node.js.",
     "main": "index.js",
     "engines": {
-        "node": ">=10"
+        "node": ">=12"
     },
     "scripts": {
         "test": "./node_modules/mocha/bin/mocha --timeout 10000 --use_strict --exit test/index.js",
@@ -13,14 +13,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+ssh://git@gitlab.com/RyanJ93/lala.js.git"
+        "url": "git@github.com:RyanJ93/lala.js.git"
     },
-    "author": "info@enricosola.com",
+    "author": "hey@enricosola.com",
     "license": "ISC",
     "bugs": {
-        "url": "https://gitlab.com/RyanJ93/lala.js/issues"
+        "url": "https://github.com/RyanJ93/lala.js/issues"
     },
-    "homepage": "https://gitlab.com/RyanJ93/lala.js#readme",
+    "homepage": "https://www.lalajs.moe/",
     "dependencies": {
         "ejs": "^2.6.1",
         "websocket": "^1.0.26"
@@ -35,7 +35,6 @@
         "redis": "^2.8.0"
     },
     "devDependencies": {
-        "assert": "^1.4.1",
         "mocha": "^5.2.0",
         "request": "latest"
     }
