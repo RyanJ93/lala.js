@@ -116,6 +116,7 @@ module.exports.ServerRepository = server.ServerRepository;
 module.exports.ServerProviderRepository = server.ServerProviderRepository;
 module.exports.ServerConfigurator = server.ServerConfigurator;
 module.exports.Firewall = server.Firewall;
+module.exports.MessageProtocol = server.MessageProtocol;
 module.exports.firewallRules = server.firewallRules;
 module.exports.responses = server.responses;
 module.exports.processors = server.processors;
@@ -126,6 +127,7 @@ module.exports.UploadedFile = types.UploadedFile;
 module.exports.Cookie = types.Cookie;
 module.exports.Context = types.Context;
 module.exports.TLSContext = types.TLSContext;
+module.exports.WebSocketMessage = types.WebSocketMessage;
 const utils = require('./lib/Utils');
 module.exports.BufferUtils = utils.BufferUtils;
 const view = require('./lib/View');
@@ -137,6 +139,9 @@ module.exports.Mimetype = support.Mimetype;
 module.exports.Factory = support.Factory;
 module.exports.Mixin = support.Mixin;
 module.exports.mixins = support.mixins;
+module.exports.Serializer = support.Serializer;
+module.exports.BufferSerializer = support.BufferSerializer;
+module.exports.StreamSerializer = support.StreamSerializer;
 
 /**
  * Where the magic begins 🍭.

@@ -126,6 +126,14 @@ function getPolicyIndexes(policies){
     return indexes;
 }
 
+function asyncListener(obj, event){
+    return new Promise((resolve) => {
+        obj.on(event, (data) => {
+            resolve(data);
+        });
+    });
+}
+
 module.exports = {
     ping: ping,
     fetchHTTPResponse: fetchHTTPResponse,
@@ -133,5 +141,6 @@ module.exports = {
     attachBasicRoutes: attachBasicRoutes,
     fileDigest: fileDigest,
     generatePolicies: generatePolicies,
-    getPolicyIndexes: getPolicyIndexes
+    getPolicyIndexes: getPolicyIndexes,
+    asyncListener: asyncListener
 };
