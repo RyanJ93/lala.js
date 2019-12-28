@@ -321,8 +321,6 @@ describe('Testing HTTP server capabilities.', () => {
     });
 
     it('Uploading files.', async () => {
-        // TODO: Currently disabled.
-        /*
         const GETParameters = {
             test: 1,
             arr: [1, 2]
@@ -332,22 +330,199 @@ describe('Testing HTTP server capabilities.', () => {
             //arr: [7, 9, 'iii'], // Array not working, still trying to figure out if it is an app, module or querystring's issue.
             f: 8,
             em: '😃',
-            file: filesystem.createReadStream('test/resources/test.txt')
+            file: filesystem.createReadStream('test/resources/upload-test.jpg')
         };
         router.post('/file-upload', async (request) => {
-            const path = typeof request.files === 'object' && request.files !== null && request.files.hasOwnProperty('file') ? request.files.file.getPath() : null;
-            const digest = path === null ? null : await fileDigest('test/resources/test.txt');
-            request.params.file = digest;
+            request.params.file = typeof request.files.file !== 'undefined' ? await fileDigest(request.files.file.getPath()) : null;
             return Object.assign(request.query, request.params);
         });
-        const digest = await fileDigest('test/resources/upload-test.jpg');console.log(digest);
         const data = await fetchHTTPResponsePOST('http://127.0.0.1:' + port + '/file-upload?' + querystring.stringify(GETParameters), null, {
             formData: POSTParameters
         });
-        POSTParameters.file = digest;
-        const composite = Object.assign(GETParameters, POSTParameters);console.log(JSON.parse(data.body), composite);
-        assert.deepEqual(JSON.parse(data.body), composite);
-        */
+        POSTParameters.file = await fileDigest('test/resources/upload-test.jpg');
+        assert.deepEqual(JSON.parse(data.body), Object.assign(GETParameters, POSTParameters));
+    });
+
+    it('Excluding a file extension then uploading some files.', async () => {
+        const inputProcessor = server.getInputProcessorFactory();
+        inputProcessor.addDeniedFileExtension('jpg');
+        const POSTParameters = {
+            jpg: filesystem.createReadStream('test/resources/upload-test.jpg'),
+            png: filesystem.createReadStream('test/resources/nyan-cat.png')
+        };
+        router.post('/denied-file-extensions', async (request) => {
+            request.params.jpg = typeof request.files.jpg !== 'undefined' ? await fileDigest(request.files.jpg.getPath()) : null;
+            request.params.png = typeof request.files.png !== 'undefined' ? await fileDigest(request.files.png.getPath()) : null;
+            return request.params;
+        });
+        const data = await fetchHTTPResponsePOST('http://127.0.0.1:' + port + '/denied-file-extensions', null, {
+            formData: POSTParameters
+        });
+        POSTParameters.jpg = null;
+        POSTParameters.png = await fileDigest('test/resources/nyan-cat.png');
+        inputProcessor.dropDeniedExtensions();
+        assert.deepEqual(JSON.parse(data.body), POSTParameters);
+    });
+
+    it('Setting a file size limit and then uploading some files.', async () => {
+        let exception = null;
+        const inputProcessor = server.getInputProcessorFactory();
+        const exceptionProcessor = server.getExceptionProcessorFactory();
+        inputProcessor.setMaxUploadedFileSize(524288);
+        const POSTParameters = {
+            jpg: filesystem.createReadStream('test/resources/upload-test.jpg')
+        };
+        router.post('/file-upload', async (request) => {
+            request.params.jpg = typeof request.files.jpg !== 'undefined' ? await fileDigest(request.files.jpg.getPath()) : null;
+            return request.params;
+        });
+        exceptionProcessor.setDefaultExceptionHandler((ex) => {
+            exception = ex.constructor.name;
+        });
+        await fetchHTTPResponsePOST('http://127.0.0.1:' + port + '/file-upload', null, {
+            formData: POSTParameters
+        });
+        inputProcessor.setMaxUploadedFileSize(null);
+        exceptionProcessor.setDefaultExceptionHandler(null);
+        assert.deepEqual(exception, 'RequestEntityTooLargeHTTPException');
+    });
+
+    it('Setting a file count limit and then uploading some files.', async () => {
+        let exception = null;
+        const inputProcessor = server.getInputProcessorFactory();
+        const exceptionProcessor = server.getExceptionProcessorFactory();
+        inputProcessor.setMaxAllowedFileNumber(1);
+        const POSTParameters = {
+            jpg: filesystem.createReadStream('test/resources/upload-test.jpg'),
+            png: filesystem.createReadStream('test/resources/nyan-cat.png')
+        };
+        router.post('/file-upload', async (request) => {
+            request.params.jpg = typeof request.files.jpg !== 'undefined' ? await fileDigest(request.files.jpg.getPath()) : null;
+            request.params.png = typeof request.files.png !== 'undefined' ? await fileDigest(request.files.png.getPath()) : null;
+            return request.params;
+        });
+        exceptionProcessor.setDefaultExceptionHandler((ex) => {
+            exception = ex.constructor.name;
+        });
+        await fetchHTTPResponsePOST('http://127.0.0.1:' + port + '/file-upload', null, {
+            formData: POSTParameters
+        });
+        inputProcessor.setMaxAllowedFileNumber(null);
+        exceptionProcessor.setDefaultExceptionHandler(null);
+        assert.deepEqual(exception, 'RequestEntityTooLargeHTTPException');
+    });
+
+    it('Hiding identification headers from the client response.', async () => {
+        server.getOutputProcessorFactory().setStealth(true);
+        const stealthRequest = await fetchHTTPResponse('http://127.0.0.1:' + port + '/');
+        server.getOutputProcessorFactory().setStealth(false);
+        const data = await fetchHTTPResponse('http://127.0.0.1:' + port + '/');
+        const result = !stealthRequest.headers.hasOwnProperty('x-powered-by') && data.headers.hasOwnProperty('x-powered-by');
+        assert.deepEqual(result, true);
+    });
+
+    it('Extract segments from request URL.', (done) => {
+        router.get('/segment/test', (request) => {
+            const result = request.segments[0] === 'segment' && request.segments[1] === 'test';
+            assert.deepEqual(result, true);
+            done();
+        });
+        fetchHTTPResponse('http://127.0.0.1:' + port + '/segment/test');
+    });
+
+    it('Listing all the files in a directory.', async () => {
+        const location = __dirname + '/../resources/';
+        const route = router.resource('/assets', location);
+        const invalidRequest = await fetchHTTPResponse('http://127.0.0.1:' + port + '/assets/listing');
+        route.setDirectoryListing(true);
+        const data = await fetchHTTPResponse('http://127.0.0.1:' + port + '/assets/listing');
+        const result = invalidRequest.statusCode === 403 && data.body.indexOf('1.txt') > 0 && data.body.indexOf('3.txt') > 0 && data.body.indexOf('5.txt') > 0;
+        assert.deepEqual(result, true);
+    });
+
+    it('Checking if a CSRF token has been generated for current request.', async () => {
+        // TODO: replace this.
+        const CSRFStorage = require('../../lib/Server/support/CSRFTokenStorage');
+        const storage = new CSRFStorage();
+        server.getAuthorizationProcessorFactory().setCSRFTokenStorage(storage);
+        const data = await fetchHTTPResponse('http://127.0.0.1:' + port + '/');
+        const header = data.headers.hasOwnProperty('set-cookie') ? data.headers['set-cookie'][0] : '';
+        const section = header.match(/[0-9a-f]{8}\b-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-\b[0-9a-f]{12}/);
+        const result = section !== null && section[0] !== '' && storage.has(section[0]);
+        assert.deepEqual(result, true);
+    });
+
+    it('Testing automatic CSRF token verification.', async () => {
+        server.getAuthorizationProcessorFactory().setCSRFFieldName('_token');
+        let token = '';
+        router.get('/csrf-test', async (request) => {
+            if ( request.CSRFToken !== null ){
+                token = request.CSRFToken.token;
+            }
+        });
+        await fetchHTTPResponse('http://127.0.0.1:' + port + '/csrf-test', {
+            jar: true
+        });
+        const validRequest = await fetchHTTPResponsePOST('http://127.0.0.1:' + port + '/csrf-test', {
+            _token: token
+        }, {
+            jar: true
+        });
+        const invalidRequest = await fetchHTTPResponsePOST('http://127.0.0.1:' + port + '/csrf-test', {
+            _token: 'some invalid token'
+        }, {
+            jar: true
+        });
+        const result = validRequest.statusCode === 200 && invalidRequest.statusCode === 403;
+        assert.deepEqual(result, true);
+    });
+
+    it('Encrypting and then decrypting cookies.', async () => {
+        router.get('/cookie-set-clear', async (request, response) => {
+            response.setCookie('test_clear', '1');
+        });
+        router.get('/cookie-set-encrypted', async (request, response) => {
+            response.setCookie('test_encrypted', '2');
+        });
+        router.get('/cookie-get', async (request) => {
+            return request.getCookie('test_clear').getValue() + ':' + request.getCookie('test_encrypted').getValue();
+        });
+        await fetchHTTPResponse('http://127.0.0.1:' + port + '/cookie-set-clear', {
+            jar: true
+        });
+        const cookieProcessor = server.getHTTPCookieProcessorFactory();
+        cookieProcessor.setEncryption(true).setEncryptionKey('test');
+        await fetchHTTPResponse('http://127.0.0.1:' + port + '/cookie-set-encrypted', {
+            jar: true
+        });
+        const expected = '1:2';
+        const valueWithDecryption = await fetchHTTPResponse('http://127.0.0.1:' + port + '/cookie-get', {
+            jar: true
+        });
+        cookieProcessor.setEncryption(false);
+        const valueWithoutDecryption = await fetchHTTPResponse('http://127.0.0.1:' + port + '/cookie-get', {
+            jar: true
+        });
+        const result = valueWithDecryption.body === expected && valueWithoutDecryption.body !== expected && valueWithoutDecryption.body.substr(0, 2) === '1:';
+        assert.deepEqual(result, true);
+    });
+
+    it('Checking event chaining.', async () => {
+        let count = 0;
+        router.get('/event', () => {});
+        const connection = fetchHTTPResponse('http://127.0.0.1:' + port + '/event');
+        server.on('request.preprocess', () => count++);
+        server.on('request.prepare', () => count++);
+        server.on('request.cookiePreparation', () => count++);
+        server.on('request.sessionPreparation', () => count++);
+        server.on('request.routeResolution', () => count++);
+        server.on('request.authorization', () => count++);
+        server.on('request.routeProcess', () => count++);
+        server.on('request.outputProcess', () => count++);
+        server.on('request.cleanup', () => count++);
+        server.on('request.cleanupComplete', () => count++);
+        await connection;
+        assert.deepEqual(count, 10);
     });
 
     it('Stopping the server.', async () => {

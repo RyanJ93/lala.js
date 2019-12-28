@@ -217,6 +217,14 @@ describe('Testing the routing engine.', () => {
         router.resource('/assets', './test/public/assets');
     });
 
+    it('Accessing to a hidden file through a resource route.', async () => {
+        router.resource('/assets/other', './test/public/other_assets');
+        const resolvedRoute = await factory.craft().process({
+            url: '/assets/other/.hidden_file',
+            method: 'GET'
+        }, {});
+    });
+
     it('Creating a route and check the generated tag.', () => {
         const route = new lala.Route('GET', '/tags/:tagID/test/', (request, response) => {});
         assert.deepEqual(route.getTag(), 'tags-test');
@@ -347,6 +355,15 @@ describe('Testing the routing engine.', () => {
             sec: 'comments'
         });
         assert.deepEqual(url, '/profile/9/section/comments');
+    });
+
+    it('Compiling a route into an URL passing redundant parameters.', () => {
+        const url = lala.RouteRepository.get('route-to-compile').compile({
+            id: 12,
+            sec: 'details',
+            test: 56
+        });
+        assert.deepEqual(url, '/profile/12/section/details?test=56');
     });
 
     it('Defining some policies for some permissions.', () => {

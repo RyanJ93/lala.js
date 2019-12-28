@@ -4,7 +4,7 @@
 module.exports = require('./lib/helpers');
 
 // Exporting constants.
-const constants = require('./lib/contants');
+const constants = require('./lib/constants');
 module.exports.VERSION = constants.VERSION;
 
 // Including exceptions.
@@ -45,6 +45,8 @@ module.exports.URITooLongHTTPException = exceptions.URITooLongHTTPException;
 module.exports.NotImplementedYetException = exceptions.NotImplementedYetException;
 module.exports.IOException = exceptions.IOException;
 module.exports.UserNotFoundHTTPException = exceptions.UserNotFoundHTTPException;
+module.exports.UpgradeRejectedHTTPException = exceptions.UpgradeRejectedHTTPException;
+module.exports.NotAcceptableHTTPException = exceptions.NotAcceptableHTTPException;
 
 // Including built-in modules.
 const authenticator = require('./lib/Authenticator');

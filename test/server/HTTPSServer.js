@@ -107,6 +107,24 @@ describe('Testing HTTPS server capabilities.', () => {
         assert.deepEqual(result, true);
     });
 
+    it('Checking event chaining.', async () => {
+        let count = 0;
+        router.get('/event', () => {});
+        const connection = fetchHTTPResponse('https://127.0.0.1:11234/event');
+        server.on('request.preprocess', () => count++);
+        server.on('request.prepare', () => count++);
+        server.on('request.cookiePreparation', () => count++);
+        server.on('request.sessionPreparation', () => count++);
+        server.on('request.routeResolution', () => count++);
+        server.on('request.authorization', () => count++);
+        server.on('request.routeProcess', () => count++);
+        server.on('request.outputProcess', () => count++);
+        server.on('request.cleanup', () => count++);
+        server.on('request.cleanupComplete', () => count++);
+        await connection;
+        assert.deepEqual(count, 10);
+    });
+
     it('Stopping the server.', async () => {
         await server.stop();
         let exception = null;
