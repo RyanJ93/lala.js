@@ -5,9 +5,14 @@
     "servers": [
         {
             "name": "main",
+            "server": "http",
             "port": 12345,
+            "randomPort": {
+              "excluded": [80, 443],
+              "min": 8000,
+              "max": 16777
+            },
             "bind": "127.0.0.1",
-            "type": "http",
             "routers": ["web", "api"]
         }
     ],
@@ -106,6 +111,12 @@
                 "overwrite": false,
                 "options": {}
             }
+        },
+        "instances": {
+          "@default": {
+
+          },
+          "@routing": "local_driver"
         },
         "template": "local_driver",
         "driver": "local",

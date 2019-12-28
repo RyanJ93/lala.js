@@ -4,7 +4,7 @@
     "description": "A simple, scalable and funny framework for Node.js.",
     "main": "index.js",
     "engines": {
-        "node": ">=10"
+        "node": ">=12"
     },
     "scripts": {
         "test": "./node_modules/mocha/bin/mocha --timeout 10000 --use_strict --exit test/index.js",
@@ -13,29 +13,32 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+ssh://git@gitlab.com/RyanJ93/lala.js.git"
+        "url": "git@github.com:RyanJ93/lala.js.git"
     },
-    "author": "info@enricosola.com",
+    "author": "hey@enricosola.com",
     "license": "ISC",
     "bugs": {
-        "url": "https://gitlab.com/RyanJ93/lala.js/issues"
+        "url": "https://github.com/RyanJ93/lala.js/issues"
     },
-    "homepage": "https://gitlab.com/RyanJ93/lala.js#readme",
+    "homepage": "https://www.lalajs.moe/",
     "dependencies": {
         "ejs": "^2.6.1",
-        "websocket": "^1.0.26"
+        "websocket": "^1.0.26",
+        "ws": "^7.1.2"
     },
     "optionalDependencies": {
         "@sentry/node": "^4.0.0-rc.2",
+        "bufferutil": "^4.0.1",
         "cassandra": "^0.1.0",
         "memcached": "^2.2.2",
         "mongodb": "^3.1.4",
         "mysql": "^2.16.0",
         "redis": "^2.8.0",
-        "sqlite3": "^4.0.4"
+        "sqlite3": "^4.1.0",
+        "utf-8-validate": "^5.0.2"
     },
     "devDependencies": {
-        "assert": "^1.4.1",
-        "mocha": "^5.2.0"
+        "mocha": "^5.2.0",
+        "request": "latest"
     }
 }
