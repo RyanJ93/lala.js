@@ -412,6 +412,22 @@ describe('Testing HTTP server capabilities.', () => {
         assert.deepEqual(exception, 'RequestEntityTooLargeHTTPException');
     });
 
+    it('Ignoring uploaded files.', async () => {
+        const inputProcessor = server.getInputProcessorFactory();
+        inputProcessor.setAllowFileUploads(false);
+        const POSTParameters = {
+            jpg: filesystem.createReadStream('test/resources/upload-test.jpg')
+        };
+        router.post('/not-a-file-upload', async (request) => {
+            return typeof request.files.jpg !== 'undefined' ? await fileDigest(request.files.jpg.getPath()) : '';
+        });
+        const data = await fetchHTTPResponsePOST('http://127.0.0.1:' + port + '/not-a-file-upload', null, {
+            formData: POSTParameters
+        });
+        inputProcessor.setAllowFileUploads(true);
+        assert.deepEqual(data.body, '');
+    });
+
     it('Hiding identification headers from the client response.', async () => {
         server.getOutputProcessorFactory().setStealth(true);
         const stealthRequest = await fetchHTTPResponse('http://127.0.0.1:' + port + '/');
@@ -441,9 +457,7 @@ describe('Testing HTTP server capabilities.', () => {
     });
 
     it('Checking if a CSRF token has been generated for current request.', async () => {
-        // TODO: replace this.
-        const CSRFStorage = require('../../lib/Server/support/CSRFTokenStorage');
-        const storage = new CSRFStorage();
+        const storage = new lala.ServerSupport.CSRFTokenStorage();
         server.getAuthorizationProcessorFactory().setCSRFTokenStorage(storage);
         const data = await fetchHTTPResponse('http://127.0.0.1:' + port + '/');
         const header = data.headers.hasOwnProperty('set-cookie') ? data.headers['set-cookie'][0] : '';
