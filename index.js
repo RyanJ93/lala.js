@@ -1,8 +1,5 @@
 'use strict';
 
-// Exporting helpers.
-module.exports = require('./lib/helpers');
-
 // Exporting constants.
 const constants = require('./lib/constants');
 module.exports.VERSION = constants.VERSION;
@@ -122,6 +119,7 @@ module.exports.MessageProtocol = server.MessageProtocol;
 module.exports.firewallRules = server.firewallRules;
 module.exports.responses = server.responses;
 module.exports.processors = server.processors;
+module.exports.ServerSupport = server.support;
 const types = require('./lib/Types');
 module.exports.AuthToken = types.AuthToken;
 module.exports.Credentials = types.Credentials;
@@ -182,6 +180,8 @@ module.exports.fallFromTheSky = async function(options){
         }
         await Promise.all(processes);
     }
+    // Exporting helpers.
+    module.exports.helpers = require('./lib/Helpers');
     // Load configuration for internal sub-modules.
     await module.exports.Database.initFromConfig();
     //TODO: Disabled until factory classes will be supported.
