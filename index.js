@@ -44,6 +44,7 @@ module.exports.IOException = exceptions.IOException;
 module.exports.UserNotFoundHTTPException = exceptions.UserNotFoundHTTPException;
 module.exports.UpgradeRejectedHTTPException = exceptions.UpgradeRejectedHTTPException;
 module.exports.NotAcceptableHTTPException = exceptions.NotAcceptableHTTPException;
+module.exports.CloneNotSupportedException = exceptions.CloneNotSupportedException;
 
 // Including built-in modules.
 const authenticator = require('./lib/Authenticator');
@@ -131,7 +132,13 @@ module.exports.WebSocketMessage = types.WebSocketMessage;
 const utils = require('./lib/Utils');
 module.exports.BufferUtils = utils.BufferUtils;
 const view = require('./lib/View');
+module.exports.BaseView = view.BaseView;
+module.exports.ParametrizedView = view.ParametrizedView;
 module.exports.View = view.View;
+module.exports.HTMLView = view.HTMLView;
+module.exports.PresentersRepository = view.PresentersRepository;
+module.exports.ViewRepository = view.ViewRepository;
+module.exports.engines = view.engines;
 const support = require('./lib/Support');
 module.exports.WeakIndex = support.WeakIndex;
 module.exports.Keywords = support.Keywords;
