@@ -521,6 +521,36 @@ describe('Testing HTTP server capabilities.', () => {
         assert.deepEqual(result, true);
     });
 
+    it('Overriding current request HTTP method using a POST parameter.', async () => {
+        const processor = server.getRequestProcessorFactory();
+        processor.setAllowMethodOverride(true).setMethodOverrideParamName('_override');
+        let result = false;
+        router.patch('/method-override', () => {
+            result = true;
+        });
+        await fetchHTTPResponsePOST('http://127.0.0.1:' + port + '/method-override', {
+            _override: 'PATCH'
+        });
+        processor.setAllowMethodOverride(false).setMethodOverrideParamName('_method');
+        assert.deepEqual(result, true);
+    });
+
+    it('Overriding current request HTTP method using a header.', async () => {
+        const processor = server.getRequestProcessorFactory();
+        processor.setAllowMethodOverride(true);
+        let result = false;
+        router.delete('/method-override-2', () => {
+            result = true;
+        });
+        await fetchHTTPResponse('http://127.0.0.1:' + port + '/method-override-2', {
+            headers: {
+                'X-HTTP-Method-Override': 'DELETE'
+            }
+        });
+        processor.setAllowMethodOverride(false);
+        assert.deepEqual(result, true);
+    });
+
     it('Checking event chaining.', async () => {
         let count = 0;
         router.get('/event', () => {});
