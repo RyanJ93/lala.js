@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+  - 13
+os:
+  - linux
+  - osx
+  - windows
+services:
+  - redis-server
+  - memcached
+addons:
+  hosts:
+    - subdomain.lalajs.local
+    - it.lalajs.local
+    - en.lalajs.local
+    - lalajs.it
+    - lalajs.uk
+cache:
+  npm: false
+install:
+  - npm install
