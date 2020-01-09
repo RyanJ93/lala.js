@@ -15,3 +15,7 @@ addons:
     - en.lalajs.local
     - lalajs.it
     - lalajs.uk
+cache:
+  npm: false
+install:
+  - npm install
