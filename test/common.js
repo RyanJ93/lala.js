@@ -3,7 +3,7 @@
 console.log('Initializing tests...');
 console.log('Generating cache items...');
 let cacheItems = {};
-for ( let i = 0 ; i < 5000 ; i++ ){
+for ( let i = 0 ; i < 300 ; i++ ){
     cacheItems[i.toString()] = Math.random().toString(36).substring(7);
 }
 module.exports.cacheItems = cacheItems;
