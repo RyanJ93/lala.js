@@ -331,6 +331,49 @@ describe('Testing framework capabilities using SQLite3 as cache driver.', () => 
         });
     });
 
+    it('Use a sub-namespace to store a single item.', async () => {
+        await cache.set('some-new-item', 'some value');
+        await cache.set('some-new-item', 'some other value', {
+            namespace: 'test'
+        });
+        const someValue = await cache.get('some-new-item');
+        const someOtherValue = await cache.get('some-new-item', {
+            namespace: 'test'
+        });
+        await cache.invalidate({
+            namespace: 'test'
+        });
+        const result = someValue === 'some value' && someOtherValue === 'some other value';
+        assert.deepEqual(result, true);
+    });
+
+    it('Override current namespace to store a single item.', async () => {
+        const currentNamespace = cache.getNamespace();
+        cache.setNamespace('another-test');
+        await cache.set('some-new-item', 'some value');
+        await cache.set('some-new-item', 'some other value', {
+            namespace: 'test',
+            overrideNamespace: true
+        });
+        cache.setNamespace('test');
+        const someValue = await cache.get('some-new-item', {
+            namespace: 'another-test',
+            overrideNamespace: true
+        });
+        const someOtherValue = await cache.get('some-new-item');
+        await cache.invalidate({
+            namespace: 'test',
+            overrideNamespace: true
+        });
+        await cache.invalidate({
+            namespace: 'another-test',
+            overrideNamespace: true
+        });
+        cache.setNamespace(currentNamespace);
+        const result = someValue === 'some value' && someOtherValue === 'some other value';
+        assert.deepEqual(result, true);
+    });
+
     it('Drop all the stored items.', async () => {
         await cache.set('test', item);
         await cache.invalidate();
