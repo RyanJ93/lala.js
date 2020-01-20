@@ -27,7 +27,7 @@
         "ws": "^7.1.2"
     },
     "optionalDependencies": {
-        "@sentry/node": "^4.0.0-rc.2",
+        "@sentry/node": "^5.11.1",
         "bufferutil": "^4.0.1",
         "cassandra": "^0.1.0",
         "memcached": "^2.2.2",

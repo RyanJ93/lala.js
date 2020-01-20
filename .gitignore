@@ -3,8 +3,10 @@
 node_modules/
 test/resources/cache.db
 test/resources/cache/
+test/resources/logs/
 profiling/
 live-test/
 profiling-test/
 drive/tmp/uploads/
 package-lock.json
+logs/
