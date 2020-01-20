@@ -151,6 +151,8 @@ module.exports.mixins = support.mixins;
 module.exports.Serializer = support.Serializer;
 module.exports.BufferSerializer = support.BufferSerializer;
 module.exports.StreamSerializer = support.StreamSerializer;
+const controller = require('./lib/Controller');
+module.exports.Controller = controller.Controller;
 
 /**
  * Where the magic begins 🍭.
