@@ -36,7 +36,7 @@ describe('Testing view system and templating engine.', () => {
         lala.PresentersRepository.register('addExclamationPoint', (parameters, data) => {
             return data + '!';
         });
-        const view = new lala.View('test/resources/views/presenter.ejs')
+        const view = new lala.View('test/resources/views/presenter.ejs');
         const result = await view.setParams({
             greeting: 'Hello'
         }).renderAsString({
@@ -52,6 +52,16 @@ describe('Testing view system and templating engine.', () => {
             return new lala.View('test/resources/views/csrf.ejs');
         });
         const data = await fetchHTTPResponse('http://127.0.0.1:' + port + '/csrf-test');
+        assert.deepStrictEqual(data.body.trim(), expectation);
+    });
+
+    it('Printing current request CSRF token as a HTTP header.', async () => {
+        let expectation = null;
+        router.get('/csrf-header-test', (request) => {
+            expectation = '<!doctype html><html><head><meta name="csrf-token" content="' + request.CSRFToken.token + '" /></head><body></body></html>';
+            return new lala.View('test/resources/views/csrf_header.ejs');
+        });
+        const data = await fetchHTTPResponse('http://127.0.0.1:' + port + '/csrf-header-test');
         assert.deepStrictEqual(data.body.trim(), expectation);
     });
 
