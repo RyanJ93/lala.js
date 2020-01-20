@@ -469,7 +469,12 @@ describe('Testing HTTP server capabilities.', () => {
     it('Testing automatic CSRF token verification.', async () => {
         server.getAuthorizationProcessorFactory().setCSRFFieldName('_token');
         let token = '';
-        router.get('/csrf-test', async (request) => {
+        router.any('/csrf-test', async (request) => {
+            if ( request.CSRFToken !== null ){
+                token = request.CSRFToken.token;
+            }
+        });
+        router.post('/csrf-test', async (request) => {
             if ( request.CSRFToken !== null ){
                 token = request.CSRFToken.token;
             }
