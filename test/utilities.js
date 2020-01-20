@@ -134,6 +134,19 @@ function asyncListener(obj, event){
     });
 }
 
+function removeDirectory(path){
+    if ( filesystem.existsSync(path) ) {
+        filesystem.readdirSync(path).forEach((file, index) => {
+            if ( filesystem.lstatSync(path + '/' + file).isDirectory()){
+                removeDirectory(path + '/' + file);
+            }else{
+                filesystem.unlinkSync(path + '/' + file);
+            }
+        });
+        filesystem.rmdirSync(path);
+    }
+}
+
 module.exports = {
     ping: ping,
     fetchHTTPResponse: fetchHTTPResponse,
@@ -142,5 +155,6 @@ module.exports = {
     fileDigest: fileDigest,
     generatePolicies: generatePolicies,
     getPolicyIndexes: getPolicyIndexes,
-    asyncListener: asyncListener
+    asyncListener: asyncListener,
+    removeDirectory: removeDirectory
 };

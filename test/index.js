@@ -8,4 +8,5 @@ require('./server');
 require('./authenticator');
 require('./database');
 require('./helpers');
+require('./logger');
 require('./view');

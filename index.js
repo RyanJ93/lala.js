@@ -76,7 +76,9 @@ module.exports.ConnectionFactory = database.ConnectionFactory;
 module.exports.DriverRepository = database.DriverRepository;
 module.exports.ConnectionFactoryHelper = database.ConnectionFactoryHelper;
 module.exports.DatabaseFactories = database.DatabaseFactories;
-module.exports.Logger = require('./lib/Logger').Logger;
+const logger = require('./lib/Logger');
+module.exports.Logger = logger.Logger;
+module.exports.reporters = logger.reporters;
 const model = require('./lib/Model');
 module.exports.Model = model.Model;
 module.exports.User = model.User;
@@ -193,13 +195,12 @@ module.exports.fallFromTheSky = async function(options){
     await module.exports.Database.initFromConfig();
     //TODO: Disabled until factory classes will be supported.
     //await module.exports.Server.initFromConfig();
-    await module.exports.Logger.initFromConfig();
     await module.exports.Cache.initFromConfig();
     // Set handlers for uncaught exceptions.
     process.on('uncaughtException', (error) => {
-        module.exports.Logger.reportError(error);
+        //module.exports.Logger.reportError(error);
     });
     process.on('unhandledRejection', (error) => {
-        module.exports.Logger.reportError(error);
+        //module.exports.Logger.reportError(error);
     });
 };
