@@ -202,9 +202,15 @@ module.exports.fallFromTheSky = async function(options){
     await module.exports.Cache.initFromConfig();
     // Set handlers for uncaught exceptions.
     process.on('uncaughtException', (error) => {
-        //module.exports.Logger.reportError(error);
+        module.exports.Logger.logError(error);
     });
     process.on('unhandledRejection', (error) => {
-        //module.exports.Logger.reportError(error);
+        if ( error instanceof Error ){
+            module.exports.Logger.logError(error);
+        }else{
+            module.exports.Logger.log(error.toString(), {
+                level: module.exports.Logger.LEVEL_ERROR
+            });
+        }
     });
 };
