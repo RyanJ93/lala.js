@@ -154,7 +154,7 @@ module.exports.StreamSerializer = support.StreamSerializer;
 const controller = require('./lib/Controller');
 module.exports.Controller = controller.Controller;
 const service = require('./lib/Service');
-module.exports.Service = controller.Service;
+module.exports.Service = service.Service;
 
 /**
  * Where the magic begins 🍭.
