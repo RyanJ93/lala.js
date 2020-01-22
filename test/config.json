@@ -1,0 +1,19 @@
+{
+    "_database": {
+        "main": {
+            "_driver": "mongodb",
+            "hostname": "127.0.0.1",
+            "_database": "lala"
+        }
+    },
+    "servers": {
+        "main": {
+            "_port": 12222,
+            "type": "http",
+            "bind": "127.0.0.1"
+        }
+    },
+    "app": {
+        "name": "Test"
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "name": "@lala.js/core",
+    "version": "0.0.6",
+    "description": "A simple, scalable and funny framework for Node.js.",
+    "main": "index.js",
+    "engines": {
+        "node": ">=13"
+    },
+    "scripts": {
+        "test": "./node_modules/mocha/bin/mocha --timeout 10000 --use_strict --exit test/index.js",
+        "lala": "./bin/lala",
+        "lala-craft": "./bin/craft"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:RyanJ93/lala.js.git"
+    },
+    "author": "hey@enricosola.com",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/RyanJ93/lala.js/issues"
+    },
+    "homepage": "https://www.lalajs.moe/",
+    "dependencies": {
+        "ejs": "^2.6.1",
+        "ws": "^7.1.2"
+    },
+    "optionalDependencies": {
+        "@sentry/node": "^5.11.1",
+        "cassandra": "^0.1.0",
+        "memcached": "^2.2.2",
+        "mongodb": "^3.1.4",
+        "mysql": "^2.16.0",
+        "redis": "^2.8.0",
+        "sqlite3": "^4.1.0"
+    },
+    "devDependencies": {
+        "mocha": "^5.2.0",
+        "request": "latest"
+    }
+}

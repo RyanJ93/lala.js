@@ -1,0 +1,32 @@
+language: node_js
+node_js:
+  - 13
+os:
+  - linux
+  - osx
+  - windows
+services:
+  - redis-server
+  - memcached
+addons:
+  hosts:
+    - subdomain.lalajs.local
+    - it.lalajs.local
+    - en.lalajs.local
+    - lalajs.it
+    - lalajs.uk
+cache:
+  npm: false
+install:
+  - npm install
+notifications:
+  email:
+    secure: "R6LyzcYJFMuX2GYkPeOgM62q+AQJieHDpS5bT+3kTBUKxHzbQfv/i08AOqMw/1o0ByOIIfslD76Tubo3Ofrqo9Y0u+bKIPyEUsA2ayGm41XW6J4CAw4KyLxD4gSeCvpihEk47irCzA/GhX6TBO7uOKOCTDKLYcENl9myWt5cl+15hBM6wnFoeilJ2shkp5Jc2DPjPpxDwKiICTcT5luLqRFJ1tWhrI8IYAvz3EvY9OXmtTwLOtftWx9EfhPVqRkbntkqpzTiRyuY93OMWcNeJLc5xaJhmVj5aiy+Fz4AtN8zw4Xh1/6FvMIfGXWTUm38QhxrW2nNvtXW4tYiJ03AFBTmMgLaxR2TihVczsG0/8SnF5ipVUDZD0ORyJFqVo+ePXZLvFRw5VxDTInU51iShGqjHSleX5XxK1w7EszesiEOt9j1bXjiOCQjDnVOmbquQIsu3NSxm9CRzsfUkZDBNJdMZF9KGimvRD0AHpoNOXMy0Q5rrPn/WwGd6jwyPf/27YdNBV49EBKL7wOuC5l0mwrO+gJ3M3u7U5Oipn/h2y/tmH4VcGUOdxgD7NtKkejra1vAX64sRrDPlJ7aZhmExKJTPFBu8TWwBbq65VID0O4iOvv5rWxctbjDI8wsvn83VVBJ1nNJXSdW8TQPPneHmjqWI2+oAX2mA2rFN4Ck6rM="
+  slack:
+    rooms:
+      - secure: "tfkxe/OYyMlDvDrHsUyEp1+4w+t6ijgASMv1fdzU1hUjFEzBXLXAktvBj3qvDVi2jiUbzI41dKBdhWUMMmA3JgM5c5Jq0STJGzQsxII2NRrcb8VnifpobVxmj75Z6hXzmIeMc0KDZdX0z6AE9WwMDvyC6XBkhg6LfNraw4r+vTwORQNETucTTHavti9XtN2CRVqAjsp8MP+IsSJWWWyfQU8uhWCqkj+1UeEdfzSl0Kz58cGUqRDPuKf6h3DdPi0KdTyhvmrAjE+p0/WQnkTjmJexqhSlUpog3g2GDUazRRvrO7CP1aeYBypLKIPcfTOANbR7Hf1+ogMNSpu8GskWg3stNCs6xnP6VcTd/88R+ZPH+VnXBjcfbh8kkuCMBO3CA4t+3RTihdVyb4Ys+SXUYsFyy1X0dpzKve9aEENeY6Ev9si5cykZfGZzOYPbNxZWonmZNkpGHnruaJiHIQvHAAYN0t0tGgG6pyb6Aiyb985gM59pFeg5nwxcTVGlu2A0Ph3zbI2KBad0iNgt1qmnu+SAvNc802Im5O21HoXL3qHgmhwI0ciccA2hM9irLtZ8LzDjlqSF0ww88WwSiVkZ1y6LWr891RT+GkmOtRZlbT+oJ+XT0qneKbdaXepLPEASQlWIFPFQOhE+OLG4FGesvoPbeFl0HNtfEuAc2oGb9OI="
+    template:
+      - "%{repository_slug} (%{commit}) : %{message}"
+      - "Build details: %{build_url}"
+    on_success: always
+    on_failure: always

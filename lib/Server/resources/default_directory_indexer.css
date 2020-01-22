@@ -1,0 +1,114 @@
+* {
+    font-family: "Open Sans", sans-serif;
+}
+
+h1 {
+    color: #666666;
+}
+
+form {
+    width: 100%;
+    display: block;
+}
+
+form > label {
+    font-size: 12px;
+}
+
+form > input[type="search"] {
+    padding: 2px 6px;
+    border: 1px solid #DDD;
+    border-radius: 3px;
+    width: 100%;
+    max-width: 350px;
+    margin-top: 3px;
+}
+
+hr {
+    border: 1px solid #DDD;
+}
+
+th {
+    background-color: #DDD;
+    padding: 3px 6px;
+}
+
+th > a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+}
+
+th[data-active="true"] > a:after {
+    font-size: 11px;
+    color: #666;
+    margin-left: 3px;
+}
+
+th[data-active="true"][data-direction="1"] > a:after {
+    content: '\2B07';
+}
+
+th[data-active="true"][data-direction="-1"] > a:after {
+    content: '\2B06';
+}
+
+td {
+    padding: 2px 4px;
+    font-size: 14px;
+    color: #000;
+}
+
+td > a {
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+}
+
+ul.page-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.page-list > li {
+    display: inline-block;
+    vertical-align: top;
+}
+
+ul.page-list > li > a {
+    font-size: 14px;
+    color: #666;
+    text-decoration: none;
+}
+
+ul.page-list > li.page-current > a {
+    font-weight: bold;
+    color: #333;
+}
+
+p.signature {
+    font-style: italic;
+    font-size: 12px;
+    color: #666;
+    margin: 0 0 12px;
+}
+
+span.date-short {
+    display: none;
+}
+
+@media(max-width: 720px){
+    span.date-full {
+        display: none !important;
+    }
+
+    span.date-short {
+        display: inline !important;
+    }
+}
+
+table {
+    min-width: 800px;
+}
