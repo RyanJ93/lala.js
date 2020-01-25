@@ -155,6 +155,9 @@ const controller = require('./lib/Controller');
 module.exports.Controller = controller.Controller;
 const service = require('./lib/Service');
 module.exports.Service = service.Service;
+const typify = require('./lib/Typify');
+module.exports.Typify = typify.Typify;
+module.exports.TypeRepository = typify.TypeRepository;
 
 /**
  * Where the magic begins 🍭.
