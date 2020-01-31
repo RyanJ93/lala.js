@@ -187,15 +187,6 @@ module.exports.fallFromTheSky = async function(options){
     }
     // Setup internal components such as cache, sessions, server and routing engine.
     await module.exports.ProviderHelper.setupNativeProviders();
-    if ( options.hasOwnProperty('providers') && Array.isArray(options.providers) ){
-        // Setup external components.
-        let processes = [];
-        const length = options.providers.length;
-        for ( let i = 0 ; i < length ; i++ ){
-            processes.push(module.exports.ProviderHelper.setupProvider(options.providers[i]));
-        }
-        await Promise.all(processes);
-    }
     // Exporting helpers.
     module.exports.helpers = require('./lib/Helpers');
     // Load configuration for internal sub-modules.
@@ -203,6 +194,21 @@ module.exports.fallFromTheSky = async function(options){
     //TODO: Disabled until factory classes will be supported.
     //await module.exports.Server.initFromConfig();
     await module.exports.Cache.initFromConfig();
+    // Run user defined providers.
+    if ( options.hasOwnProperty('providers') && Array.isArray(options.providers) ){
+        // Execute those provider "synchronously".
+        const length = options.providers.length;
+        for ( let i = 0 ; i < length ; i++ ){
+            await module.exports.ProviderHelper.setupProvider(options.providers[i]);
+        }
+    }
+    if ( options.hasOwnProperty('parallelProviders') && Array.isArray(options.parallelProviders) ){
+        const processes = [], length = options.parallelProviders.length;
+        for ( let i = 0 ; i < length ; i++ ){
+            processes.push(module.exports.ProviderHelper.setupProvider(options.parallelProviders[i]));
+        }
+        await Promise.all(processes);
+    }
     // Set handlers for uncaught exceptions.
     process.on('uncaughtException', (error) => {
         module.exports.Logger.logError(error);
