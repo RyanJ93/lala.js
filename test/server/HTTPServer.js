@@ -343,6 +343,16 @@ describe('Testing HTTP server capabilities.', () => {
         assert.deepEqual(JSON.parse(data.body), Object.assign(GETParameters, POSTParameters));
     });
 
+    it('Sending URL parameters.', async () => {
+        router.get('/some/test/:name', (request) => {
+            return request.params;
+        });
+        const data = await fetchHTTPResponse('http://127.0.0.1:' + port + '/some/test/route');
+        assert.deepEqual(JSON.parse(data.body), {
+            name: 'route'
+        });
+    });
+
     it('Excluding a file extension then uploading some files.', async () => {
         const inputProcessor = server.getInputProcessorFactory();
         inputProcessor.addDeniedFileExtension('jpg');
