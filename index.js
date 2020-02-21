@@ -3,6 +3,7 @@
 // Exporting constants.
 const constants = require('./lib/constants');
 module.exports.VERSION = constants.VERSION;
+module.exports.IS_INSIDE_DOCKER = constants.IS_INSIDE_DOCKER;
 
 // Including exceptions.
 const exceptions = require('./lib/Exceptions');
