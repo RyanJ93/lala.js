@@ -10,3 +10,4 @@ require('./database');
 require('./helpers');
 require('./logger');
 require('./view');
+require('./typify');
