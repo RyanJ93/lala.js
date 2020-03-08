@@ -11,3 +11,6 @@ require('./helpers');
 require('./logger');
 require('./view');
 require('./typify');
+require('./validator');
+require('./form');
+require('./utils');

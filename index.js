@@ -4,6 +4,8 @@
 const constants = require('./lib/constants');
 module.exports.VERSION = constants.VERSION;
 module.exports.IS_INSIDE_DOCKER = constants.IS_INSIDE_DOCKER;
+module.exports.IM_INSIDE_DOCKER = constants.IS_INSIDE_DOCKER;
+module.exports.AM_I_INSIDE_DOCKER = constants.IS_INSIDE_DOCKER;
 
 // Including exceptions.
 const exceptions = require('./lib/Exceptions');
@@ -134,6 +136,10 @@ module.exports.TLSContext = types.TLSContext;
 module.exports.WebSocketMessage = types.WebSocketMessage;
 const utils = require('./lib/Utils');
 module.exports.BufferUtils = utils.BufferUtils;
+module.exports.DNSUtils = utils.DNSUtils;
+module.exports.EmailUtils = utils.EmailUtils;
+module.exports.EmailAddressTester = utils.EmailAddressTester;
+module.exports.StringUtils = utils.StringUtils;
 const view = require('./lib/View');
 module.exports.BaseView = view.BaseView;
 module.exports.ParametrizedView = view.ParametrizedView;
@@ -159,6 +165,12 @@ module.exports.Service = service.Service;
 const typify = require('./lib/Typify');
 module.exports.Typify = typify.Typify;
 module.exports.TypeRepository = typify.TypeRepository;
+const form = require('./lib/Form');
+module.exports.Form = form.Form;
+const validator = require('./lib/Validator');
+module.exports.ValidationRuleRepository = validator.ValidationRuleRepository;
+module.exports.validationRules = validator.validationRules;
+module.exports.Validator = validator.Validator;
 
 /**
  * Where the magic begins 🍭.
