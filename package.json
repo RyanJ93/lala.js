@@ -1,6 +1,6 @@
 {
     "name": "@lala.js/core",
-    "version": "0.0.6",
+    "version": "0.1.1",
     "description": "A simple, scalable and funny framework for Node.js.",
     "main": "index.js",
     "engines": {
@@ -15,7 +15,11 @@
         "type": "git",
         "url": "git@github.com:RyanJ93/lala.js.git"
     },
-    "author": "hey@enricosola.com",
+    "author": {
+        "name": "Enrico Sola",
+        "email": "hey@enricosola.com",
+        "url": "https://www.enricosola.com"
+    },
     "license": "ISC",
     "bugs": {
         "url": "https://github.com/RyanJ93/lala.js/issues"
@@ -25,17 +29,13 @@
         "ejs": "^2.6.1",
         "ws": "^7.1.2"
     },
-    "optionalDependencies": {
-        "@sentry/node": "^5.11.1",
-        "cassandra": "^0.1.0",
-        "memcached": "^2.2.2",
-        "mongodb": "^3.1.4",
-        "mysql": "^2.16.0",
-        "redis": "^2.8.0",
-        "sqlite3": "^4.1.0"
-    },
     "devDependencies": {
+        "@sentry/node": "^5.13.2",
+        "memcached": "^2.2.2",
         "mocha": "^5.2.0",
-        "request": "latest"
+        "mongodb": "^3.5.4",
+        "redis": "^3.0.2",
+        "request": "latest",
+        "sqlite3": "^4.1.1"
     }
 }

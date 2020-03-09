@@ -30,6 +30,86 @@ describe('Testing the routing engine.', () => {
         assert.deepEqual(result, true);
     });
 
+    it('Create and trigger the main route route.', async () => {
+        router.get('/', (request, response) => {});
+        const resolvedRoute = await factory.craft().process({
+            url: '/',
+            method: 'GET'
+        }, {});
+        const result = resolvedRoute instanceof lala.ResolvedRoute && resolvedRoute.getRoute().getPath() === '/';
+        assert.deepEqual(result, true);
+    });
+
+    it('Create and trigger a GET route.', async () => {
+        router.get('/test-trigger-get', (request, response) => {});
+        const resolvedRoute = await factory.craft().process({
+            url: '/test-trigger-get',
+            method: 'GET'
+        }, {});
+        const result = resolvedRoute instanceof lala.ResolvedRoute && resolvedRoute.getRoute().getPath() === '/test-trigger-get' && resolvedRoute.getRoute().getMethod() === 'GET';
+        assert.deepEqual(result, true);
+    });
+
+    it('Create and trigger a POST route.', async () => {
+        router.post('/test-trigger-post', (request, response) => {});
+        const resolvedRoute = await factory.craft().process({
+            url: '/test-trigger-post',
+            method: 'POST'
+        }, {});
+        const result = resolvedRoute instanceof lala.ResolvedRoute && resolvedRoute.getRoute().getPath() === '/test-trigger-post' && resolvedRoute.getRoute().getMethod() === 'POST';
+        assert.deepEqual(result, true);
+    });
+
+    it('Create and trigger a PUT route.', async () => {
+        router.put('/test-trigger-put', (request, response) => {});
+        const resolvedRoute = await factory.craft().process({
+            url: '/test-trigger-put',
+            method: 'PUT'
+        }, {});
+        const result = resolvedRoute instanceof lala.ResolvedRoute && resolvedRoute.getRoute().getPath() === '/test-trigger-put' && resolvedRoute.getRoute().getMethod() === 'PUT';
+        assert.deepEqual(result, true);
+    });
+
+    it('Create and trigger a DELETE route.', async () => {
+        router.delete('/test-trigger-delete', (request, response) => {});
+        const resolvedRoute = await factory.craft().process({
+            url: '/test-trigger-delete',
+            method: 'DELETE'
+        }, {});
+        const result = resolvedRoute instanceof lala.ResolvedRoute && resolvedRoute.getRoute().getPath() === '/test-trigger-delete' && resolvedRoute.getRoute().getMethod() === 'DELETE';
+        assert.deepEqual(result, true);
+    });
+
+    it('Create and trigger a PATCH route.', async () => {
+        router.patch('/test-trigger-patch', (request, response) => {});
+        const resolvedRoute = await factory.craft().process({
+            url: '/test-trigger-patch',
+            method: 'PATCH'
+        }, {});
+        const result = resolvedRoute instanceof lala.ResolvedRoute && resolvedRoute.getRoute().getPath() === '/test-trigger-patch' && resolvedRoute.getRoute().getMethod() === 'PATCH';
+        assert.deepEqual(result, true);
+    });
+
+    it('Create and trigger a SEARCH route.', async () => {
+        router.search('/test-trigger-search', (request, response) => {});
+        const resolvedRoute = await factory.craft().process({
+            url: '/test-trigger-search',
+            method: 'SEARCH'
+        }, {});
+        const result = resolvedRoute instanceof lala.ResolvedRoute && resolvedRoute.getRoute().getPath() === '/test-trigger-search' && resolvedRoute.getRoute().getMethod() === 'SEARCH';
+        assert.deepEqual(result, true);
+    });
+
+    it('Create and trigger a route created with the any method.', async () => {
+        router.any('/test-trigger-any', (request, response) => {});
+        const resolvedRoute = await factory.craft().process({
+            url: '/test-trigger-any',
+            method: 'POST'
+        }, {});
+        const result = resolvedRoute instanceof lala.ResolvedRoute && resolvedRoute.getRoute().getPath() === '/test-trigger-any' && resolvedRoute.getRoute().getMethod() === '*';
+        assert.deepEqual(result, true);
+    });
+
     it('Changing a route property causing the route to be reindexed.', async () => {
         const route = router.get('/index-test', (request, response) => {}, {
             language: 'it',
@@ -394,5 +474,18 @@ describe('Testing the routing engine.', () => {
         indexes[3] = getPolicyIndexes(noMatches);
         indexes[4] = getPolicyIndexes(wildcardNoMatches);
         assert.deepEqual(indexes, [[ 3, 9, 5], [1, 10, 9], [2, 3, 4, 5, 9], [], []]);
+    });
+
+    it('Create and trigger a route defined with a prefix.', async () => {
+        const prefixedRouter = new lala.Router();
+        prefixedRouter.setPrefix('prefix');
+        prefixedRouter.get('/', (request, response) => {});
+        const prefixedFactory = new lala.processors.factories.RouteProcessorFactory();
+        const resolvedRoute = await prefixedFactory.setRoutersAsArray([prefixedRouter]).craft().process({
+            url: '/prefix',
+            method: 'GET'
+        }, {});
+        const result = resolvedRoute instanceof lala.ResolvedRoute && resolvedRoute.getRoute().getPath() === '/' && resolvedRoute.getRoute().getMethod() === 'GET';
+        assert.deepEqual(result, true);
     });
 });
