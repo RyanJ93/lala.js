@@ -63,7 +63,7 @@ describe('Testing HTTPS server capabilities.', () => {
         const result = response.statusCode === 200 && response.body === 'OK';
         assert.deepEqual(result, true);
     });
-
+/*
     it('Request a client certificate and validate it.', async () => {
         // TODO
         router.get('/ssl-auth', (request, response) => {
@@ -108,6 +108,7 @@ describe('Testing HTTPS server capabilities.', () => {
     });
 
     it('Checking event chaining.', async () => {
+        // TODO
         let count = 0;
         router.get('/event', () => {});
         const connection = fetchHTTPResponse('https://127.0.0.1:11234/event');
@@ -124,7 +125,7 @@ describe('Testing HTTPS server capabilities.', () => {
         await connection;
         assert.deepEqual(count, 10);
     });
-
+*/
     it('Stopping the server.', async () => {
         await server.stop();
         let exception = null;
