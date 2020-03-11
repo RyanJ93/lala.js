@@ -7,7 +7,7 @@
         "node": ">=13"
     },
     "scripts": {
-        "test": "./node_modules/mocha/bin/mocha --timeout 10000 --use_strict --exit test/index.js",
+        "test": "node node_modules/mocha/bin/mocha --timeout 10000 --use_strict --exit test/index.js",
         "lala": "./bin/lala",
         "lala-craft": "./bin/craft"
     },
