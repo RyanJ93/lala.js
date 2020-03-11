@@ -584,6 +584,17 @@ describe('Testing HTTP server capabilities.', () => {
         assert.deepEqual(count, 10);
     });
 
+    it('Serving a file setting a custom content type and charset.', async () => {
+        const route = router.resource('/content-type-test', __dirname + '/../resources/');
+        route.addMiddleware('test', async (request, response, next) => {
+            response.charset = 'ascii';
+            response.contentType = 'application/json';
+            await next();
+        });
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/content-type-test/fake_json.txt');
+        assert.deepStrictEqual(response.headers['content-type'], 'application/json; charset="ascii"');
+    });
+
     it('Stopping the server.', async () => {
         await server.stop();
         let exception = null;
