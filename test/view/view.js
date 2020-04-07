@@ -22,12 +22,13 @@ describe('Testing view system and templating engine.', () => {
 
     it('Rendering a view into an HTML string.', async () => {
         const expectation = '<!doctype html><html><head></head><body><h1>Hello Lala!</h1></body></html>';
-        const view = new lala.View('test/resources/views/view.ejs');
-        const result = await view.setParams({
+        const factory = new lala.ViewFactory('test/resources/views/view.ejs');
+        const view = factory.setStaticParams({
             greeting: 'Hello'
-        }).renderAsString({
+        }).craft({
             name: 'Lala'
         });
+        const result = await view.renderAsString();
         assert.deepStrictEqual(result.trim(), expectation);
     });
 
@@ -36,20 +37,22 @@ describe('Testing view system and templating engine.', () => {
         lala.PresentersRepository.register('addExclamationPoint', (parameters, data) => {
             return data + '!';
         });
-        const view = new lala.View('test/resources/views/presenter.ejs');
-        const result = await view.setParams({
+        const factory = new lala.ViewFactory('test/resources/views/presenter.ejs');
+        const view = factory.setStaticParams({
             greeting: 'Hello'
-        }).renderAsString({
+        }).craft({
             name: 'Lala'
         });
+        const result = await view.renderAsString();
         assert.deepStrictEqual(result.trim(), expectation);
     });
 
     it('Printing current request CSRF token into a view.', async () => {
         let expectation = null;
         router.get('/csrf-test', (request) => {
-            expectation = '<!doctype html><html><head></head><body><pre>' + request.CSRFToken.token + '</pre></body></html>';
-            return new lala.View('test/resources/views/csrf.ejs');
+            expectation = '<!doctype html><html><head></head><body><pre>' + request.getCSRFToken().token + '</pre></body></html>';
+            const factory = new lala.ViewFactory('test/resources/views/csrf.ejs');
+            return factory.craft();
         });
         const data = await fetchHTTPResponse('http://127.0.0.1:' + port + '/csrf-test');
         assert.deepStrictEqual(data.body.trim(), expectation);
@@ -58,8 +61,9 @@ describe('Testing view system and templating engine.', () => {
     it('Printing current request CSRF token as a HTTP header.', async () => {
         let expectation = null;
         router.get('/csrf-header-test', (request) => {
-            expectation = '<!doctype html><html><head><meta name="csrf-token" content="' + request.CSRFToken.token + '" /></head><body></body></html>';
-            return new lala.View('test/resources/views/csrf_header.ejs');
+            expectation = '<!doctype html><html><head><meta name="csrf-token" content="' + request.getCSRFToken().token + '" /></head><body></body></html>';
+            const factory = new lala.ViewFactory('test/resources/views/csrf_header.ejs');
+            return factory.craft();
         });
         const data = await fetchHTTPResponse('http://127.0.0.1:' + port + '/csrf-header-test');
         assert.deepStrictEqual(data.body.trim(), expectation);
@@ -72,13 +76,36 @@ describe('Testing view system and templating engine.', () => {
         assert.deepStrictEqual(data.body.trim(), expectation);
     });
 
-    it('Caching a rendered view.', (done) => {
+    it('Caching the source file of a view.', (done) => {
+        const original = '<!doctype html><html><head></head><body><h1>Hello Lala!</h1></body></html>';
+        const edited = '<!doctype html><html><head></head><body><h1>Hello new Lala!</h1></body></html>';
+        lala.View.setUseSourceRepository(true);
+        filesystem.writeFileSync('test/resources/views/tmp_src.ejs', original);
+        const factory = new lala.ViewFactory('test/resources/views/tmp_src.ejs');
+        const view = factory.craft();
+        view.renderAsString().then((data) => {
+            setImmediate(async () => {
+                const fresh = data;
+                filesystem.writeFileSync('test/resources/views/tmp_src.ejs', edited);
+                const cached = await view.renderAsString();
+                lala.SourceRepository.clear();
+                const reloaded = await view.renderAsString();
+                const result = original === fresh && original === cached && edited === reloaded;
+                filesystem.unlinkSync('test/resources/views/tmp_src.ejs');
+                assert.deepStrictEqual(result, true);
+                done();
+            });
+        });
+    });
+
+    it('Caching the rendered output of a view.', (done) => {
         const original = '<!doctype html><html><head></head><body><h1>Hello Lala!</h1></body></html>';
         const edited = '<!doctype html><html><head></head><body><h1>Hello new Lala!</h1></body></html>';
         const cache = new lala.Cache();
         filesystem.writeFileSync('test/resources/views/tmp.ejs', original);
-        const view = new lala.View('test/resources/views/tmp.ejs');
-        view.setCacheHandler(cache);
+        const factory = new lala.ViewFactory('test/resources/views/tmp.ejs');
+        lala.View.setUseSourceRepository(false);
+        const view = factory.setCache(cache).setCaching(true).craft();
         view.renderAsString().then((data) => {
             setImmediate(async () => {
                 const fresh = data;
@@ -88,6 +115,7 @@ describe('Testing view system and templating engine.', () => {
                 const reloaded = await view.renderAsString();
                 const result = original === fresh && original === cached && edited === reloaded;
                 filesystem.unlinkSync('test/resources/views/tmp.ejs');
+                lala.View.setUseSourceRepository(true);
                 assert.deepStrictEqual(result, true);
                 done();
             });
@@ -96,7 +124,8 @@ describe('Testing view system and templating engine.', () => {
 
     it('Printing an internal constant.', async () => {
         const expectation = '<!doctype html><html><head></head><body><h1>Welcome to Lala version ' + lala.VERSION + '</h1></body></html>';
-        const view = new lala.View('test/resources/views/constant.ejs');
+        const factory = new lala.ViewFactory('test/resources/views/constant.ejs');
+        const view = factory.craft();
         const result = await view.renderAsString();
         assert.deepStrictEqual(result.trim(), expectation);
     });
@@ -106,7 +135,8 @@ describe('Testing view system and templating engine.', () => {
         const server = new lala.HTTPServer();
         const port = server.useRandomPort();
         const router = new lala.Router();
-        router.view('/view-test', new lala.View('test/resources/views/request.ejs'));
+        const factory = new lala.ViewFactory('test/resources/views/request.ejs');
+        router.view('/view-test', factory);
         await server.addRouter(router).start();
         const data = await fetchHTTPResponse('http://127.0.0.1:' + port + '/view-test');
         assert.deepStrictEqual(data.body.trim(), expectation);
@@ -114,8 +144,20 @@ describe('Testing view system and templating engine.', () => {
 
     it('Rendering a plain HTML view.', async () => {
         const expectation = '<!doctype html><html><head></head><body><h1>It works!!</h1></body></html>';
-        const view = new lala.HTMLView('test/resources/views/plain.html');
+        const factory = new lala.HTMLViewFactory('test/resources/views/plain.html');
+        const view = factory.craft();
         const result = await view.renderAsString();
+        assert.deepStrictEqual(result.trim(), expectation);
+    });
+
+    it('Registering and rendering a registered view.', async () => {
+        const expectation = '<!doctype html><html><head></head><body><h1>Hello Lala!</h1></body></html>';
+        const factory = new lala.ViewFactory('test/resources/views/view.ejs');
+        factory.register('test');
+        const result = await lala.ViewRepository.get('test').craft({
+            greeting: 'Hello',
+            name: 'Lala'
+        }).renderAsString();
         assert.deepStrictEqual(result.trim(), expectation);
     });
 

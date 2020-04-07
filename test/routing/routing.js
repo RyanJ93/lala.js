@@ -183,8 +183,8 @@ describe('Testing the routing engine.', () => {
     });
 
     it('Create and trigger a view route.', async () => {
-        const view = new lala.View(__dirname + '/../resources/test.ejs');
-        router.view('/view', view);
+        const viewFactory = new lala.ViewFactory(__dirname + '/../resources/test.ejs');
+        router.view('/view', viewFactory);
         const resolvedRoute = await factory.craft().process({
             url: '/view',
             method: 'GET'
@@ -192,7 +192,7 @@ describe('Testing the routing engine.', () => {
         let result = resolvedRoute instanceof lala.ResolvedRoute;
         if ( result ){
             const route = resolvedRoute.getRoute();
-            result = route instanceof lala.ViewRoute && route.getView() === view;
+            result = route instanceof lala.ViewRoute && route.getViewFactory() === viewFactory;
         }
         assert.deepEqual(result, true);
     });

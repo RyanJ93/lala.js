@@ -59,7 +59,8 @@ describe('Testing HTTP server capabilities.', () => {
 
     it('Triggering a route returning a view.', async () => {
         router.get('/type-view', () => {
-            return new lala.View('test/resources/test.ejs');
+            const factory = new lala.ViewFactory('test/resources/test.ejs');
+            return factory.craft();
         });
         const data = await fetchHTTPResponse('http://127.0.0.1:' + port + '/type-view');
         const expected = '<!doctype html><html><header><title>It Works!!</title></header></html>';
@@ -480,13 +481,15 @@ describe('Testing HTTP server capabilities.', () => {
         server.getAuthorizationProcessorFactory().setCSRFFieldName('_token');
         let token = '';
         router.any('/csrf-test', async (request) => {
-            if ( request.CSRFToken !== null ){
-                token = request.CSRFToken.token;
+            const CSRFToken = request.getCSRFToken();
+            if ( CSRFToken !== null ){
+                token = CSRFToken.token;
             }
         });
         router.post('/csrf-test', async (request) => {
-            if ( request.CSRFToken !== null ){
-                token = request.CSRFToken.token;
+            const CSRFToken = request.getCSRFToken();
+            if ( CSRFToken !== null ){
+                token = CSRFToken.token;
             }
         });
         await fetchHTTPResponse('http://127.0.0.1:' + port + '/csrf-test', {
