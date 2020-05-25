@@ -1,5 +1,7 @@
 'use strict';
 
+const lala = require('../');
+
 console.log('Initializing tests...');
 console.log('Generating cache items...');
 let cacheItems = {};
@@ -17,3 +19,4 @@ module.exports.bigCacheItem = bigCacheItem;
 module.exports.bigCacheItemSize = Math.floor( Buffer.byteLength(bigCacheItem, 'utf8') / 1024 ) + ' Kb';
 module.exports.bigPrimeNumber = BigInt('11809778018313501643069502360922248494285054628785121145260180317881866540265484483137856174338099878083390284545346762613088443778354838516325204182575809');
 console.log('Generated ' + module.exports.bigCacheItemSize + ' of data.');
+lala.Logger.setDebug(true);

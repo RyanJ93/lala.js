@@ -324,9 +324,12 @@ describe('Testing WebSocket server capabilities.', () => {
 
     it('Reject a message using middleware.', (done) => {
         const processor = server.getWSMessageProcessorFactory();
+        const reporters = lala.Logger.getReporters();
+        lala.Logger.setReporters(new Set());
         processor.dropMiddlewares().addMiddleware('test', (message, next) => {});
         server.getWSMessageExceptionProcessorFactory().setHandler((exception) => {
             assert.deepEqual(exception.constructor.name, 'MessageRejectedWebSocketException');
+            lala.Logger.setReporters(reporters);
             done();
         });
         clients[26] = new WebSocket('ws://127.0.0.1:11224/tmp-8');
