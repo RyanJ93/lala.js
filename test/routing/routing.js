@@ -110,7 +110,23 @@ describe('Testing the routing engine.', () => {
         assert.deepEqual(result, true);
     });
 
-    it('Changing a route property causing the route to be reindexed.', async () => {
+    it('Create and trigger a route having a controller defined with the controller closure.', async () => {
+        let executed = false;
+        class TestController extends lala.Controller {
+            test(){
+                executed = true;
+            }
+        }
+        router.get('/test-controller-closure', new lala.ControllerClosure(TestController, 'test'));
+        const resolvedRoute = await factory.craft().process({
+            url: '/test-controller-closure',
+            method: 'GET'
+        }, {});
+        await resolvedRoute.getRoute().execute({}, {});
+        assert.deepEqual(executed, true);
+    });
+
+    it('Changing a route property causing the route to be re-indexed.', async () => {
         const route = router.get('/index-test', (request, response) => {}, {
             language: 'it',
             name: 'index-test'
@@ -118,7 +134,9 @@ describe('Testing the routing engine.', () => {
         const successfullyResolvedRoute = await factory.craft().process({
             url: '/index-test',
             method: 'GET',
-            languages: new Map([['it', 1]])
+            languages: {
+                it: 1
+            }
         }, {});
         route.setLanguage('en');
         let unresolvedRoute = null;
@@ -183,8 +201,8 @@ describe('Testing the routing engine.', () => {
     });
 
     it('Create and trigger a view route.', async () => {
-        const view = new lala.View(__dirname + '/../resources/test.ejs');
-        router.view('/view', view);
+        const viewFactory = new lala.ViewFactory(__dirname + '/../resources/test.ejs');
+        router.view('/view', viewFactory);
         const resolvedRoute = await factory.craft().process({
             url: '/view',
             method: 'GET'
@@ -192,7 +210,7 @@ describe('Testing the routing engine.', () => {
         let result = resolvedRoute instanceof lala.ResolvedRoute;
         if ( result ){
             const route = resolvedRoute.getRoute();
-            result = route instanceof lala.ViewRoute && route.getView() === view;
+            result = route instanceof lala.ViewRoute && route.getViewFactory() === viewFactory;
         }
         assert.deepEqual(result, true);
     });

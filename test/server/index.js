@@ -6,6 +6,6 @@ module.exports = {
     WSServer: require('./WSServer'),
     WSSServer: require('./WSSServer'),
     UNIXSocketServer: require('./UNIXSocketServer'),
-    firewall: require('./firewall'),
+    interceptors: require('./interceptors'),
     auth: require('./auth')
 };

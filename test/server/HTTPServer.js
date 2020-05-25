@@ -59,7 +59,8 @@ describe('Testing HTTP server capabilities.', () => {
 
     it('Triggering a route returning a view.', async () => {
         router.get('/type-view', () => {
-            return new lala.View('test/resources/test.ejs');
+            const factory = new lala.ViewFactory('test/resources/test.ejs');
+            return factory.craft();
         });
         const data = await fetchHTTPResponse('http://127.0.0.1:' + port + '/type-view');
         const expected = '<!doctype html><html><header><title>It Works!!</title></header></html>';
@@ -438,6 +439,12 @@ describe('Testing HTTP server capabilities.', () => {
         assert.deepEqual(data.body, '');
     });
 
+    it('Sending a POST request having an empty body.', async () => {
+        router.post('/empty-body', () => { return ''; });
+        const response = await fetchHTTPResponsePOST('http://127.0.0.1:' + port + '/empty-body');
+        assert.deepEqual(response.statusCode, 200);
+    });
+
     it('Hiding identification headers from the client response.', async () => {
         server.getOutputProcessorFactory().setStealth(true);
         const stealthRequest = await fetchHTTPResponse('http://127.0.0.1:' + port + '/');
@@ -469,7 +476,10 @@ describe('Testing HTTP server capabilities.', () => {
     it('Checking if a CSRF token has been generated for current request.', async () => {
         const storage = new lala.ServerSupport.CSRFTokenStorage();
         server.getAuthorizationProcessorFactory().setCSRFTokenStorage(storage);
-        const data = await fetchHTTPResponse('http://127.0.0.1:' + port + '/');
+        router.get('/with-csrf', () => {}, {
+            withCSRF: true
+        });
+        const data = await fetchHTTPResponse('http://127.0.0.1:' + port + '/with-csrf');
         const header = data.headers.hasOwnProperty('set-cookie') ? data.headers['set-cookie'][0] : '';
         const section = header.match(/[0-9a-f]{8}\b-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-\b[0-9a-f]{12}/);
         const result = section !== null && section[0] !== '' && storage.has(section[0]);
@@ -480,14 +490,17 @@ describe('Testing HTTP server capabilities.', () => {
         server.getAuthorizationProcessorFactory().setCSRFFieldName('_token');
         let token = '';
         router.any('/csrf-test', async (request) => {
-            if ( request.CSRFToken !== null ){
-                token = request.CSRFToken.token;
-            }
+            token = request.CSRFToken === null ? '' : request.CSRFToken.token;
+            return '';
+        }, {
+            withCSRF: true
         });
         router.post('/csrf-test', async (request) => {
-            if ( request.CSRFToken !== null ){
-                token = request.CSRFToken.token;
-            }
+            token = request.CSRFToken === null ? '' : request.CSRFToken.token;
+            return '';
+        }, {
+            withCSRF: true,
+            requireCSRF: true
         });
         await fetchHTTPResponse('http://127.0.0.1:' + port + '/csrf-test', {
             jar: true
@@ -504,6 +517,22 @@ describe('Testing HTTP server capabilities.', () => {
         });
         const result = validRequest.statusCode === 200 && invalidRequest.statusCode === 403;
         assert.deepEqual(result, true);
+    });
+
+    it('Setting a custom cookie name and options for the CSRF cookie.', async () => {
+        server.getAuthorizationProcessorFactory().setCSRFIDCookieName('custom_name').setCSRFIDCookieOptions({
+            domain: 'test.com'
+        });
+        let tokenID = '';
+        router.get('/custom-csrf-cookie', (request) => {
+            tokenID = request.CSRFToken === null ? '' : request.CSRFToken.id;
+        }, {
+            withCSRF: true
+        });
+        lala.Logger.setDebug(true);
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/custom-csrf-cookie');
+        const expected = 'custom_name=' + tokenID + '; Version=1; Domain=.; Path=/; HttpOnly';
+        assert.deepEqual(response.headers['set-cookie'][0], expected);
     });
 
     it('Encrypting and then decrypting cookies.', async () => {
@@ -593,6 +622,401 @@ describe('Testing HTTP server capabilities.', () => {
         });
         const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/content-type-test/fake_json.txt');
         assert.deepStrictEqual(response.headers['content-type'], 'application/json; charset="ascii"');
+    });
+
+    it('Setting up HTTP caching for text responses.', async () => {
+        router.get('/http-cache-test', () => { return 'OK'; });
+        const cacheManager = new lala.HTTPHeaderManagers.HTTPCacheHeaderManager();
+        cacheManager.setMIMETypeCaching('text/plain', 3600);
+        cacheManager.setMIMETypeCaching('text/html', 60);
+        server.getOutputProcessorFactory().getHeaderManagers().push(cacheManager);
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/http-cache-test');
+        server.getOutputProcessorFactory().setHeaderManagers([]);
+        assert.deepStrictEqual(response.headers['cache-control'], 'public, max-age=3600');
+    });
+
+    it('Settings up HTTP caching at router level.', async () => {
+        router.get('/http-cache-router-test', () => { return 'OK'; });
+        const cacheManager = new lala.HTTPHeaderManagers.HTTPCacheHeaderManager();
+        cacheManager.setMIMETypeCaching('text/plain', 3600);
+        router.getHeaderManagers().push(cacheManager);
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/http-cache-router-test');
+        router.setHeaderManagers([]);
+        assert.deepStrictEqual(response.headers['cache-control'], 'public, max-age=3600');
+    });
+
+    it('Settings up HTTP caching for a single route.', async () => {
+        const route = router.get('/http-cache-route-test', () => { return 'OK'; });
+        const cacheManager = new lala.HTTPHeaderManagers.HTTPCacheHeaderManager();
+        cacheManager.setMIMETypeCaching('text/plain', 3600);
+        route.getHeaderManagers().push(cacheManager);
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/http-cache-route-test');
+        assert.deepStrictEqual(response.headers['cache-control'], 'public, max-age=3600');
+    });
+
+    it('Setting up HTTP caching for a file extension.', async () => {
+        const route = router.resource('/http-cache-extension-test', __dirname + '/../resources/');
+        const cacheManager = new lala.HTTPHeaderManagers.HTTPCacheHeaderManager();
+        cacheManager.setExtensionCaching('txt', 3600, false);
+        route.getHeaderManagers().push(cacheManager);
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/http-cache-extension-test/test.txt');
+        assert.deepStrictEqual(response.headers['cache-control'], 'private, max-age=3600');
+    });
+
+    it('Disable caching for a route.', async () => {
+        const route = router.get('/http-cache-no-cache-test', () => { return 'OK'; });
+        const globalCacheManager = new lala.HTTPHeaderManagers.HTTPCacheHeaderManager();
+        globalCacheManager.setMIMETypeCaching('text/plain', 3600);
+        server.getOutputProcessorFactory().getHeaderManagers().push(globalCacheManager);
+        const cacheManager = new lala.HTTPHeaderManagers.HTTPCacheHeaderManager();
+        cacheManager.setMIMETypeCaching('text/plain', 0);
+        route.getHeaderManagers().push(cacheManager);
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/http-cache-no-cache-test');
+        server.getOutputProcessorFactory().setHeaderManagers([]);
+        const result = response.headers['cache-control'] === 'no-store, no-cache, must-revalidate, max-age=0' && response.headers['pragma'] === 'no-cache';
+        assert.deepStrictEqual(result, true);
+    });
+
+    it('Settings up CSP.', async () => {
+        router.get('/csp-test', () => { return 'OK'; });
+        const cspHeaderManager = new lala.HTTPHeaderManagers.CSPHeaderManager();
+        cspHeaderManager.setDirective(lala.HTTPHeaderManagers.CSPHeaderManager.DEFAULT_SRC, ["self"]);
+        server.getOutputProcessorFactory().getHeaderManagers().push(cspHeaderManager);
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/csp-test');
+        server.getOutputProcessorFactory().setHeaderManagers([]);
+        assert.deepStrictEqual(response.headers['content-security-policy'], 'default-src \'self\'');
+    });
+
+    it('Enable CORS for a single route.', async () => {
+        const corsOptions = new lala.ServerSupport.CORSOptions();
+        corsOptions.setAllowOrigin('http://lalajs.moe');
+        const route = router.get('/cors-test', () => { return 'OK'; });
+        route.setCORSOptions(corsOptions);
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/cors-test');
+        assert.deepStrictEqual(response.headers['access-control-allow-origin'], 'http://lalajs.moe');
+    });
+
+    it('Use dynamic origin with CORS.', async () => {
+        const corsOptions = new lala.ServerSupport.CORSOptions();
+        corsOptions.setAllowOriginCallback(() => {
+            return 'http://dynamic.lalajs.moe';
+        });
+        const route = router.get('/dynamic-cors-test', () => { return 'OK'; });
+        route.setCORSOptions(corsOptions);
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/dynamic-cors-test');
+        assert.deepStrictEqual(response.headers['access-control-allow-origin'], 'http://dynamic.lalajs.moe');
+    });
+
+    it('Send a request that breaks CORS policy.', async () => {
+        let exception = null;
+        const corsOptions = new lala.ServerSupport.CORSOptions();
+        corsOptions.setAllowOrigin('http://lalajs.moe').setStrict(true);
+        const route = router.get('/some-cors', () => { return 'OK'; });
+        route.setCORSOptions(corsOptions);
+        server.getExceptionProcessorFactory().setDefaultExceptionHandler((ex) => {
+            exception = ex;
+        });
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/some-cors', {
+            headers: {
+                Origin: 'http://subdomain.lalajs.moe'
+            }
+        });
+        server.getExceptionProcessorFactory().setDefaultExceptionHandler(null);
+        const result = response.statusCode === 403 && exception instanceof lala.UnallowedCORSOriginHTTPException;
+        assert.deepStrictEqual(result, true);
+    });
+
+    it('Simulating a preflight OPTIONS request.', (done) => {
+        const corsOptions = new lala.ServerSupport.CORSOptions();
+        corsOptions.setAllowOrigin('http://lalajs.moe').setAllowMethods(['GET', 'OPTIONS']).setAllowHeaders(['X-PINGOTHER']);
+        const route = router.get('/options-test', () => { return 'OK'; });
+        route.setCORSOptions(corsOptions);
+        request.options('http://127.0.0.1:' + port + '/options-test', {
+            headers: {
+                ['Access-Control-Request-Method']: 'GET',
+                ['Access-Control-Request-Headers']: 'X-PINGOTHER',
+                Origin: 'http://lalajs.moe'
+            }
+        }, (error, response) => {
+            assert.deepStrictEqual(response.headers['access-control-allow-origin'], 'http://lalajs.moe');
+            done();
+        });
+    });
+
+    it('Simulating an invalid preflight OPTIONS request.', (done) => {
+        const corsOptions = new lala.ServerSupport.CORSOptions();
+        corsOptions.setAllowOrigin('http://lalajs.moe').setAllowMethods(['GET', 'OPTIONS']).setAllowHeaders(['X-PINGOTHER']);
+        const route = router.get('/invalid-options-test', () => { return 'OK'; });
+        route.setCORSOptions(corsOptions);
+        request.options('http://127.0.0.1:' + port + '/invalid-options-test', {
+            headers: {
+                ['Access-Control-Request-Method']: 'GET',
+                ['Access-Control-Request-Headers']: 'x-invalid-header',
+                Origin: 'http://lalajs.moe'
+            }
+        }, (error, response) => {
+            assert.deepStrictEqual(response.headers['access-control-allow-origin'], undefined);
+            done();
+        });
+    });
+
+    it('Setting up CORS for a router.', async () => {
+        const corsOptions = new lala.ServerSupport.CORSOptions();
+        corsOptions.setAllowOrigin('http://lalajs.moe');
+        router.setCORSOptions(corsOptions);
+        router.get('/another-cors-test', () => { return 'OK'; });
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/another-cors-test');
+        router.setCORSOptions(null);
+        assert.deepStrictEqual(response.headers['access-control-allow-origin'], 'http://lalajs.moe');
+    });
+
+    it('Setting up CORS for the whole server.', async () => {
+        const corsOptions = new lala.ServerSupport.CORSOptions();
+        corsOptions.setAllowOrigin('http://lalajs.moe');
+        server.getRouteProcessorFactory().setCORSOptions(corsOptions);
+        router.get('/server-cors-test', () => { return 'OK'; });
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/server-cors-test');
+        server.getRouteProcessorFactory().setCORSOptions(null);
+        assert.deepStrictEqual(response.headers['access-control-allow-origin'], 'http://lalajs.moe');
+    });
+
+    it('Overriding CORS settings defined on the server for a single route.', async () => {
+        const corsOptions = new lala.ServerSupport.CORSOptions();
+        corsOptions.setAllowOrigin('http://lalajs.moe');
+        server.getRouteProcessorFactory().setCORSOptions(corsOptions);
+        const route = router.get('/override-cors-test', () => { return 'OK'; });
+        const otherCorsOptions = new lala.ServerSupport.CORSOptions();
+        otherCorsOptions.setAllowOrigin('http://other.lalajs.moe');
+        route.setCORSOptions(otherCorsOptions);
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/override-cors-test');
+        server.getRouteProcessorFactory().setCORSOptions(null);
+        assert.deepStrictEqual(response.headers['access-control-allow-origin'], 'http://other.lalajs.moe');
+    });
+
+    it('Request a cacheable resource twice.', (done) => {
+        router.resource('/conditionals-test', __dirname + '/../resources/');
+        let eTag = null, lastModified = null;
+        request.get('http://127.0.0.1:' + port + '/conditionals-test/test.txt', (error, response) => {
+            let freshResponseStatusCode = response.statusCode;
+            eTag = response.headers['etag'];
+            lastModified = response.headers['last-modified'];
+            request.get('http://127.0.0.1:' + port + '/conditionals-test/test.txt', {
+                headers: {
+                    ['If-None-Match']: eTag,
+                    ['If-Modified-Since']: lastModified
+                }
+            }, (error, response) => {
+                const result = freshResponseStatusCode === 200 && response.statusCode === 304;
+                assert.deepStrictEqual(result, true);
+                done();
+            });
+        });
+    });
+
+    it('Manually checking resource changes before sending.', (done) => {
+        router.get('/conditionals-manual-test', (request, response) => {
+            response.setHeader('etag', 'some-etag');
+            if ( request.matchConditionals('some-etag', null) ){
+                response.unchanged();
+            }
+        });
+        request.get('http://127.0.0.1:' + port + '/conditionals-manual-test', {
+            headers: {
+                ['If-None-Match']: 'some-etag'
+            }
+        }, (error, response) => {
+            assert.deepStrictEqual(response.statusCode, 304);
+            done();
+        });
+    });
+
+    it('Prevent conditionals header to be interpreted for a single resource.', (done) => {
+        router.resource('/conditionals-middleware-test', __dirname + '/../resources/');
+        router.addMiddleware('conditionals-middleware-test', async (request, response, next) => {
+            if ( request.path === '/conditionals-middleware-test/test.txt' ){
+                request.ignoreConditionalsHeaders();
+            }
+            await next();
+        });
+        let eTag = null, lastModified = null;
+        request.get('http://127.0.0.1:' + port + '/conditionals-middleware-test/test.txt', (error, response) => {
+            let freshResponseStatusCode = response.statusCode;
+            eTag = response.headers['etag'];
+            lastModified = response.headers['last-modified'];
+            request.get('http://127.0.0.1:' + port + '/conditionals-middleware-test/test.txt', {
+                headers: {
+                    ['If-None-Match']: eTag,
+                    ['If-Modified-Since']: lastModified
+                }
+            }, (error, response) => {
+                router.removeMiddleware('conditionals-middleware-test');
+                const result = freshResponseStatusCode === 200 && response.statusCode === 200;
+                assert.deepStrictEqual(result, true);
+                done();
+            });
+        });
+    });
+
+    it('Disable conditionals header support for a whole route.', (done) => {
+        router.resource('/conditionals-disabled-test', __dirname + '/../resources/', {
+            allowConditionalRequests: false
+        });
+        let eTag = null, lastModified = null;
+        request.get('http://127.0.0.1:' + port + '/conditionals-disabled-test/test.txt', (error, response) => {
+            let freshResponseStatusCode = response.statusCode;
+            eTag = response.headers['etag'];
+            lastModified = response.headers['last-modified'];
+            request.get('http://127.0.0.1:' + port + '/conditionals-disabled-test/test.txt', {
+                headers: {
+                    ['If-None-Match']: eTag,
+                    ['If-Modified-Since']: lastModified
+                }
+            }, (error, response) => {
+                const result = freshResponseStatusCode === 200 && response.statusCode === 200;
+                assert.deepStrictEqual(result, true);
+                done();
+            });
+        });
+    });
+
+    it('Check if a MIME type is accepted according to the client provided Accept header.', (done) => {
+        router.get('/accepted-mime-test', (request) => {
+            if ( !request.isMIMETypeAccepted('text/html') ){
+                request.notAcceptable();
+            }
+            return '1';
+        });
+        router.get('/not-accepted-mime-test', (request) => {
+            if ( !request.isMIMETypeAccepted('application/json') ){
+                request.notAcceptable();
+            }
+            return '1';
+        });
+        request.get('http://127.0.0.1:' + port + '/accepted-mime-test', {
+            headers: {
+                ['Accept']: 'text/html, application/xhtml+xml, application/xml;q=0.9'
+            }
+        }, (error, acceptedResponse) => {
+            request.get('http://127.0.0.1:' + port + '/not-accepted-mime-test', {
+                headers: {
+                    ['Accept']: 'text/html, application/xhtml+xml, application/xml;q=0.9'
+                }
+            }, (error, notAcceptedResponse) => {
+                const result = acceptedResponse.statusCode === 200 && acceptedResponse.body === '1' && notAcceptedResponse.statusCode === 406;
+                assert.deepStrictEqual(result, true);
+                done();
+            });
+        });
+    });
+
+    it('Get MIMEType score according to the client provided Accept header.', (done) => {
+        router.get('/accepted-mime-score-test', (request) => {
+            return request.getMIMETypeAcceptScore('text/html');
+        });
+        router.get('/not-accepted-mime-score-test', (request) => {
+            return request.getMIMETypeAcceptScore('application/json');
+        });
+        request.get('http://127.0.0.1:' + port + '/accepted-mime-score-test', {
+            headers: {
+                ['Accept']: 'text/html, application/xhtml+xml, application/xml;q=0.9'
+            }
+        }, (error, acceptedResponse) => {
+            request.get('http://127.0.0.1:' + port + '/not-accepted-mime-score-test', {
+                headers: {
+                    ['Accept']: 'text/html, application/xhtml+xml, application/xml;q=0.9'
+                }
+            }, (error, notAcceptedResponse) => {
+                const result = acceptedResponse.body === '1' && notAcceptedResponse.body === '0';
+                assert.deepStrictEqual(result, true);
+                done();
+            });
+        });
+    });
+
+    it('Decide which MIMEType is accepted according to the client provided Accept header.', (done) => {
+        router.get('/which-mime', (request) => {
+            return request.whichAcceptedMIMEType(['text/html', 'application/json']);
+        });
+        request.get('http://127.0.0.1:' + port + '/which-mime', {
+            headers: {
+                ['Accept']: 'text/html, application/xhtml+xml, application/xml;q=0.9'
+            }
+        }, (error, response) => {
+            assert.deepStrictEqual(response.body, 'text/html');
+            done();
+        });
+    });
+
+    it('Returns 406 error using a helper function.', async () => {
+        router.get('/helper-406', (request) => {
+            request.notAcceptable();
+        });
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/helper-406');
+        assert.deepStrictEqual(response.statusCode, 406);
+    });
+
+    it('Returns 404 error using a helper function.', async () => {
+        router.get('/helper-404', (request) => {
+            request.notFound();
+        });
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/helper-404');
+        assert.deepStrictEqual(response.statusCode, 404);
+    });
+
+    it('Returns 403 error using a helper function.', async () => {
+        router.get('/helper-403', (request) => {
+            request.forbidden();
+        });
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/helper-403');
+        assert.deepStrictEqual(response.statusCode, 403);
+    });
+
+    it('Returns 403 error using a helper function.', async () => {
+        router.get('/helper-403', (request) => {
+            request.forbidden();
+        });
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/helper-403');
+        assert.deepStrictEqual(response.statusCode, 403);
+    });
+
+    it('Returns 403 error using a helper function.', async () => {
+        router.get('/helper-403', (request) => {
+            request.forbidden();
+        });
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/helper-403');
+        assert.deepStrictEqual(response.statusCode, 403);
+    });
+
+    it('Returns 400 error using a helper function.', async () => {
+        router.get('/helper-400', (request) => {
+            request.badRequest();
+        });
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/helper-400');
+        assert.deepStrictEqual(response.statusCode, 400);
+    });
+
+    it('Returns 401 error using a helper function.', async () => {
+        router.get('/helper-401', (request) => {
+            request.unauthorized();
+        });
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/helper-401');
+        assert.deepStrictEqual(response.statusCode, 401);
+    });
+
+    it('Asking to the client to drop cached data and cookies.', async () => {
+        router.get('/clear-cache-and-cookies-test', (request, response) => {
+            response.clearSiteData(true, true);
+        });
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/clear-cache-and-cookies-test');
+        assert.deepStrictEqual(response.headers['clear-site-data'], '"cache", "cookies"');
+    });
+
+    it('Asking to the client to wipe out all his data related to the website.', async () => {
+        router.get('/clear-all-client-data-test', (request, response) => {
+            response.clearAllSiteData();
+        });
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/clear-all-client-data-test');
+        assert.deepStrictEqual(response.headers['clear-site-data'], '"cache", "cookies", "storage", "executionContexts"');
     });
 
     it('Stopping the server.', async () => {
