@@ -50,9 +50,11 @@ describe('Testing view system and templating engine.', () => {
     it('Printing current request CSRF token into a view.', async () => {
         let expectation = null;
         router.get('/csrf-test', (request) => {
-            expectation = '<!doctype html><html><head></head><body><pre>' + request.getCSRFToken().token + '</pre></body></html>';
+            expectation = '<!doctype html><html><head></head><body><pre>' + request.CSRFToken.token + '</pre></body></html>';
             const factory = new lala.ViewFactory('test/resources/views/csrf.ejs');
             return factory.craft();
+        }, {
+            withCSRF: true
         });
         const data = await fetchHTTPResponse('http://127.0.0.1:' + port + '/csrf-test');
         assert.deepStrictEqual(data.body.trim(), expectation);
@@ -61,9 +63,11 @@ describe('Testing view system and templating engine.', () => {
     it('Printing current request CSRF token as a HTTP header.', async () => {
         let expectation = null;
         router.get('/csrf-header-test', (request) => {
-            expectation = '<!doctype html><html><head><meta name="csrf-token" content="' + request.getCSRFToken().token + '" /></head><body></body></html>';
+            expectation = '<!doctype html><html><head><meta name="csrf-token" content="' + request.CSRFToken.token + '" /></head><body></body></html>';
             const factory = new lala.ViewFactory('test/resources/views/csrf_header.ejs');
             return factory.craft();
+        }, {
+            withCSRF: true
         });
         const data = await fetchHTTPResponse('http://127.0.0.1:' + port + '/csrf-header-test');
         assert.deepStrictEqual(data.body.trim(), expectation);

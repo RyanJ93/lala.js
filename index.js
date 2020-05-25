@@ -6,6 +6,9 @@ module.exports.VERSION = constants.VERSION;
 module.exports.IS_INSIDE_DOCKER = constants.IS_INSIDE_DOCKER;
 module.exports.IM_INSIDE_DOCKER = constants.IS_INSIDE_DOCKER;
 module.exports.AM_I_INSIDE_DOCKER = constants.IS_INSIDE_DOCKER;
+module.exports.IS_ON_HEROKU = constants.IS_ON_HEROKU;
+module.exports.IM_ON_HEROKU = constants.IS_ON_HEROKU;
+module.exports.AM_I_ON_HEROKU = constants.IS_ON_HEROKU;
 
 // Including exceptions.
 const exceptions = require('./lib/Exceptions');
@@ -48,6 +51,9 @@ module.exports.UserNotFoundHTTPException = exceptions.UserNotFoundHTTPException;
 module.exports.UpgradeRejectedHTTPException = exceptions.UpgradeRejectedHTTPException;
 module.exports.NotAcceptableHTTPException = exceptions.NotAcceptableHTTPException;
 module.exports.CloneNotSupportedException = exceptions.CloneNotSupportedException;
+module.exports.RangeNotSatisfiableHTTPException = exceptions.RangeNotSatisfiableHTTPException;
+module.exports.UnallowedCORSOriginHTTPException = exceptions.UnallowedCORSOriginHTTPException;
+module.exports.DependencyMissingException = exceptions.DependencyMissingException;
 
 // Including built-in modules.
 const authenticator = require('./lib/Authenticator');
@@ -120,12 +126,13 @@ module.exports.UNIXSocketServer = server.UNIXSocketServer;
 module.exports.ServerRepository = server.ServerRepository;
 module.exports.ServerProviderRepository = server.ServerProviderRepository;
 module.exports.ServerConfigurator = server.ServerConfigurator;
-module.exports.Firewall = server.Firewall;
+module.exports.InterceptorRunner = server.InterceptorRunner;
 module.exports.MessageProtocol = server.MessageProtocol;
-module.exports.firewallRules = server.firewallRules;
+module.exports.interceptors = server.interceptors;
 module.exports.responses = server.responses;
 module.exports.processors = server.processors;
 module.exports.ServerSupport = server.support;
+module.exports.HTTPHeaderManagers = server.HTTPHeaderManagers;
 const types = require('./lib/Types');
 module.exports.AuthToken = types.AuthToken;
 module.exports.Credentials = types.Credentials;
@@ -163,6 +170,7 @@ module.exports.mixins = support.mixins;
 module.exports.Serializer = support.Serializer;
 module.exports.BufferSerializer = support.BufferSerializer;
 module.exports.StreamSerializer = support.StreamSerializer;
+module.exports.ControllerClosure = support.ControllerClosure;
 const controller = require('./lib/Controller');
 module.exports.Controller = controller.Controller;
 const service = require('./lib/Service');
@@ -241,3 +249,5 @@ module.exports.fallFromTheSky = async function(options){
         }
     });
 };
+
+module.exports.init = module.exports.fallFromTheSky;

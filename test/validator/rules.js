@@ -177,15 +177,13 @@ describe('Testing validation rules.', () => {
 
     it('Testing rule "different"', async () => {
         const validator = new lala.Validator({
-            test: ['different<compare>']
+            test: ['different<5, 8, 1>']
         });
         const valid = await validator.validate({
-            test: '7',
-            compare: '8'
+            test: '7'
         });
         const invalid = await validator.validate({
-            test: 'invalid',
-            compare: 'invalid'
+            test: '8'
         });
         const result = valid && !invalid;
         assert.deepEqual(result, true);
@@ -240,12 +238,6 @@ describe('Testing validation rules.', () => {
         const validator = new lala.Validator({
             test: ['emailExists']
         });
-/*
-        const valid2 = await validator.validate({
-            test: '64363636363636@gmail.com'
-        });console.log(valid2);
-        process.exit();*/
-
         const valid = await validator.validate({
             test: 'hey@lalajs.moe'
         });
@@ -404,7 +396,7 @@ describe('Testing validation rules.', () => {
 
     it('Testing rule "regex"', async () => {
         const validator = new lala.Validator({
-            test: ['regex</123[a-z]+/gi>']
+            test: ['regex</^123[a-z]+$/gi>']
         });
         const valid = await validator.validate({
             test: '123aBc'
@@ -477,7 +469,7 @@ describe('Testing validation rules.', () => {
 
     it('Testing rule "same"', async () => {
         const validator = new lala.Validator({
-            test: ['same<compare>']
+            test: ['same<$compare>']
         });
         const valid = await validator.validate({
             test: 'OK',
