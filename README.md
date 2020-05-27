@@ -55,6 +55,7 @@ lala.init().then(async () => {
     await server.setPort(8080).setRoutersByName(['web']).start();
 }).catch((ex) => console.log(ex));
 ```
+Play with this sample on [Repl.it](https://repl.it/@ryanj93/HelloWorld).
 
 Add a middleware router wide:
 
@@ -141,7 +142,8 @@ Follow and interact with the community on [Slack](https://join.slack.com/t/lalaj
 
 ## Contributing
 
-Thank you for considering contributing to the Lala.js framework! Have a look to our contributing guide here.
+Thank you for considering contributing to the Lala.js framework! As this project is in its early stage, we are seeking for any kind of contributions: feel free to submit your suggestions, bug reports or pull requests, they will be really appreciated!
+Have a look to our contributing guide here.
 
 ## Bugs and security vulnerabilities
 
@@ -150,3 +152,6 @@ If you spot a bug, feel free to report it by opening a issue on this GitHub repo
 ## License
 
 The Lala.js framework is open-sourced software licensed under the MIT license.
+
+
+Proudly developed with ❤️ by [Enrico Sola](https://www.enricosola.com).
