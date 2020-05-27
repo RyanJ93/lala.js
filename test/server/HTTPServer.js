@@ -72,6 +72,15 @@ describe('Testing HTTP server capabilities.', () => {
         assert.deepEqual(data.statusCode, 404);
     });
 
+    it('Redirect a request.', async () => {
+        router.redirect('/redirect-test', '/redirect-target');
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/redirect-test', {
+            followRedirect: false
+        });
+        const result = response.statusCode === 303 && response.headers.location === '/redirect-target';
+        assert.deepEqual(result, true);
+    });
+
     it('Define and check an URL mapping.', async () => {
         router.get('/mapping', (request, response) => {
             return request.mapping.language;
