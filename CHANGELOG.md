@@ -1,6 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.1.3]
+
+### Added
+- "route" presenter that allows to get the URL to a route given its name in a view.
+- "asset" presenter that allows to get the URL to a file given its path and resource route name in a view.
+
+### Changed
+- Fixed a bug that was causing CSRF to not working in view routes.
+- Fixed a bug in response helpers.
+
 ## [0.1.2]
 ### Added
 
