@@ -1,6 +1,6 @@
 {
     "name": "@lala.js/core",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "A simple, scalable and funny framework for Node.js.",
     "main": "index.js",
     "engines": {

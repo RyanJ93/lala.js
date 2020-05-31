@@ -165,6 +165,26 @@ describe('Testing view system and templating engine.', () => {
         assert.deepStrictEqual(result.trim(), expectation);
     });
 
+    it('Getting the URL to a route by its name using a presenter.', async () => {
+        const expectation = '<!doctype html><html><head></head><body><h1>/test-presenter</h1></body></html>';
+        router.get('/test-presenter', async () => { return 'OK'; }, {
+            name: 'test-presenter'
+        });
+        const factory = new lala.ViewFactory('test/resources/views/route-presenter.ejs');
+        const result = await factory.craft().renderAsString();
+        assert.deepStrictEqual(result.trim(), expectation);
+    });
+
+    it('Getting the URL to a file from a resource route by its name using a presenter.', async () => {
+        const expectation = '<!doctype html><html><head></head><body><h1>/some-test-dir/file.txt</h1></body></html>';
+        router.resource('/some-test-dir', './some-local-folder', {
+            name: 'some-test-dir'
+        });
+        const factory = new lala.ViewFactory('test/resources/views/route-asset-presenter.ejs');
+        const result = await factory.craft().renderAsString();
+        assert.deepStrictEqual(result.trim(), expectation);
+    });
+
     it('Stopping the created server.', async () => {
         await server.stop();
         let exception = null;

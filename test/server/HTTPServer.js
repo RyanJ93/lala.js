@@ -1028,6 +1028,16 @@ describe('Testing HTTP server capabilities.', () => {
         assert.deepStrictEqual(response.headers['clear-site-data'], '"cache", "cookies", "storage", "executionContexts"');
     });
 
+    it('Triggering a redirect using a built-in helper function.', async () => {
+        router.get('/helper-redirect-test', (request, response) => {
+            return response.redirect('/test');
+        });
+        const response = await fetchHTTPResponse('http://127.0.0.1:' + port + '/helper-redirect-test', {
+            followRedirect: false
+        });
+        assert.deepStrictEqual(response.headers.location, '/test');
+    });
+
     it('Stopping the server.', async () => {
         await server.stop();
         let exception = null;
