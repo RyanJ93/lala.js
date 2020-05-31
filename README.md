@@ -9,7 +9,8 @@ Node is Fun!
 ## About Lala.js
 
 Lala.js is a fast yet complete JavaScript framework for Node.js with as few dependencies as possible.
-<br />Its final goal is to provide a powerful way to build great Node apps having all the basic instruments out-of-the-box without the need to fill your project with annoying dependencies.
+<br />
+Its final goal is to provide a powerful way to build great Node apps having all the basic instruments out-of-the-box without the need to fill your project with annoying dependencies.
 
 **Note: This project is currently under heavy development!**
 
@@ -30,7 +31,8 @@ Lala.js is a fast yet complete JavaScript framework for Node.js with as few depe
 ## Installation
 
 As this project is currently under heavy development, it isn't available on NPM yet, you need to install it from this repository using your favourite package manager.
-<br />Before installing, make sure Node.js is installed on your system, the minimum Node.js required version is 13. 
+<br />
+Before installing, make sure Node.js is installed on your system, the minimum Node.js required version is 13. 
 For instance, if you want to install Lala.js using NPM, you can issue this command:
 
 ```bash
@@ -139,15 +141,17 @@ Make sure to install all the required dependencies, then simply run `npm test`.
 ## Stay tuned
 
 Follow and interact with the community on [Slack](https://join.slack.com/t/lalajs/shared_invite/zt-bq06yw7m-_88xeSAc7YH~1ytbE_AdJg), [Telegram](https://t.me/1287126580) and [Discord](https://discord.gg/PpNS22).
+<br />
+When communicating prefer Discord if you are seeking for support, Slack is meant to be used by the development community while the Telegram channel is a read-only announcement platform.
 
 ## Contributing
 
 Thank you for considering contributing to the Lala.js framework! As this project is in its early stage, we are seeking for any kind of contributions: feel free to submit your suggestions, bug reports or pull requests, they will be really appreciated!
-Have a look to our contributing guide here.
+Have a look to our contributing guide [here](https://github.com/RyanJ93/lala.js/blob/master/CONTRIBUTING.md).
 
 ## Bugs and security vulnerabilities
 
-If you spot a bug, feel free to report it by opening a issue on this GitHub repository. if you discover a security vulnerability within Lala.js instead, please report in a more discrete way by sending an e-mail to ryanj93@lalajs.moe.
+If you spot a bug, feel free to report it by opening an issue on this GitHub repository. if you discover a security vulnerability within Lala.js instead, please report in a more discrete way by sending an e-mail to ryanj93@lalajs.moe.
 
 ## License
 
