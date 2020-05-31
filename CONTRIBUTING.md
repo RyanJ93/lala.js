@@ -57,7 +57,7 @@ If you are going to contribute to this project don't forget to test your work. W
 
 To sum up: Bob has broken something while working on Alice's code, but he didn't know how original code was tried, then everything seemed to be ok to him until the issue came up.
 
-## Branches
+## Branches
 
 We divide our code into three main branches:
 
