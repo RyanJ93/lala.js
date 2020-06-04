@@ -311,16 +311,14 @@ describe('Testing the routing engine.', () => {
         assert.deepEqual(result, true);
     });
 
-    it('Defining a resource route.', () => {
-        router.resource('/assets', './test/public/assets');
-    });
-
-    it('Accessing to a hidden file through a resource route.', async () => {
-        router.resource('/assets/other', './test/public/other_assets');
+    it('Defining a resource route.', async () => {
+        const route = router.resource('/assets', './test/resource/listing');
         const resolvedRoute = await factory.craft().process({
-            url: '/assets/other/.hidden_file',
+            url: '/assets/1.txt',
             method: 'GET'
         }, {});
+        const result = resolvedRoute !== null && resolvedRoute.getRoute().getID() === route.getID();
+        assert.deepEqual(result, true);
     });
 
     it('Creating a route and check the generated tag.', () => {
@@ -504,6 +502,18 @@ describe('Testing the routing engine.', () => {
             method: 'GET'
         }, {});
         const result = resolvedRoute instanceof lala.ResolvedRoute && resolvedRoute.getRoute().getPath() === '/' && resolvedRoute.getRoute().getMethod() === 'GET';
+        assert.deepEqual(result, true);
+    });
+
+    it('Defining and triggering a resource route defined on the website route.', async () => {
+        const tmpRouter = new lala.Router();
+        const route = tmpRouter.resource('/', './test/resources/listing');
+        const factory = new lala.processors.factories.RouteProcessorFactory();
+        const resolvedRoute = await factory.setRoutersAsArray([tmpRouter]).craft().process({
+            url: '/sub_dir/1.txt',
+            method: 'GET'
+        }, {});
+        const result = resolvedRoute !== null && resolvedRoute.getRoute().getID() === route.getID();
         assert.deepEqual(result, true);
     });
 });
