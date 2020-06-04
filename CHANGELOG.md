@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Fixed a bug that was causing CSRF to not working in view routes.
 - Fixed a bug in response helpers.
+- Fixed a bug that was causing hidden files to not be served despite the "serveHiddenFiles" was turned on.
 
 ## [0.1.2]
 ### Added

@@ -1038,6 +1038,15 @@ describe('Testing HTTP server capabilities.', () => {
         assert.deepStrictEqual(response.headers.location, '/test');
     });
 
+    it('Accessing to a hidden file through a resource route.', async () => {
+        const route = router.resource('/hidden-assets', './test/resources/listing');
+        const deniedResponse = await fetchHTTPResponse('http://127.0.0.1:' + port + '/hidden-assets/sub_dir/.hidden_file');
+        route.setServeHiddenFiles(true);
+        const allowedResponse = await fetchHTTPResponse('http://127.0.0.1:' + port + '/hidden-assets/sub_dir/.hidden_file');
+        const result = deniedResponse.statusCode === 403 && allowedResponse.statusCode === 200;
+        assert.deepStrictEqual(result, true);
+    });
+
     it('Stopping the server.', async () => {
         await server.stop();
         let exception = null;
