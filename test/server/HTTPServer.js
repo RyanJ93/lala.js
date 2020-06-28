@@ -67,6 +67,16 @@ describe('Testing HTTP server capabilities.', () => {
         assert.deepEqual(data.body, expected);
     });
 
+    it('Triggering a route returning a static HTML view.', async () => {
+        router.get('/type-html-view', () => {
+            const factory = new lala.HTMLViewFactory('test/resources/test.html');
+            return factory.craft();
+        });
+        const data = await fetchHTTPResponse('http://127.0.0.1:' + port + '/type-html-view');
+        const expected = '<!doctype html><html><header><title>It Works!!</title></header></html>';
+        assert.deepEqual(data.body, expected);
+    });
+
     it('Triggering a non existing route.', async () => {
         const data = await fetchHTTPResponse('http://127.0.0.1:' + port + '/not-found');
         assert.deepEqual(data.statusCode, 404);

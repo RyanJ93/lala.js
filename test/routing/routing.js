@@ -215,6 +215,23 @@ describe('Testing the routing engine.', () => {
         assert.deepEqual(result, true);
     });
 
+    it('Create and trigger a route returning a HTML static view.', async () => {
+        const viewFactory = new lala.ViewFactory(__dirname + '/../resources/test.html');
+        router.view('/html-view', viewFactory, {
+            htmlView: true
+        });
+        const resolvedRoute = await factory.craft().process({
+            url: '/html-view',
+            method: 'GET'
+        }, {});
+        let result = resolvedRoute instanceof lala.ResolvedRoute;
+        if ( result ){
+            const route = resolvedRoute.getRoute();
+            result = route instanceof lala.ViewRoute && route.getViewFactory() === viewFactory;
+        }
+        assert.deepEqual(result, true);
+    });
+
     it('Create a route containing parameters.', () => {
         let route = new lala.Route('GET', '/user/:username/posts/?:page', (request, response) => {});
         const result = route.getParameters().has('username') && route.getOptionalParameters().has('page');
