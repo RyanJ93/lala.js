@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.1.4]
+
+### Changed
+- Changed the helper functions parameter binding mechanism with consequential overall performance boost.
+
 ## [0.1.3]
 
 ### Added
